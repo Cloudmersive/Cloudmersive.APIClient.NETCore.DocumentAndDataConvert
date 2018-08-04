@@ -74,7 +74,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             //string format2 = null;
             //System.IO.Stream inputFile = null;
             //var response = instance.ConvertImageImageFormatConvert(format1, format2, inputFile);
-            //Assert.IsInstanceOf<Object> (response, "response is Object");
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
         }
         
     }

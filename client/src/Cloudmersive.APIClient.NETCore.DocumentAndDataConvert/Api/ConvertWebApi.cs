@@ -74,8 +74,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">URL to PDF request parameters</param>
-        /// <returns>Object</returns>
-        Object ConvertWebUrlToPdf (ScreenshotRequest input);
+        /// <returns>byte[]</returns>
+        byte[] ConvertWebUrlToPdf (ScreenshotRequest input);
 
         /// <summary>
         /// Convert a URL to PDF
@@ -85,8 +85,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">URL to PDF request parameters</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ConvertWebUrlToPdfWithHttpInfo (ScreenshotRequest input);
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertWebUrlToPdfWithHttpInfo (ScreenshotRequest input);
         /// <summary>
         /// Take screenshot of URL
         /// </summary>
@@ -95,8 +95,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">Screenshot request parameters</param>
-        /// <returns>Object</returns>
-        Object ConvertWebUrlToScreenshot (ScreenshotRequest input);
+        /// <returns>byte[]</returns>
+        byte[] ConvertWebUrlToScreenshot (ScreenshotRequest input);
 
         /// <summary>
         /// Take screenshot of URL
@@ -106,8 +106,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">Screenshot request parameters</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ConvertWebUrlToScreenshotWithHttpInfo (ScreenshotRequest input);
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertWebUrlToScreenshotWithHttpInfo (ScreenshotRequest input);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -160,8 +160,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">URL to PDF request parameters</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ConvertWebUrlToPdfAsync (ScreenshotRequest input);
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertWebUrlToPdfAsync (ScreenshotRequest input);
 
         /// <summary>
         /// Convert a URL to PDF
@@ -171,8 +171,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">URL to PDF request parameters</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConvertWebUrlToPdfAsyncWithHttpInfo (ScreenshotRequest input);
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertWebUrlToPdfAsyncWithHttpInfo (ScreenshotRequest input);
         /// <summary>
         /// Take screenshot of URL
         /// </summary>
@@ -181,8 +181,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">Screenshot request parameters</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ConvertWebUrlToScreenshotAsync (ScreenshotRequest input);
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertWebUrlToScreenshotAsync (ScreenshotRequest input);
 
         /// <summary>
         /// Take screenshot of URL
@@ -192,8 +192,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">Screenshot request parameters</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConvertWebUrlToScreenshotAsyncWithHttpInfo (ScreenshotRequest input);
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertWebUrlToScreenshotAsyncWithHttpInfo (ScreenshotRequest input);
         #endregion Asynchronous Operations
     }
 
@@ -617,10 +617,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">URL to PDF request parameters</param>
-        /// <returns>Object</returns>
-        public Object ConvertWebUrlToPdf (ScreenshotRequest input)
+        /// <returns>byte[]</returns>
+        public byte[] ConvertWebUrlToPdf (ScreenshotRequest input)
         {
-             ApiResponse<Object> localVarResponse = ConvertWebUrlToPdfWithHttpInfo(input);
+             ApiResponse<byte[]> localVarResponse = ConvertWebUrlToPdfWithHttpInfo(input);
              return localVarResponse.Data;
         }
 
@@ -629,8 +629,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">URL to PDF request parameters</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > ConvertWebUrlToPdfWithHttpInfo (ScreenshotRequest input)
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertWebUrlToPdfWithHttpInfo (ScreenshotRequest input)
         {
             // verify the required parameter 'input' is set
             if (input == null)
@@ -693,9 +693,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -703,10 +703,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">URL to PDF request parameters</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ConvertWebUrlToPdfAsync (ScreenshotRequest input)
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertWebUrlToPdfAsync (ScreenshotRequest input)
         {
-             ApiResponse<Object> localVarResponse = await ConvertWebUrlToPdfAsyncWithHttpInfo(input);
+             ApiResponse<byte[]> localVarResponse = await ConvertWebUrlToPdfAsyncWithHttpInfo(input);
              return localVarResponse.Data;
 
         }
@@ -716,8 +716,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">URL to PDF request parameters</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConvertWebUrlToPdfAsyncWithHttpInfo (ScreenshotRequest input)
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertWebUrlToPdfAsyncWithHttpInfo (ScreenshotRequest input)
         {
             // verify the required parameter 'input' is set
             if (input == null)
@@ -780,9 +780,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -790,10 +790,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">Screenshot request parameters</param>
-        /// <returns>Object</returns>
-        public Object ConvertWebUrlToScreenshot (ScreenshotRequest input)
+        /// <returns>byte[]</returns>
+        public byte[] ConvertWebUrlToScreenshot (ScreenshotRequest input)
         {
-             ApiResponse<Object> localVarResponse = ConvertWebUrlToScreenshotWithHttpInfo(input);
+             ApiResponse<byte[]> localVarResponse = ConvertWebUrlToScreenshotWithHttpInfo(input);
              return localVarResponse.Data;
         }
 
@@ -802,8 +802,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">Screenshot request parameters</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > ConvertWebUrlToScreenshotWithHttpInfo (ScreenshotRequest input)
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertWebUrlToScreenshotWithHttpInfo (ScreenshotRequest input)
         {
             // verify the required parameter 'input' is set
             if (input == null)
@@ -866,9 +866,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -876,10 +876,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">Screenshot request parameters</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ConvertWebUrlToScreenshotAsync (ScreenshotRequest input)
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertWebUrlToScreenshotAsync (ScreenshotRequest input)
         {
-             ApiResponse<Object> localVarResponse = await ConvertWebUrlToScreenshotAsyncWithHttpInfo(input);
+             ApiResponse<byte[]> localVarResponse = await ConvertWebUrlToScreenshotAsyncWithHttpInfo(input);
              return localVarResponse.Data;
 
         }
@@ -889,8 +889,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="input">Screenshot request parameters</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConvertWebUrlToScreenshotAsyncWithHttpInfo (ScreenshotRequest input)
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertWebUrlToScreenshotAsyncWithHttpInfo (ScreenshotRequest input)
         {
             // verify the required parameter 'input' is set
             if (input == null)
@@ -953,9 +953,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
     }

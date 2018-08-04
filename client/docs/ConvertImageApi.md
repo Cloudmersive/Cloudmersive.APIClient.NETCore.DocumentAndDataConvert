@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="convertimageimageformatconvert"></a>
 # **ConvertImageImageFormatConvert**
-> Object ConvertImageImageFormatConvert (string format1, string format2, System.IO.Stream inputFile)
+> byte[] ConvertImageImageFormatConvert (string format1, string format2, System.IO.Stream inputFile)
 
 Image format conversion
 
@@ -42,7 +42,7 @@ namespace Example
             try
             {
                 // Image format conversion
-                Object result = apiInstance.ConvertImageImageFormatConvert(format1, format2, inputFile);
+                byte[] result = apiInstance.ConvertImageImageFormatConvert(format1, format2, inputFile);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

@@ -97,7 +97,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             // TODO uncomment below to test the method and replace null with proper value
             //ScreenshotRequest input = null;
             //var response = instance.ConvertWebUrlToPdf(input);
-            //Assert.IsInstanceOf<Object> (response, "response is Object");
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
         }
         
         /// <summary>
@@ -109,7 +109,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             // TODO uncomment below to test the method and replace null with proper value
             //ScreenshotRequest input = null;
             //var response = instance.ConvertWebUrlToScreenshot(input);
-            //Assert.IsInstanceOf<Object> (response, "response is Object");
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
         }
         
     }

@@ -72,7 +72,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream inputFile = null;
             //var response = instance.ConvertDocumentAutodetectToPdf(inputFile);
-            //Assert.IsInstanceOf<Object> (response, "response is Object");
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
+        }
+        
+        /// <summary>
+        /// Test ConvertDocumentDocToPdf
+        /// </summary>
+        [Test]
+        public void ConvertDocumentDocToPdfTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream inputFile = null;
+            //var response = instance.ConvertDocumentDocToPdf(inputFile);
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
         }
         
         /// <summary>
@@ -84,7 +96,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream inputFile = null;
             //var response = instance.ConvertDocumentDocxToPdf(inputFile);
-            //Assert.IsInstanceOf<Object> (response, "response is Object");
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
+        }
+        
+        /// <summary>
+        /// Test ConvertDocumentPptToPdf
+        /// </summary>
+        [Test]
+        public void ConvertDocumentPptToPdfTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream inputFile = null;
+            //var response = instance.ConvertDocumentPptToPdf(inputFile);
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
         }
         
         /// <summary>
@@ -96,6 +120,18 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream inputFile = null;
             //var response = instance.ConvertDocumentPptxToPdf(inputFile);
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
+        }
+        
+        /// <summary>
+        /// Test ConvertDocumentXlsToPdf
+        /// </summary>
+        [Test]
+        public void ConvertDocumentXlsToPdfTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream inputFile = null;
+            //var response = instance.ConvertDocumentXlsToPdf(inputFile);
             //Assert.IsInstanceOf<Object> (response, "response is Object");
         }
         
@@ -108,7 +144,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream inputFile = null;
             //var response = instance.ConvertDocumentXlsxToCsv(inputFile);
-            //Assert.IsInstanceOf<Object> (response, "response is Object");
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
         }
         
         /// <summary>
@@ -120,7 +156,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream inputFile = null;
             //var response = instance.ConvertDocumentXlsxToPdf(inputFile);
-            //Assert.IsInstanceOf<Object> (response, "response is Object");
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
         }
         
     }

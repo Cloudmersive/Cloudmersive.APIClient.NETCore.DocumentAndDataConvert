@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 <a name="convertweburltopdf"></a>
 # **ConvertWebUrlToPdf**
-> Object ConvertWebUrlToPdf (ScreenshotRequest input)
+> byte[] ConvertWebUrlToPdf (ScreenshotRequest input)
 
 Convert a URL to PDF
 
@@ -175,7 +175,7 @@ namespace Example
             try
             {
                 // Convert a URL to PDF
-                Object result = apiInstance.ConvertWebUrlToPdf(input);
+                byte[] result = apiInstance.ConvertWebUrlToPdf(input);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 <a name="convertweburltoscreenshot"></a>
 # **ConvertWebUrlToScreenshot**
-> Object ConvertWebUrlToScreenshot (ScreenshotRequest input)
+> byte[] ConvertWebUrlToScreenshot (ScreenshotRequest input)
 
 Take screenshot of URL
 
@@ -241,7 +241,7 @@ namespace Example
             try
             {
                 // Take screenshot of URL
-                Object result = apiInstance.ConvertWebUrlToScreenshot(input);
+                byte[] result = apiInstance.ConvertWebUrlToScreenshot(input);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**byte[]**
 
 ### Authorization
 

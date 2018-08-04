@@ -31,8 +31,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        Object ConvertDocumentAutodetectToPdf (System.IO.Stream inputFile);
+        /// <returns>byte[]</returns>
+        byte[] ConvertDocumentAutodetectToPdf (System.IO.Stream inputFile);
 
         /// <summary>
         /// Convert Document to PDF
@@ -42,8 +42,29 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ConvertDocumentAutodetectToPdfWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertDocumentAutodetectToPdfWithHttpInfo (System.IO.Stream inputFile);
+        /// <summary>
+        /// Word DOC (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>byte[]</returns>
+        byte[] ConvertDocumentDocToPdf (System.IO.Stream inputFile);
+
+        /// <summary>
+        /// Word DOC (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertDocumentDocToPdfWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
         /// Word DOCX to PDF
         /// </summary>
@@ -52,8 +73,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        Object ConvertDocumentDocxToPdf (System.IO.Stream inputFile);
+        /// <returns>byte[]</returns>
+        byte[] ConvertDocumentDocxToPdf (System.IO.Stream inputFile);
 
         /// <summary>
         /// Word DOCX to PDF
@@ -63,8 +84,29 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ConvertDocumentDocxToPdfWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertDocumentDocxToPdfWithHttpInfo (System.IO.Stream inputFile);
+        /// <summary>
+        /// PowerPoint PPT (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>byte[]</returns>
+        byte[] ConvertDocumentPptToPdf (System.IO.Stream inputFile);
+
+        /// <summary>
+        /// PowerPoint PPT (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertDocumentPptToPdfWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
         /// PowerPoint PPTX to PDF
         /// </summary>
@@ -73,8 +115,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        Object ConvertDocumentPptxToPdf (System.IO.Stream inputFile);
+        /// <returns>byte[]</returns>
+        byte[] ConvertDocumentPptxToPdf (System.IO.Stream inputFile);
 
         /// <summary>
         /// PowerPoint PPTX to PDF
@@ -84,8 +126,29 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertDocumentPptxToPdfWithHttpInfo (System.IO.Stream inputFile);
+        /// <summary>
+        /// Excel XLS (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Object</returns>
+        Object ConvertDocumentXlsToPdf (System.IO.Stream inputFile);
+
+        /// <summary>
+        /// Excel XLS (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ConvertDocumentPptxToPdfWithHttpInfo (System.IO.Stream inputFile);
+        ApiResponse<Object> ConvertDocumentXlsToPdfWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
         /// Excel XLSX to CSV
         /// </summary>
@@ -94,8 +157,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        Object ConvertDocumentXlsxToCsv (System.IO.Stream inputFile);
+        /// <returns>byte[]</returns>
+        byte[] ConvertDocumentXlsxToCsv (System.IO.Stream inputFile);
 
         /// <summary>
         /// Excel XLSX to CSV
@@ -105,8 +168,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ConvertDocumentXlsxToCsvWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertDocumentXlsxToCsvWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
         /// Excel XLSX to PDF
         /// </summary>
@@ -115,8 +178,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        Object ConvertDocumentXlsxToPdf (System.IO.Stream inputFile);
+        /// <returns>byte[]</returns>
+        byte[] ConvertDocumentXlsxToPdf (System.IO.Stream inputFile);
 
         /// <summary>
         /// Excel XLSX to PDF
@@ -126,8 +189,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ConvertDocumentXlsxToPdfWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>ApiResponse of byte[]</returns>
+        ApiResponse<byte[]> ConvertDocumentXlsxToPdfWithHttpInfo (System.IO.Stream inputFile);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -138,8 +201,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ConvertDocumentAutodetectToPdfAsync (System.IO.Stream inputFile);
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertDocumentAutodetectToPdfAsync (System.IO.Stream inputFile);
 
         /// <summary>
         /// Convert Document to PDF
@@ -149,8 +212,29 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentAutodetectToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentAutodetectToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <summary>
+        /// Word DOC (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertDocumentDocToPdfAsync (System.IO.Stream inputFile);
+
+        /// <summary>
+        /// Word DOC (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentDocToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
         /// Word DOCX to PDF
         /// </summary>
@@ -159,8 +243,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ConvertDocumentDocxToPdfAsync (System.IO.Stream inputFile);
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertDocumentDocxToPdfAsync (System.IO.Stream inputFile);
 
         /// <summary>
         /// Word DOCX to PDF
@@ -170,8 +254,29 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentDocxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentDocxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <summary>
+        /// PowerPoint PPT (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertDocumentPptToPdfAsync (System.IO.Stream inputFile);
+
+        /// <summary>
+        /// PowerPoint PPT (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentPptToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
         /// PowerPoint PPTX to PDF
         /// </summary>
@@ -180,8 +285,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ConvertDocumentPptxToPdfAsync (System.IO.Stream inputFile);
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertDocumentPptxToPdfAsync (System.IO.Stream inputFile);
 
         /// <summary>
         /// PowerPoint PPTX to PDF
@@ -191,8 +296,29 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentPptxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <summary>
+        /// Excel XLS (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> ConvertDocumentXlsToPdfAsync (System.IO.Stream inputFile);
+
+        /// <summary>
+        /// Excel XLS (97-2003) to PDF
+        /// </summary>
+        /// <remarks>
+        /// Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentPptxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentXlsToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
         /// Excel XLSX to CSV
         /// </summary>
@@ -201,8 +327,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ConvertDocumentXlsxToCsvAsync (System.IO.Stream inputFile);
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertDocumentXlsxToCsvAsync (System.IO.Stream inputFile);
 
         /// <summary>
         /// Excel XLSX to CSV
@@ -212,8 +338,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentXlsxToCsvAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentXlsxToCsvAsyncWithHttpInfo (System.IO.Stream inputFile);
         /// <summary>
         /// Excel XLSX to PDF
         /// </summary>
@@ -222,8 +348,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ConvertDocumentXlsxToPdfAsync (System.IO.Stream inputFile);
+        /// <returns>Task of byte[]</returns>
+        System.Threading.Tasks.Task<byte[]> ConvertDocumentXlsxToPdfAsync (System.IO.Stream inputFile);
 
         /// <summary>
         /// Excel XLSX to PDF
@@ -233,8 +359,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentXlsxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentXlsxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile);
         #endregion Asynchronous Operations
     }
 
@@ -340,10 +466,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        public Object ConvertDocumentAutodetectToPdf (System.IO.Stream inputFile)
+        /// <returns>byte[]</returns>
+        public byte[] ConvertDocumentAutodetectToPdf (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = ConvertDocumentAutodetectToPdfWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = ConvertDocumentAutodetectToPdfWithHttpInfo(inputFile);
              return localVarResponse.Data;
         }
 
@@ -352,8 +478,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > ConvertDocumentAutodetectToPdfWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertDocumentAutodetectToPdfWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -402,9 +528,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -412,10 +538,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ConvertDocumentAutodetectToPdfAsync (System.IO.Stream inputFile)
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertDocumentAutodetectToPdfAsync (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = await ConvertDocumentAutodetectToPdfAsyncWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = await ConvertDocumentAutodetectToPdfAsyncWithHttpInfo(inputFile);
              return localVarResponse.Data;
 
         }
@@ -425,8 +551,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentAutodetectToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentAutodetectToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -475,9 +601,154 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+        }
+
+        /// <summary>
+        /// Word DOC (97-2003) to PDF Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>byte[]</returns>
+        public byte[] ConvertDocumentDocToPdf (System.IO.Stream inputFile)
+        {
+             ApiResponse<byte[]> localVarResponse = ConvertDocumentDocToPdfWithHttpInfo(inputFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Word DOC (97-2003) to PDF Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertDocumentDocToPdfWithHttpInfo (System.IO.Stream inputFile)
+        {
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling ConvertDocumentApi->ConvertDocumentDocToPdf");
+
+            var localVarPath = "/convert/doc/to/pdf";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConvertDocumentDocToPdf", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<byte[]>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+        }
+
+        /// <summary>
+        /// Word DOC (97-2003) to PDF Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertDocumentDocToPdfAsync (System.IO.Stream inputFile)
+        {
+             ApiResponse<byte[]> localVarResponse = await ConvertDocumentDocToPdfAsyncWithHttpInfo(inputFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Word DOC (97-2003) to PDF Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentDocToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
+        {
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling ConvertDocumentApi->ConvertDocumentDocToPdf");
+
+            var localVarPath = "/convert/doc/to/pdf";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConvertDocumentDocToPdf", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<byte[]>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -485,10 +756,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        public Object ConvertDocumentDocxToPdf (System.IO.Stream inputFile)
+        /// <returns>byte[]</returns>
+        public byte[] ConvertDocumentDocxToPdf (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = ConvertDocumentDocxToPdfWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = ConvertDocumentDocxToPdfWithHttpInfo(inputFile);
              return localVarResponse.Data;
         }
 
@@ -497,8 +768,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > ConvertDocumentDocxToPdfWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertDocumentDocxToPdfWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -547,9 +818,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -557,10 +828,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ConvertDocumentDocxToPdfAsync (System.IO.Stream inputFile)
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertDocumentDocxToPdfAsync (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = await ConvertDocumentDocxToPdfAsyncWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = await ConvertDocumentDocxToPdfAsyncWithHttpInfo(inputFile);
              return localVarResponse.Data;
 
         }
@@ -570,8 +841,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentDocxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentDocxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -620,9 +891,154 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+        }
+
+        /// <summary>
+        /// PowerPoint PPT (97-2003) to PDF Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>byte[]</returns>
+        public byte[] ConvertDocumentPptToPdf (System.IO.Stream inputFile)
+        {
+             ApiResponse<byte[]> localVarResponse = ConvertDocumentPptToPdfWithHttpInfo(inputFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// PowerPoint PPT (97-2003) to PDF Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertDocumentPptToPdfWithHttpInfo (System.IO.Stream inputFile)
+        {
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling ConvertDocumentApi->ConvertDocumentPptToPdf");
+
+            var localVarPath = "/convert/ppt/to/pdf";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConvertDocumentPptToPdf", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<byte[]>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+        }
+
+        /// <summary>
+        /// PowerPoint PPT (97-2003) to PDF Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertDocumentPptToPdfAsync (System.IO.Stream inputFile)
+        {
+             ApiResponse<byte[]> localVarResponse = await ConvertDocumentPptToPdfAsyncWithHttpInfo(inputFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// PowerPoint PPT (97-2003) to PDF Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentPptToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
+        {
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling ConvertDocumentApi->ConvertDocumentPptToPdf");
+
+            var localVarPath = "/convert/ppt/to/pdf";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConvertDocumentPptToPdf", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<byte[]>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -630,10 +1046,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        public Object ConvertDocumentPptxToPdf (System.IO.Stream inputFile)
+        /// <returns>byte[]</returns>
+        public byte[] ConvertDocumentPptxToPdf (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = ConvertDocumentPptxToPdfWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = ConvertDocumentPptxToPdfWithHttpInfo(inputFile);
              return localVarResponse.Data;
         }
 
@@ -642,8 +1058,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > ConvertDocumentPptxToPdfWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertDocumentPptxToPdfWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -692,9 +1108,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -702,10 +1118,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ConvertDocumentPptxToPdfAsync (System.IO.Stream inputFile)
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertDocumentPptxToPdfAsync (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = await ConvertDocumentPptxToPdfAsyncWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = await ConvertDocumentPptxToPdfAsyncWithHttpInfo(inputFile);
              return localVarResponse.Data;
 
         }
@@ -715,8 +1131,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentPptxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentPptxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -765,6 +1181,151 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
+            return new ApiResponse<byte[]>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+        }
+
+        /// <summary>
+        /// Excel XLS (97-2003) to PDF Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Object</returns>
+        public Object ConvertDocumentXlsToPdf (System.IO.Stream inputFile)
+        {
+             ApiResponse<Object> localVarResponse = ConvertDocumentXlsToPdfWithHttpInfo(inputFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Excel XLS (97-2003) to PDF Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ApiResponse< Object > ConvertDocumentXlsToPdfWithHttpInfo (System.IO.Stream inputFile)
+        {
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling ConvertDocumentApi->ConvertDocumentXlsToPdf");
+
+            var localVarPath = "/convert/xls/to/pdf";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConvertDocumentXlsToPdf", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+        }
+
+        /// <summary>
+        /// Excel XLS (97-2003) to PDF Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> ConvertDocumentXlsToPdfAsync (System.IO.Stream inputFile)
+        {
+             ApiResponse<Object> localVarResponse = await ConvertDocumentXlsToPdfAsyncWithHttpInfo(inputFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Excel XLS (97-2003) to PDF Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="inputFile">Input file to perform the operation on.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentXlsToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
+        {
+            // verify the required parameter 'inputFile' is set
+            if (inputFile == null)
+                throw new ApiException(400, "Missing required parameter 'inputFile' when calling ConvertDocumentApi->ConvertDocumentXlsToPdf");
+
+            var localVarPath = "/convert/xls/to/pdf";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConvertDocumentXlsToPdf", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
@@ -775,10 +1336,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        public Object ConvertDocumentXlsxToCsv (System.IO.Stream inputFile)
+        /// <returns>byte[]</returns>
+        public byte[] ConvertDocumentXlsxToCsv (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = ConvertDocumentXlsxToCsvWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = ConvertDocumentXlsxToCsvWithHttpInfo(inputFile);
              return localVarResponse.Data;
         }
 
@@ -787,8 +1348,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > ConvertDocumentXlsxToCsvWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertDocumentXlsxToCsvWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -837,9 +1398,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -847,10 +1408,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ConvertDocumentXlsxToCsvAsync (System.IO.Stream inputFile)
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertDocumentXlsxToCsvAsync (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = await ConvertDocumentXlsxToCsvAsyncWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = await ConvertDocumentXlsxToCsvAsyncWithHttpInfo(inputFile);
              return localVarResponse.Data;
 
         }
@@ -860,8 +1421,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentXlsxToCsvAsyncWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentXlsxToCsvAsyncWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -910,9 +1471,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -920,10 +1481,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Object</returns>
-        public Object ConvertDocumentXlsxToPdf (System.IO.Stream inputFile)
+        /// <returns>byte[]</returns>
+        public byte[] ConvertDocumentXlsxToPdf (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = ConvertDocumentXlsxToPdfWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = ConvertDocumentXlsxToPdfWithHttpInfo(inputFile);
              return localVarResponse.Data;
         }
 
@@ -932,8 +1493,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > ConvertDocumentXlsxToPdfWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>ApiResponse of byte[]</returns>
+        public ApiResponse< byte[] > ConvertDocumentXlsxToPdfWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -982,9 +1543,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -992,10 +1553,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ConvertDocumentXlsxToPdfAsync (System.IO.Stream inputFile)
+        /// <returns>Task of byte[]</returns>
+        public async System.Threading.Tasks.Task<byte[]> ConvertDocumentXlsxToPdfAsync (System.IO.Stream inputFile)
         {
-             ApiResponse<Object> localVarResponse = await ConvertDocumentXlsxToPdfAsyncWithHttpInfo(inputFile);
+             ApiResponse<byte[]> localVarResponse = await ConvertDocumentXlsxToPdfAsyncWithHttpInfo(inputFile);
              return localVarResponse.Data;
 
         }
@@ -1005,8 +1566,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> ConvertDocumentXlsxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>Task of ApiResponse (byte[])</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertDocumentXlsxToPdfAsyncWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -1055,9 +1616,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<byte[]>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
     }
