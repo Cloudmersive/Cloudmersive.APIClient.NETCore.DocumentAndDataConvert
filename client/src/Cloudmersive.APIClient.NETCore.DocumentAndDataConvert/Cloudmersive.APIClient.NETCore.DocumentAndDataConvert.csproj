@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net45</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>Cloudmersive.APIClient.NETCore.DocumentAndDataConvert</AssemblyName>
     <PackageId>Cloudmersive.APIClient.NETCore.DocumentAndDataConvert</PackageId>
     <OutputType>Library</OutputType>
@@ -14,7 +14,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>Cloudmersive.APIClient.NETCore.DocumentAndDataConvert</RootNamespace>
-    <Version>1.2.2</Version>
+    <Version>1.2.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
