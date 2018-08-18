@@ -1,21 +1,21 @@
-# Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api.MergeDocumentApi
+# Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api.EditDocumentApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**MergeDocumentDocx**](MergeDocumentApi.md#mergedocumentdocx) | **POST** /convert/merge/docx | Merge Multple Word DOCX Together
-[**MergeDocumentPptx**](MergeDocumentApi.md#mergedocumentpptx) | **POST** /convert/merge/pptx | Merge Multple PowerPoint PPTX Together
-[**MergeDocumentXlsx**](MergeDocumentApi.md#mergedocumentxlsx) | **POST** /convert/merge/xlsx | Merge Multple Excel XLSX Together
+[**EditDocumentBeginEditing**](EditDocumentApi.md#editdocumentbeginediting) | **POST** /convert/edit/begin-editing | Begin editing a document
+[**EditDocumentDocxReplace**](EditDocumentApi.md#editdocumentdocxreplace) | **POST** /convert/edit/docx/replace-all | Replace string in DOCX
+[**EditDocumentPptxReplace**](EditDocumentApi.md#editdocumentpptxreplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PPTX
 
 
-<a name="mergedocumentdocx"></a>
-# **MergeDocumentDocx**
-> byte[] MergeDocumentDocx (System.IO.Stream inputFile1, System.IO.Stream inputFile2)
+<a name="editdocumentbeginediting"></a>
+# **EditDocumentBeginEditing**
+> string EditDocumentBeginEditing (System.IO.Stream inputFile)
 
-Merge Multple Word DOCX Together
+Begin editing a document
 
-Combine multiple Office Word Documents (docx) into one single Office Word document
+Uploads a document to Cloudmersive to begin a series of one or more editing operations
 
 ### Example
 ```csharp
@@ -27,7 +27,7 @@ using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model;
 
 namespace Example
 {
-    public class MergeDocumentDocxExample
+    public class EditDocumentBeginEditingExample
     {
         public void main()
         {
@@ -36,19 +36,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new MergeDocumentApi();
-            var inputFile1 = new System.IO.Stream(); // System.IO.Stream | First input file to perform the operation on.
-            var inputFile2 = new System.IO.Stream(); // System.IO.Stream | Second input file to perform the operation on (more than 2 can be supplied).
+            var apiInstance = new EditDocumentApi();
+            var inputFile = new System.IO.Stream(); // System.IO.Stream | Input file to perform the operation on.
 
             try
             {
-                // Merge Multple Word DOCX Together
-                byte[] result = apiInstance.MergeDocumentDocx(inputFile1, inputFile2);
+                // Begin editing a document
+                string result = apiInstance.EditDocumentBeginEditing(inputFile);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MergeDocumentApi.MergeDocumentDocx: " + e.Message );
+                Debug.Print("Exception when calling EditDocumentApi.EditDocumentBeginEditing: " + e.Message );
             }
         }
     }
@@ -59,12 +58,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inputFile1** | **System.IO.Stream**| First input file to perform the operation on. | 
- **inputFile2** | **System.IO.Stream**| Second input file to perform the operation on (more than 2 can be supplied). | 
+ **inputFile** | **System.IO.Stream**| Input file to perform the operation on. | 
 
 ### Return type
 
-**byte[]**
+**string**
 
 ### Authorization
 
@@ -77,13 +75,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="mergedocumentpptx"></a>
-# **MergeDocumentPptx**
-> byte[] MergeDocumentPptx (System.IO.Stream inputFile1, System.IO.Stream inputFile2)
+<a name="editdocumentdocxreplace"></a>
+# **EditDocumentDocxReplace**
+> byte[] EditDocumentDocxReplace (ReplaceStringRequest reqConfig)
 
-Merge Multple PowerPoint PPTX Together
+Replace string in DOCX
 
-Combine multiple Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
+Replace all instances of a string in an Office Word Document (docx)
 
 ### Example
 ```csharp
@@ -95,7 +93,7 @@ using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model;
 
 namespace Example
 {
-    public class MergeDocumentPptxExample
+    public class EditDocumentDocxReplaceExample
     {
         public void main()
         {
@@ -104,19 +102,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new MergeDocumentApi();
-            var inputFile1 = new System.IO.Stream(); // System.IO.Stream | First input file to perform the operation on.
-            var inputFile2 = new System.IO.Stream(); // System.IO.Stream | Second input file to perform the operation on (more than 2 can be supplied).
+            var apiInstance = new EditDocumentApi();
+            var reqConfig = new ReplaceStringRequest(); // ReplaceStringRequest | 
 
             try
             {
-                // Merge Multple PowerPoint PPTX Together
-                byte[] result = apiInstance.MergeDocumentPptx(inputFile1, inputFile2);
+                // Replace string in DOCX
+                byte[] result = apiInstance.EditDocumentDocxReplace(reqConfig);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MergeDocumentApi.MergeDocumentPptx: " + e.Message );
+                Debug.Print("Exception when calling EditDocumentApi.EditDocumentDocxReplace: " + e.Message );
             }
         }
     }
@@ -127,8 +124,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inputFile1** | **System.IO.Stream**| First input file to perform the operation on. | 
- **inputFile2** | **System.IO.Stream**| Second input file to perform the operation on (more than 2 can be supplied). | 
+ **reqConfig** | [**ReplaceStringRequest**](ReplaceStringRequest.md)|  | 
 
 ### Return type
 
@@ -140,18 +136,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="mergedocumentxlsx"></a>
-# **MergeDocumentXlsx**
-> byte[] MergeDocumentXlsx (System.IO.Stream inputFile1, System.IO.Stream inputFile2)
+<a name="editdocumentpptxreplace"></a>
+# **EditDocumentPptxReplace**
+> byte[] EditDocumentPptxReplace (ReplaceStringRequest reqConfig)
 
-Merge Multple Excel XLSX Together
+Replace string in PPTX
 
-Combine multiple Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet
+Replace all instances of a string in an Office PowerPoint Document (pptx)
 
 ### Example
 ```csharp
@@ -163,7 +159,7 @@ using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model;
 
 namespace Example
 {
-    public class MergeDocumentXlsxExample
+    public class EditDocumentPptxReplaceExample
     {
         public void main()
         {
@@ -172,19 +168,18 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new MergeDocumentApi();
-            var inputFile1 = new System.IO.Stream(); // System.IO.Stream | First input file to perform the operation on.
-            var inputFile2 = new System.IO.Stream(); // System.IO.Stream | Second input file to perform the operation on (more than 2 can be supplied).
+            var apiInstance = new EditDocumentApi();
+            var reqConfig = new ReplaceStringRequest(); // ReplaceStringRequest | 
 
             try
             {
-                // Merge Multple Excel XLSX Together
-                byte[] result = apiInstance.MergeDocumentXlsx(inputFile1, inputFile2);
+                // Replace string in PPTX
+                byte[] result = apiInstance.EditDocumentPptxReplace(reqConfig);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MergeDocumentApi.MergeDocumentXlsx: " + e.Message );
+                Debug.Print("Exception when calling EditDocumentApi.EditDocumentPptxReplace: " + e.Message );
             }
         }
     }
@@ -195,8 +190,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inputFile1** | **System.IO.Stream**| First input file to perform the operation on. | 
- **inputFile2** | **System.IO.Stream**| Second input file to perform the operation on (more than 2 can be supplied). | 
+ **reqConfig** | [**ReplaceStringRequest**](ReplaceStringRequest.md)|  | 
 
 ### Return type
 
@@ -208,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
