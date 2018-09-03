@@ -19,6 +19,7 @@ using NUnit.Framework;
 
 using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client;
 using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api;
+using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
 {
@@ -64,6 +65,18 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
 
         
         /// <summary>
+        /// Test ConvertImageGetImageInfo
+        /// </summary>
+        [Test]
+        public void ConvertImageGetImageInfoTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream inputFile = null;
+            //var response = instance.ConvertImageGetImageInfo(inputFile);
+            //Assert.IsInstanceOf<GetImageInfoResult> (response, "response is GetImageInfoResult");
+        }
+        
+        /// <summary>
         /// Test ConvertImageImageFormatConvert
         /// </summary>
         [Test]
@@ -74,6 +87,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             //string format2 = null;
             //System.IO.Stream inputFile = null;
             //var response = instance.ConvertImageImageFormatConvert(format1, format2, inputFile);
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
+        }
+        
+        /// <summary>
+        /// Test ConvertImageImageSetDPI
+        /// </summary>
+        [Test]
+        public void ConvertImageImageSetDPITest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? dpi = null;
+            //System.IO.Stream inputFile = null;
+            //var response = instance.ConvertImageImageSetDPI(dpi, inputFile);
             //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
         }
         
