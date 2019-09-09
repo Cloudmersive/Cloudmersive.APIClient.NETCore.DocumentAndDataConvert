@@ -25,44 +25,26 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// HTML template application request
+    /// Word DOCX template application request
     /// </summary>
     [DataContract]
-    public partial class HtmlTemplateApplicationRequest :  IEquatable<HtmlTemplateApplicationRequest>, IValidatableObject
+    public partial class DocxTemplateApplicationRequest :  IEquatable<DocxTemplateApplicationRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="HtmlTemplateApplicationRequest" /> class.
+        /// Initializes a new instance of the <see cref="DocxTemplateApplicationRequest" /> class.
         /// </summary>
-        /// <param name="HtmlTemplate">HTML template input as a string.</param>
-        /// <param name="HtmlTemplateUrl">URL to HTML template input.</param>
         /// <param name="Operations">Operations to apply to this template.</param>
-        public HtmlTemplateApplicationRequest(string HtmlTemplate = default(string), string HtmlTemplateUrl = default(string), List<HtmlTemplateOperation> Operations = default(List<HtmlTemplateOperation>))
+        public DocxTemplateApplicationRequest(List<DocxTemplateOperation> Operations = default(List<DocxTemplateOperation>))
         {
-            this.HtmlTemplate = HtmlTemplate;
-            this.HtmlTemplateUrl = HtmlTemplateUrl;
             this.Operations = Operations;
         }
         
-        /// <summary>
-        /// HTML template input as a string
-        /// </summary>
-        /// <value>HTML template input as a string</value>
-        [DataMember(Name="HtmlTemplate", EmitDefaultValue=false)]
-        public string HtmlTemplate { get; set; }
-
-        /// <summary>
-        /// URL to HTML template input
-        /// </summary>
-        /// <value>URL to HTML template input</value>
-        [DataMember(Name="HtmlTemplateUrl", EmitDefaultValue=false)]
-        public string HtmlTemplateUrl { get; set; }
-
         /// <summary>
         /// Operations to apply to this template
         /// </summary>
         /// <value>Operations to apply to this template</value>
         [DataMember(Name="Operations", EmitDefaultValue=false)]
-        public List<HtmlTemplateOperation> Operations { get; set; }
+        public List<DocxTemplateOperation> Operations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +53,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class HtmlTemplateApplicationRequest {\n");
-            sb.Append("  HtmlTemplate: ").Append(HtmlTemplate).Append("\n");
-            sb.Append("  HtmlTemplateUrl: ").Append(HtmlTemplateUrl).Append("\n");
+            sb.Append("class DocxTemplateApplicationRequest {\n");
             sb.Append("  Operations: ").Append(Operations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -95,30 +75,20 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HtmlTemplateApplicationRequest);
+            return this.Equals(input as DocxTemplateApplicationRequest);
         }
 
         /// <summary>
-        /// Returns true if HtmlTemplateApplicationRequest instances are equal
+        /// Returns true if DocxTemplateApplicationRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of HtmlTemplateApplicationRequest to be compared</param>
+        /// <param name="input">Instance of DocxTemplateApplicationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HtmlTemplateApplicationRequest input)
+        public bool Equals(DocxTemplateApplicationRequest input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.HtmlTemplate == input.HtmlTemplate ||
-                    (this.HtmlTemplate != null &&
-                    this.HtmlTemplate.Equals(input.HtmlTemplate))
-                ) && 
-                (
-                    this.HtmlTemplateUrl == input.HtmlTemplateUrl ||
-                    (this.HtmlTemplateUrl != null &&
-                    this.HtmlTemplateUrl.Equals(input.HtmlTemplateUrl))
-                ) && 
                 (
                     this.Operations == input.Operations ||
                     this.Operations != null &&
@@ -135,10 +105,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.HtmlTemplate != null)
-                    hashCode = hashCode * 59 + this.HtmlTemplate.GetHashCode();
-                if (this.HtmlTemplateUrl != null)
-                    hashCode = hashCode * 59 + this.HtmlTemplateUrl.GetHashCode();
                 if (this.Operations != null)
                     hashCode = hashCode * 59 + this.Operations.GetHashCode();
                 return hashCode;

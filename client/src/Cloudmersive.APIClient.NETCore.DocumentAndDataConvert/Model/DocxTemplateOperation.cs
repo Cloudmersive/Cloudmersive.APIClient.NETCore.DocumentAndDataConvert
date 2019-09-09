@@ -25,10 +25,10 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// HtmlTemplateOperation
+    /// DocxTemplateOperation
     /// </summary>
     [DataContract]
-    public partial class HtmlTemplateOperation :  IEquatable<HtmlTemplateOperation>, IValidatableObject
+    public partial class DocxTemplateOperation :  IEquatable<DocxTemplateOperation>, IValidatableObject
     {
         /// <summary>
         /// Operation action to take; possible values are \&quot;Replace\&quot;
@@ -51,15 +51,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         [DataMember(Name="Action", EmitDefaultValue=false)]
         public ActionEnum? Action { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="HtmlTemplateOperation" /> class.
+        /// Initializes a new instance of the <see cref="DocxTemplateOperation" /> class.
         /// </summary>
         /// <param name="Action">Operation action to take; possible values are \&quot;Replace\&quot;.</param>
-        /// <param name="MatchAgsint">For Replace operations, the string to match against (to be replaced with ReplaceWith string).</param>
+        /// <param name="MatchAgainst">For Replace operations, the string to match against (to be replaced with ReplaceWith string).</param>
         /// <param name="ReplaceWith">For Replace operations, the string to Replace the original string with.</param>
-        public HtmlTemplateOperation(ActionEnum? Action = default(ActionEnum?), string MatchAgsint = default(string), string ReplaceWith = default(string))
+        public DocxTemplateOperation(ActionEnum? Action = default(ActionEnum?), string MatchAgainst = default(string), string ReplaceWith = default(string))
         {
             this.Action = Action;
-            this.MatchAgsint = MatchAgsint;
+            this.MatchAgainst = MatchAgainst;
             this.ReplaceWith = ReplaceWith;
         }
         
@@ -68,8 +68,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// For Replace operations, the string to match against (to be replaced with ReplaceWith string)
         /// </summary>
         /// <value>For Replace operations, the string to match against (to be replaced with ReplaceWith string)</value>
-        [DataMember(Name="MatchAgsint", EmitDefaultValue=false)]
-        public string MatchAgsint { get; set; }
+        [DataMember(Name="MatchAgainst", EmitDefaultValue=false)]
+        public string MatchAgainst { get; set; }
 
         /// <summary>
         /// For Replace operations, the string to Replace the original string with
@@ -85,9 +85,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class HtmlTemplateOperation {\n");
+            sb.Append("class DocxTemplateOperation {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
-            sb.Append("  MatchAgsint: ").Append(MatchAgsint).Append("\n");
+            sb.Append("  MatchAgainst: ").Append(MatchAgainst).Append("\n");
             sb.Append("  ReplaceWith: ").Append(ReplaceWith).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -109,15 +109,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as HtmlTemplateOperation);
+            return this.Equals(input as DocxTemplateOperation);
         }
 
         /// <summary>
-        /// Returns true if HtmlTemplateOperation instances are equal
+        /// Returns true if DocxTemplateOperation instances are equal
         /// </summary>
-        /// <param name="input">Instance of HtmlTemplateOperation to be compared</param>
+        /// <param name="input">Instance of DocxTemplateOperation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(HtmlTemplateOperation input)
+        public bool Equals(DocxTemplateOperation input)
         {
             if (input == null)
                 return false;
@@ -129,9 +129,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.Action.Equals(input.Action))
                 ) && 
                 (
-                    this.MatchAgsint == input.MatchAgsint ||
-                    (this.MatchAgsint != null &&
-                    this.MatchAgsint.Equals(input.MatchAgsint))
+                    this.MatchAgainst == input.MatchAgainst ||
+                    (this.MatchAgainst != null &&
+                    this.MatchAgainst.Equals(input.MatchAgainst))
                 ) && 
                 (
                     this.ReplaceWith == input.ReplaceWith ||
@@ -151,8 +151,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                 int hashCode = 41;
                 if (this.Action != null)
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
-                if (this.MatchAgsint != null)
-                    hashCode = hashCode * 59 + this.MatchAgsint.GetHashCode();
+                if (this.MatchAgainst != null)
+                    hashCode = hashCode * 59 + this.MatchAgainst.GetHashCode();
                 if (this.ReplaceWith != null)
                     hashCode = hashCode * 59 + this.ReplaceWith.GetHashCode();
                 return hashCode;
