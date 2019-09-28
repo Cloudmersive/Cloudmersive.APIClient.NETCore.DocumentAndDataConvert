@@ -33,15 +33,16 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HtmlToOfficeRequest" /> class.
         /// </summary>
-        /// <param name="Html">Html.</param>
+        /// <param name="Html">HTML to render to Office format.</param>
         public HtmlToOfficeRequest(string Html = default(string))
         {
             this.Html = Html;
         }
         
         /// <summary>
-        /// Gets or Sets Html
+        /// HTML to render to Office format
         /// </summary>
+        /// <value>HTML to render to Office format</value>
         [DataMember(Name="Html", EmitDefaultValue=false)]
         public string Html { get; set; }
 

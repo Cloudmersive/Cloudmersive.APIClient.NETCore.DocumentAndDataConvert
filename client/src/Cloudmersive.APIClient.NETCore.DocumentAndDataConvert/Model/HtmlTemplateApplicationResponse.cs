@@ -33,8 +33,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HtmlTemplateApplicationResponse" /> class.
         /// </summary>
-        /// <param name="Successful">Successful.</param>
-        /// <param name="FinalHtml">FinalHtml.</param>
+        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="FinalHtml">Final HTML result of all operations on input.</param>
         public HtmlTemplateApplicationResponse(bool? Successful = default(bool?), string FinalHtml = default(string))
         {
             this.Successful = Successful;
@@ -42,14 +42,16 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         }
         
         /// <summary>
-        /// Gets or Sets Successful
+        /// True if the operation was successful, false otherwise
         /// </summary>
+        /// <value>True if the operation was successful, false otherwise</value>
         [DataMember(Name="Successful", EmitDefaultValue=false)]
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Gets or Sets FinalHtml
+        /// Final HTML result of all operations on input
         /// </summary>
+        /// <value>Final HTML result of all operations on input</value>
         [DataMember(Name="FinalHtml", EmitDefaultValue=false)]
         public string FinalHtml { get; set; }
 

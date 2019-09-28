@@ -33,10 +33,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenshotRequest" /> class.
         /// </summary>
-        /// <param name="Url">Url.</param>
-        /// <param name="ExtraLoadingWait">ExtraLoadingWait.</param>
-        /// <param name="ScreenshotWidth">ScreenshotWidth.</param>
-        /// <param name="ScreenshotHeight">ScreenshotHeight.</param>
+        /// <param name="Url">URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports..</param>
+        /// <param name="ExtraLoadingWait">Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds).</param>
+        /// <param name="ScreenshotWidth">Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot.</param>
+        /// <param name="ScreenshotHeight">Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot.</param>
         public ScreenshotRequest(string Url = default(string), int? ExtraLoadingWait = default(int?), int? ScreenshotWidth = default(int?), int? ScreenshotHeight = default(int?))
         {
             this.Url = Url;
@@ -46,26 +46,30 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         }
         
         /// <summary>
-        /// Gets or Sets Url
+        /// URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.
         /// </summary>
+        /// <value>URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports.</value>
         [DataMember(Name="Url", EmitDefaultValue=false)]
         public string Url { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraLoadingWait
+        /// Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds)
         /// </summary>
+        /// <value>Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds)</value>
         [DataMember(Name="ExtraLoadingWait", EmitDefaultValue=false)]
         public int? ExtraLoadingWait { get; set; }
 
         /// <summary>
-        /// Gets or Sets ScreenshotWidth
+        /// Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot
         /// </summary>
+        /// <value>Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot</value>
         [DataMember(Name="ScreenshotWidth", EmitDefaultValue=false)]
         public int? ScreenshotWidth { get; set; }
 
         /// <summary>
-        /// Gets or Sets ScreenshotHeight
+        /// Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot
         /// </summary>
+        /// <value>Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot</value>
         [DataMember(Name="ScreenshotHeight", EmitDefaultValue=false)]
         public int? ScreenshotHeight { get; set; }
 
