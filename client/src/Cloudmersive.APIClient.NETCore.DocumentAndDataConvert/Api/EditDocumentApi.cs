@@ -319,6 +319,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <returns>ApiResponse of DocxSetFooterResponse</returns>
         ApiResponse<DocxSetFooterResponse> EditDocumentDocxSetFooterWithHttpInfo (DocxSetFooterRequest reqConfig);
         /// <summary>
+        /// Add page number to footer in a DOCX
+        /// </summary>
+        /// <remarks>
+        /// Set the footer in a Word Document (DOCX) to contain a page number
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig"></param>
+        /// <returns>DocxSetFooterResponse</returns>
+        DocxSetFooterResponse EditDocumentDocxSetFooterAddPageNumber (DocxSetFooterAddPageNumberRequest reqConfig);
+
+        /// <summary>
+        /// Add page number to footer in a DOCX
+        /// </summary>
+        /// <remarks>
+        /// Set the footer in a Word Document (DOCX) to contain a page number
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig"></param>
+        /// <returns>ApiResponse of DocxSetFooterResponse</returns>
+        ApiResponse<DocxSetFooterResponse> EditDocumentDocxSetFooterAddPageNumberWithHttpInfo (DocxSetFooterAddPageNumberRequest reqConfig);
+        /// <summary>
         /// Set the header in a DOCX
         /// </summary>
         /// <remarks>
@@ -803,6 +824,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="reqConfig"></param>
         /// <returns>Task of ApiResponse (DocxSetFooterResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DocxSetFooterResponse>> EditDocumentDocxSetFooterAsyncWithHttpInfo (DocxSetFooterRequest reqConfig);
+        /// <summary>
+        /// Add page number to footer in a DOCX
+        /// </summary>
+        /// <remarks>
+        /// Set the footer in a Word Document (DOCX) to contain a page number
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig"></param>
+        /// <returns>Task of DocxSetFooterResponse</returns>
+        System.Threading.Tasks.Task<DocxSetFooterResponse> EditDocumentDocxSetFooterAddPageNumberAsync (DocxSetFooterAddPageNumberRequest reqConfig);
+
+        /// <summary>
+        /// Add page number to footer in a DOCX
+        /// </summary>
+        /// <remarks>
+        /// Set the footer in a Word Document (DOCX) to contain a page number
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig"></param>
+        /// <returns>Task of ApiResponse (DocxSetFooterResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DocxSetFooterResponse>> EditDocumentDocxSetFooterAddPageNumberAsyncWithHttpInfo (DocxSetFooterAddPageNumberRequest reqConfig);
         /// <summary>
         /// Set the header in a DOCX
         /// </summary>
@@ -3472,6 +3514,179 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("EditDocumentDocxSetFooter", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DocxSetFooterResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DocxSetFooterResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DocxSetFooterResponse)));
+        }
+
+        /// <summary>
+        /// Add page number to footer in a DOCX Set the footer in a Word Document (DOCX) to contain a page number
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig"></param>
+        /// <returns>DocxSetFooterResponse</returns>
+        public DocxSetFooterResponse EditDocumentDocxSetFooterAddPageNumber (DocxSetFooterAddPageNumberRequest reqConfig)
+        {
+             ApiResponse<DocxSetFooterResponse> localVarResponse = EditDocumentDocxSetFooterAddPageNumberWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add page number to footer in a DOCX Set the footer in a Word Document (DOCX) to contain a page number
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig"></param>
+        /// <returns>ApiResponse of DocxSetFooterResponse</returns>
+        public ApiResponse< DocxSetFooterResponse > EditDocumentDocxSetFooterAddPageNumberWithHttpInfo (DocxSetFooterAddPageNumberRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxSetFooterAddPageNumber");
+
+            var localVarPath = "/convert/edit/docx/set-footer/add-page-number";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxSetFooterAddPageNumber", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DocxSetFooterResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DocxSetFooterResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DocxSetFooterResponse)));
+        }
+
+        /// <summary>
+        /// Add page number to footer in a DOCX Set the footer in a Word Document (DOCX) to contain a page number
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig"></param>
+        /// <returns>Task of DocxSetFooterResponse</returns>
+        public async System.Threading.Tasks.Task<DocxSetFooterResponse> EditDocumentDocxSetFooterAddPageNumberAsync (DocxSetFooterAddPageNumberRequest reqConfig)
+        {
+             ApiResponse<DocxSetFooterResponse> localVarResponse = await EditDocumentDocxSetFooterAddPageNumberAsyncWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add page number to footer in a DOCX Set the footer in a Word Document (DOCX) to contain a page number
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig"></param>
+        /// <returns>Task of ApiResponse (DocxSetFooterResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DocxSetFooterResponse>> EditDocumentDocxSetFooterAddPageNumberAsyncWithHttpInfo (DocxSetFooterAddPageNumberRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxSetFooterAddPageNumber");
+
+            var localVarPath = "/convert/edit/docx/set-footer/add-page-number";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxSetFooterAddPageNumber", localVarResponse);
                 if (exception != null) throw exception;
             }
 
