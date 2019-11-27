@@ -19,6 +19,7 @@ using NUnit.Framework;
 
 using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client;
 using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api;
+using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
 {
@@ -78,6 +79,30 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
         }
         
         /// <summary>
+        /// Test EditPdfGetFormFields
+        /// </summary>
+        [Test]
+        public void EditPdfGetFormFieldsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream inputFile = null;
+            //var response = instance.EditPdfGetFormFields(inputFile);
+            //Assert.IsInstanceOf<PdfFormFields> (response, "response is PdfFormFields");
+        }
+        
+        /// <summary>
+        /// Test EditPdfGetMetadata
+        /// </summary>
+        [Test]
+        public void EditPdfGetMetadataTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream inputFile = null;
+            //var response = instance.EditPdfGetMetadata(inputFile);
+            //Assert.IsInstanceOf<PdfMetadata> (response, "response is PdfMetadata");
+        }
+        
+        /// <summary>
         /// Test EditPdfRasterize
         /// </summary>
         [Test]
@@ -87,6 +112,30 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test
             //System.IO.Stream inputFile = null;
             //var response = instance.EditPdfRasterize(inputFile);
             //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
+        }
+        
+        /// <summary>
+        /// Test EditPdfSetFormFields
+        /// </summary>
+        [Test]
+        public void EditPdfSetFormFieldsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //SetPdfFormFieldsRequest fieldValues = null;
+            //var response = instance.EditPdfSetFormFields(fieldValues);
+            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
+        }
+        
+        /// <summary>
+        /// Test EditPdfSetMetadata
+        /// </summary>
+        [Test]
+        public void EditPdfSetMetadataTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //SetPdfMetadataRequest request = null;
+            //var response = instance.EditPdfSetMetadata(request);
+            //Assert.IsInstanceOf<Object> (response, "response is Object");
         }
         
         /// <summary>
