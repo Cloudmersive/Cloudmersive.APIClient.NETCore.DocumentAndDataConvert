@@ -25,25 +25,27 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// Input to a Update Table Row request
+    /// Input to a Update Table Cell request
     /// </summary>
     [DataContract]
-    public partial class UpdateDocxTableRowRequest :  IEquatable<UpdateDocxTableRowRequest>, IValidatableObject
+    public partial class UpdateDocxTableCellRequest :  IEquatable<UpdateDocxTableCellRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateDocxTableRowRequest" /> class.
+        /// Initializes a new instance of the <see cref="UpdateDocxTableCellRequest" /> class.
         /// </summary>
         /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
         /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="RowToUpdate">Table row contents you would like to update the row with.</param>
+        /// <param name="CellToUpdate">Table cell contents you would like to update the cell with.</param>
         /// <param name="TableRowIndex">0-based index of the Table Row to update.</param>
+        /// <param name="TableCellIndex">0-based index of the Table Cell (within the row) to update.</param>
         /// <param name="ExistingTablePath">Required; the path to the existing table to modify.</param>
-        public UpdateDocxTableRowRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), DocxTableRow RowToUpdate = default(DocxTableRow), int? TableRowIndex = default(int?), string ExistingTablePath = default(string))
+        public UpdateDocxTableCellRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), DocxTableCell CellToUpdate = default(DocxTableCell), int? TableRowIndex = default(int?), int? TableCellIndex = default(int?), string ExistingTablePath = default(string))
         {
             this.InputFileBytes = InputFileBytes;
             this.InputFileUrl = InputFileUrl;
-            this.RowToUpdate = RowToUpdate;
+            this.CellToUpdate = CellToUpdate;
             this.TableRowIndex = TableRowIndex;
+            this.TableCellIndex = TableCellIndex;
             this.ExistingTablePath = ExistingTablePath;
         }
         
@@ -62,11 +64,11 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public string InputFileUrl { get; set; }
 
         /// <summary>
-        /// Table row contents you would like to update the row with
+        /// Table cell contents you would like to update the cell with
         /// </summary>
-        /// <value>Table row contents you would like to update the row with</value>
-        [DataMember(Name="RowToUpdate", EmitDefaultValue=false)]
-        public DocxTableRow RowToUpdate { get; set; }
+        /// <value>Table cell contents you would like to update the cell with</value>
+        [DataMember(Name="CellToUpdate", EmitDefaultValue=false)]
+        public DocxTableCell CellToUpdate { get; set; }
 
         /// <summary>
         /// 0-based index of the Table Row to update
@@ -74,6 +76,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <value>0-based index of the Table Row to update</value>
         [DataMember(Name="TableRowIndex", EmitDefaultValue=false)]
         public int? TableRowIndex { get; set; }
+
+        /// <summary>
+        /// 0-based index of the Table Cell (within the row) to update
+        /// </summary>
+        /// <value>0-based index of the Table Cell (within the row) to update</value>
+        [DataMember(Name="TableCellIndex", EmitDefaultValue=false)]
+        public int? TableCellIndex { get; set; }
 
         /// <summary>
         /// Required; the path to the existing table to modify
@@ -89,11 +98,12 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateDocxTableRowRequest {\n");
+            sb.Append("class UpdateDocxTableCellRequest {\n");
             sb.Append("  InputFileBytes: ").Append(InputFileBytes).Append("\n");
             sb.Append("  InputFileUrl: ").Append(InputFileUrl).Append("\n");
-            sb.Append("  RowToUpdate: ").Append(RowToUpdate).Append("\n");
+            sb.Append("  CellToUpdate: ").Append(CellToUpdate).Append("\n");
             sb.Append("  TableRowIndex: ").Append(TableRowIndex).Append("\n");
+            sb.Append("  TableCellIndex: ").Append(TableCellIndex).Append("\n");
             sb.Append("  ExistingTablePath: ").Append(ExistingTablePath).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,15 +125,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateDocxTableRowRequest);
+            return this.Equals(input as UpdateDocxTableCellRequest);
         }
 
         /// <summary>
-        /// Returns true if UpdateDocxTableRowRequest instances are equal
+        /// Returns true if UpdateDocxTableCellRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateDocxTableRowRequest to be compared</param>
+        /// <param name="input">Instance of UpdateDocxTableCellRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateDocxTableRowRequest input)
+        public bool Equals(UpdateDocxTableCellRequest input)
         {
             if (input == null)
                 return false;
@@ -140,14 +150,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.InputFileUrl.Equals(input.InputFileUrl))
                 ) && 
                 (
-                    this.RowToUpdate == input.RowToUpdate ||
-                    (this.RowToUpdate != null &&
-                    this.RowToUpdate.Equals(input.RowToUpdate))
+                    this.CellToUpdate == input.CellToUpdate ||
+                    (this.CellToUpdate != null &&
+                    this.CellToUpdate.Equals(input.CellToUpdate))
                 ) && 
                 (
                     this.TableRowIndex == input.TableRowIndex ||
                     (this.TableRowIndex != null &&
                     this.TableRowIndex.Equals(input.TableRowIndex))
+                ) && 
+                (
+                    this.TableCellIndex == input.TableCellIndex ||
+                    (this.TableCellIndex != null &&
+                    this.TableCellIndex.Equals(input.TableCellIndex))
                 ) && 
                 (
                     this.ExistingTablePath == input.ExistingTablePath ||
@@ -169,10 +184,12 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.InputFileBytes.GetHashCode();
                 if (this.InputFileUrl != null)
                     hashCode = hashCode * 59 + this.InputFileUrl.GetHashCode();
-                if (this.RowToUpdate != null)
-                    hashCode = hashCode * 59 + this.RowToUpdate.GetHashCode();
+                if (this.CellToUpdate != null)
+                    hashCode = hashCode * 59 + this.CellToUpdate.GetHashCode();
                 if (this.TableRowIndex != null)
                     hashCode = hashCode * 59 + this.TableRowIndex.GetHashCode();
+                if (this.TableCellIndex != null)
+                    hashCode = hashCode * 59 + this.TableCellIndex.GetHashCode();
                 if (this.ExistingTablePath != null)
                     hashCode = hashCode * 59 + this.ExistingTablePath.GetHashCode();
                 return hashCode;

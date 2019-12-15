@@ -25,20 +25,20 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// Result of running a Get-Worksheets command
+    /// Result of creating a blank Word document
     /// </summary>
     [DataContract]
-    public partial class GetXlsxWorksheetsResponse :  IEquatable<GetXlsxWorksheetsResponse>, IValidatableObject
+    public partial class CreateBlankDocxResponse :  IEquatable<CreateBlankDocxResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetXlsxWorksheetsResponse" /> class.
+        /// Initializes a new instance of the <see cref="CreateBlankDocxResponse" /> class.
         /// </summary>
         /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Worksheets">Worksheets in the Excel XLSX spreadsheet.</param>
-        public GetXlsxWorksheetsResponse(bool? Successful = default(bool?), List<XlsxWorksheet> Worksheets = default(List<XlsxWorksheet>))
+        /// <param name="EditedDocumentURL">URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents..</param>
+        public CreateBlankDocxResponse(bool? Successful = default(bool?), string EditedDocumentURL = default(string))
         {
             this.Successful = Successful;
-            this.Worksheets = Worksheets;
+            this.EditedDocumentURL = EditedDocumentURL;
         }
         
         /// <summary>
@@ -49,11 +49,11 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Worksheets in the Excel XLSX spreadsheet
+        /// URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.
         /// </summary>
-        /// <value>Worksheets in the Excel XLSX spreadsheet</value>
-        [DataMember(Name="Worksheets", EmitDefaultValue=false)]
-        public List<XlsxWorksheet> Worksheets { get; set; }
+        /// <value>URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents.</value>
+        [DataMember(Name="EditedDocumentURL", EmitDefaultValue=false)]
+        public string EditedDocumentURL { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GetXlsxWorksheetsResponse {\n");
+            sb.Append("class CreateBlankDocxResponse {\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
-            sb.Append("  Worksheets: ").Append(Worksheets).Append("\n");
+            sb.Append("  EditedDocumentURL: ").Append(EditedDocumentURL).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +85,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetXlsxWorksheetsResponse);
+            return this.Equals(input as CreateBlankDocxResponse);
         }
 
         /// <summary>
-        /// Returns true if GetXlsxWorksheetsResponse instances are equal
+        /// Returns true if CreateBlankDocxResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetXlsxWorksheetsResponse to be compared</param>
+        /// <param name="input">Instance of CreateBlankDocxResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetXlsxWorksheetsResponse input)
+        public bool Equals(CreateBlankDocxResponse input)
         {
             if (input == null)
                 return false;
@@ -105,9 +105,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.Successful.Equals(input.Successful))
                 ) && 
                 (
-                    this.Worksheets == input.Worksheets ||
-                    this.Worksheets != null &&
-                    this.Worksheets.SequenceEqual(input.Worksheets)
+                    this.EditedDocumentURL == input.EditedDocumentURL ||
+                    (this.EditedDocumentURL != null &&
+                    this.EditedDocumentURL.Equals(input.EditedDocumentURL))
                 );
         }
 
@@ -122,8 +122,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                 int hashCode = 41;
                 if (this.Successful != null)
                     hashCode = hashCode * 59 + this.Successful.GetHashCode();
-                if (this.Worksheets != null)
-                    hashCode = hashCode * 59 + this.Worksheets.GetHashCode();
+                if (this.EditedDocumentURL != null)
+                    hashCode = hashCode * 59 + this.EditedDocumentURL.GetHashCode();
                 return hashCode;
             }
         }
