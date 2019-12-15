@@ -88,6 +88,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <returns>ApiResponse of byte[]</returns>
         ApiResponse<byte[]> EditDocumentDocxDeletePagesWithHttpInfo (RemoveDocxPagesRequest reqConfig);
         /// <summary>
+        /// Deletes a table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Deletes an existing table row in a Word DOCX Document and returns the result.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>DeleteDocxTableRowResponse</returns>
+        DeleteDocxTableRowResponse EditDocumentDocxDeleteTableRow (DeleteDocxTableRowRequest reqConfig);
+
+        /// <summary>
+        /// Deletes a table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Deletes an existing table row in a Word DOCX Document and returns the result.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>ApiResponse of DeleteDocxTableRowResponse</returns>
+        ApiResponse<DeleteDocxTableRowResponse> EditDocumentDocxDeleteTableRowWithHttpInfo (DeleteDocxTableRowRequest reqConfig);
+        /// <summary>
         /// Get content of a footer from a Word DOCX document
         /// </summary>
         /// <remarks>
@@ -172,7 +193,49 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <returns>ApiResponse of GetDocxStylesResponse</returns>
         ApiResponse<GetDocxStylesResponse> EditDocumentDocxGetStylesWithHttpInfo (GetDocxStylesRequest reqConfig);
         /// <summary>
-        /// Get tables in Word DOCX document
+        /// Get a specific table by index in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>GetDocxTableByIndexResponse</returns>
+        GetDocxTableByIndexResponse EditDocumentDocxGetTableByIndex (GetDocxTableByIndexRequest reqConfig);
+
+        /// <summary>
+        /// Get a specific table by index in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>ApiResponse of GetDocxTableByIndexResponse</returns>
+        ApiResponse<GetDocxTableByIndexResponse> EditDocumentDocxGetTableByIndexWithHttpInfo (GetDocxTableByIndexRequest reqConfig);
+        /// <summary>
+        /// Gets the contents of an existing table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>GetDocxTableRowResponse</returns>
+        GetDocxTableRowResponse EditDocumentDocxGetTableRow (GetDocxTableRowRequest reqConfig);
+
+        /// <summary>
+        /// Gets the contents of an existing table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>ApiResponse of GetDocxTableRowResponse</returns>
+        ApiResponse<GetDocxTableRowResponse> EditDocumentDocxGetTableRowWithHttpInfo (GetDocxTableRowRequest reqConfig);
+        /// <summary>
+        /// Get all tables in Word DOCX document
         /// </summary>
         /// <remarks>
         /// Returns all the table objects in an Office Word Document (docx)
@@ -183,7 +246,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         GetDocxTablesResponse EditDocumentDocxGetTables (GetDocxTablesRequest reqConfig);
 
         /// <summary>
-        /// Get tables in Word DOCX document
+        /// Get all tables in Word DOCX document
         /// </summary>
         /// <remarks>
         /// Returns all the table objects in an Office Word Document (docx)
@@ -424,6 +487,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <returns>ApiResponse of DocxSetHeaderResponse</returns>
         ApiResponse<DocxSetHeaderResponse> EditDocumentDocxSetHeaderWithHttpInfo (DocxSetHeaderRequest reqConfig);
         /// <summary>
+        /// Update, set contents of a table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>UpdateDocxTableRowResponse</returns>
+        UpdateDocxTableRowResponse EditDocumentDocxUpdateTableRow (UpdateDocxTableRowRequest reqConfig);
+
+        /// <summary>
+        /// Update, set contents of a table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>ApiResponse of UpdateDocxTableRowResponse</returns>
+        ApiResponse<UpdateDocxTableRowResponse> EditDocumentDocxUpdateTableRowWithHttpInfo (UpdateDocxTableRowRequest reqConfig);
+        /// <summary>
         /// Download result from document editing
         /// </summary>
         /// <remarks>
@@ -657,6 +741,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <returns>Task of ApiResponse (byte[])</returns>
         System.Threading.Tasks.Task<ApiResponse<byte[]>> EditDocumentDocxDeletePagesAsyncWithHttpInfo (RemoveDocxPagesRequest reqConfig);
         /// <summary>
+        /// Deletes a table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Deletes an existing table row in a Word DOCX Document and returns the result.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of DeleteDocxTableRowResponse</returns>
+        System.Threading.Tasks.Task<DeleteDocxTableRowResponse> EditDocumentDocxDeleteTableRowAsync (DeleteDocxTableRowRequest reqConfig);
+
+        /// <summary>
+        /// Deletes a table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Deletes an existing table row in a Word DOCX Document and returns the result.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of ApiResponse (DeleteDocxTableRowResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeleteDocxTableRowResponse>> EditDocumentDocxDeleteTableRowAsyncWithHttpInfo (DeleteDocxTableRowRequest reqConfig);
+        /// <summary>
         /// Get content of a footer from a Word DOCX document
         /// </summary>
         /// <remarks>
@@ -741,7 +846,49 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <returns>Task of ApiResponse (GetDocxStylesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GetDocxStylesResponse>> EditDocumentDocxGetStylesAsyncWithHttpInfo (GetDocxStylesRequest reqConfig);
         /// <summary>
-        /// Get tables in Word DOCX document
+        /// Get a specific table by index in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of GetDocxTableByIndexResponse</returns>
+        System.Threading.Tasks.Task<GetDocxTableByIndexResponse> EditDocumentDocxGetTableByIndexAsync (GetDocxTableByIndexRequest reqConfig);
+
+        /// <summary>
+        /// Get a specific table by index in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of ApiResponse (GetDocxTableByIndexResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetDocxTableByIndexResponse>> EditDocumentDocxGetTableByIndexAsyncWithHttpInfo (GetDocxTableByIndexRequest reqConfig);
+        /// <summary>
+        /// Gets the contents of an existing table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of GetDocxTableRowResponse</returns>
+        System.Threading.Tasks.Task<GetDocxTableRowResponse> EditDocumentDocxGetTableRowAsync (GetDocxTableRowRequest reqConfig);
+
+        /// <summary>
+        /// Gets the contents of an existing table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of ApiResponse (GetDocxTableRowResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetDocxTableRowResponse>> EditDocumentDocxGetTableRowAsyncWithHttpInfo (GetDocxTableRowRequest reqConfig);
+        /// <summary>
+        /// Get all tables in Word DOCX document
         /// </summary>
         /// <remarks>
         /// Returns all the table objects in an Office Word Document (docx)
@@ -752,7 +899,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         System.Threading.Tasks.Task<GetDocxTablesResponse> EditDocumentDocxGetTablesAsync (GetDocxTablesRequest reqConfig);
 
         /// <summary>
-        /// Get tables in Word DOCX document
+        /// Get all tables in Word DOCX document
         /// </summary>
         /// <remarks>
         /// Returns all the table objects in an Office Word Document (docx)
@@ -992,6 +1139,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="reqConfig">Document input request</param>
         /// <returns>Task of ApiResponse (DocxSetHeaderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<DocxSetHeaderResponse>> EditDocumentDocxSetHeaderAsyncWithHttpInfo (DocxSetHeaderRequest reqConfig);
+        /// <summary>
+        /// Update, set contents of a table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of UpdateDocxTableRowResponse</returns>
+        System.Threading.Tasks.Task<UpdateDocxTableRowResponse> EditDocumentDocxUpdateTableRowAsync (UpdateDocxTableRowRequest reqConfig);
+
+        /// <summary>
+        /// Update, set contents of a table row in an existing table in a Word DOCX document
+        /// </summary>
+        /// <remarks>
+        /// Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of ApiResponse (UpdateDocxTableRowResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdateDocxTableRowResponse>> EditDocumentDocxUpdateTableRowAsyncWithHttpInfo (UpdateDocxTableRowRequest reqConfig);
         /// <summary>
         /// Download result from document editing
         /// </summary>
@@ -1752,6 +1920,179 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         }
 
         /// <summary>
+        /// Deletes a table row in an existing table in a Word DOCX document Deletes an existing table row in a Word DOCX Document and returns the result.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>DeleteDocxTableRowResponse</returns>
+        public DeleteDocxTableRowResponse EditDocumentDocxDeleteTableRow (DeleteDocxTableRowRequest reqConfig)
+        {
+             ApiResponse<DeleteDocxTableRowResponse> localVarResponse = EditDocumentDocxDeleteTableRowWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Deletes a table row in an existing table in a Word DOCX document Deletes an existing table row in a Word DOCX Document and returns the result.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>ApiResponse of DeleteDocxTableRowResponse</returns>
+        public ApiResponse< DeleteDocxTableRowResponse > EditDocumentDocxDeleteTableRowWithHttpInfo (DeleteDocxTableRowRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxDeleteTableRow");
+
+            var localVarPath = "/convert/edit/docx/delete-table-row";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxDeleteTableRow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DeleteDocxTableRowResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DeleteDocxTableRowResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeleteDocxTableRowResponse)));
+        }
+
+        /// <summary>
+        /// Deletes a table row in an existing table in a Word DOCX document Deletes an existing table row in a Word DOCX Document and returns the result.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of DeleteDocxTableRowResponse</returns>
+        public async System.Threading.Tasks.Task<DeleteDocxTableRowResponse> EditDocumentDocxDeleteTableRowAsync (DeleteDocxTableRowRequest reqConfig)
+        {
+             ApiResponse<DeleteDocxTableRowResponse> localVarResponse = await EditDocumentDocxDeleteTableRowAsyncWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Deletes a table row in an existing table in a Word DOCX document Deletes an existing table row in a Word DOCX Document and returns the result.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of ApiResponse (DeleteDocxTableRowResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DeleteDocxTableRowResponse>> EditDocumentDocxDeleteTableRowAsyncWithHttpInfo (DeleteDocxTableRowRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxDeleteTableRow");
+
+            var localVarPath = "/convert/edit/docx/delete-table-row";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxDeleteTableRow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<DeleteDocxTableRowResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (DeleteDocxTableRowResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DeleteDocxTableRowResponse)));
+        }
+
+        /// <summary>
         /// Get content of a footer from a Word DOCX document Returns the footer content from a Word Document (DOCX) format file
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2444,7 +2785,353 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         }
 
         /// <summary>
-        /// Get tables in Word DOCX document Returns all the table objects in an Office Word Document (docx)
+        /// Get a specific table by index in a Word DOCX document Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>GetDocxTableByIndexResponse</returns>
+        public GetDocxTableByIndexResponse EditDocumentDocxGetTableByIndex (GetDocxTableByIndexRequest reqConfig)
+        {
+             ApiResponse<GetDocxTableByIndexResponse> localVarResponse = EditDocumentDocxGetTableByIndexWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a specific table by index in a Word DOCX document Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>ApiResponse of GetDocxTableByIndexResponse</returns>
+        public ApiResponse< GetDocxTableByIndexResponse > EditDocumentDocxGetTableByIndexWithHttpInfo (GetDocxTableByIndexRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxGetTableByIndex");
+
+            var localVarPath = "/convert/edit/docx/get-table/by-index";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxGetTableByIndex", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetDocxTableByIndexResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GetDocxTableByIndexResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetDocxTableByIndexResponse)));
+        }
+
+        /// <summary>
+        /// Get a specific table by index in a Word DOCX document Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of GetDocxTableByIndexResponse</returns>
+        public async System.Threading.Tasks.Task<GetDocxTableByIndexResponse> EditDocumentDocxGetTableByIndexAsync (GetDocxTableByIndexRequest reqConfig)
+        {
+             ApiResponse<GetDocxTableByIndexResponse> localVarResponse = await EditDocumentDocxGetTableByIndexAsyncWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a specific table by index in a Word DOCX document Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of ApiResponse (GetDocxTableByIndexResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetDocxTableByIndexResponse>> EditDocumentDocxGetTableByIndexAsyncWithHttpInfo (GetDocxTableByIndexRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxGetTableByIndex");
+
+            var localVarPath = "/convert/edit/docx/get-table/by-index";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxGetTableByIndex", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetDocxTableByIndexResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GetDocxTableByIndexResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetDocxTableByIndexResponse)));
+        }
+
+        /// <summary>
+        /// Gets the contents of an existing table row in an existing table in a Word DOCX document Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>GetDocxTableRowResponse</returns>
+        public GetDocxTableRowResponse EditDocumentDocxGetTableRow (GetDocxTableRowRequest reqConfig)
+        {
+             ApiResponse<GetDocxTableRowResponse> localVarResponse = EditDocumentDocxGetTableRowWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets the contents of an existing table row in an existing table in a Word DOCX document Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>ApiResponse of GetDocxTableRowResponse</returns>
+        public ApiResponse< GetDocxTableRowResponse > EditDocumentDocxGetTableRowWithHttpInfo (GetDocxTableRowRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxGetTableRow");
+
+            var localVarPath = "/convert/edit/docx/get-table-row";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxGetTableRow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetDocxTableRowResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GetDocxTableRowResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetDocxTableRowResponse)));
+        }
+
+        /// <summary>
+        /// Gets the contents of an existing table row in an existing table in a Word DOCX document Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of GetDocxTableRowResponse</returns>
+        public async System.Threading.Tasks.Task<GetDocxTableRowResponse> EditDocumentDocxGetTableRowAsync (GetDocxTableRowRequest reqConfig)
+        {
+             ApiResponse<GetDocxTableRowResponse> localVarResponse = await EditDocumentDocxGetTableRowAsyncWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Gets the contents of an existing table row in an existing table in a Word DOCX document Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of ApiResponse (GetDocxTableRowResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetDocxTableRowResponse>> EditDocumentDocxGetTableRowAsyncWithHttpInfo (GetDocxTableRowRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxGetTableRow");
+
+            var localVarPath = "/convert/edit/docx/get-table-row";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxGetTableRow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<GetDocxTableRowResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (GetDocxTableRowResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetDocxTableRowResponse)));
+        }
+
+        /// <summary>
+        /// Get all tables in Word DOCX document Returns all the table objects in an Office Word Document (docx)
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reqConfig">Document input request</param>
@@ -2456,7 +3143,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         }
 
         /// <summary>
-        /// Get tables in Word DOCX document Returns all the table objects in an Office Word Document (docx)
+        /// Get all tables in Word DOCX document Returns all the table objects in an Office Word Document (docx)
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reqConfig">Document input request</param>
@@ -2530,7 +3217,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         }
 
         /// <summary>
-        /// Get tables in Word DOCX document Returns all the table objects in an Office Word Document (docx)
+        /// Get all tables in Word DOCX document Returns all the table objects in an Office Word Document (docx)
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reqConfig">Document input request</param>
@@ -2543,7 +3230,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         }
 
         /// <summary>
-        /// Get tables in Word DOCX document Returns all the table objects in an Office Word Document (docx)
+        /// Get all tables in Word DOCX document Returns all the table objects in an Office Word Document (docx)
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reqConfig">Document input request</param>
@@ -4511,6 +5198,179 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             return new ApiResponse<DocxSetHeaderResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (DocxSetHeaderResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(DocxSetHeaderResponse)));
+        }
+
+        /// <summary>
+        /// Update, set contents of a table row in an existing table in a Word DOCX document Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>UpdateDocxTableRowResponse</returns>
+        public UpdateDocxTableRowResponse EditDocumentDocxUpdateTableRow (UpdateDocxTableRowRequest reqConfig)
+        {
+             ApiResponse<UpdateDocxTableRowResponse> localVarResponse = EditDocumentDocxUpdateTableRowWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update, set contents of a table row in an existing table in a Word DOCX document Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>ApiResponse of UpdateDocxTableRowResponse</returns>
+        public ApiResponse< UpdateDocxTableRowResponse > EditDocumentDocxUpdateTableRowWithHttpInfo (UpdateDocxTableRowRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxUpdateTableRow");
+
+            var localVarPath = "/convert/edit/docx/update-table-row";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxUpdateTableRow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpdateDocxTableRowResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UpdateDocxTableRowResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdateDocxTableRowResponse)));
+        }
+
+        /// <summary>
+        /// Update, set contents of a table row in an existing table in a Word DOCX document Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of UpdateDocxTableRowResponse</returns>
+        public async System.Threading.Tasks.Task<UpdateDocxTableRowResponse> EditDocumentDocxUpdateTableRowAsync (UpdateDocxTableRowRequest reqConfig)
+        {
+             ApiResponse<UpdateDocxTableRowResponse> localVarResponse = await EditDocumentDocxUpdateTableRowAsyncWithHttpInfo(reqConfig);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update, set contents of a table row in an existing table in a Word DOCX document Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="reqConfig">Document input request</param>
+        /// <returns>Task of ApiResponse (UpdateDocxTableRowResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<UpdateDocxTableRowResponse>> EditDocumentDocxUpdateTableRowAsyncWithHttpInfo (UpdateDocxTableRowRequest reqConfig)
+        {
+            // verify the required parameter 'reqConfig' is set
+            if (reqConfig == null)
+                throw new ApiException(400, "Missing required parameter 'reqConfig' when calling EditDocumentApi->EditDocumentDocxUpdateTableRow");
+
+            var localVarPath = "/convert/edit/docx/update-table-row";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json",
+                "application/xml",
+                "text/xml"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (reqConfig != null && reqConfig.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reqConfig); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reqConfig; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EditDocumentDocxUpdateTableRow", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<UpdateDocxTableRowResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (UpdateDocxTableRowResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(UpdateDocxTableRowResponse)));
         }
 
         /// <summary>

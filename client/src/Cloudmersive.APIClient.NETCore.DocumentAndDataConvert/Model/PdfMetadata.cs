@@ -41,7 +41,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <param name="Creator">Creator of the document.</param>
         /// <param name="DateModified">The timestamp that the document was last modified, if available, null if not available.</param>
         /// <param name="DateCreated">The timestamp that the document was created, if available, null if not available.</param>
-        public PdfMetadata(bool? Successful = default(bool?), string Title = default(string), string Keywords = default(string), string Subject = default(string), string Author = default(string), string Creator = default(string), DateTime? DateModified = default(DateTime?), DateTime? DateCreated = default(DateTime?))
+        /// <param name="PageCount">The number of pages in the document.</param>
+        public PdfMetadata(bool? Successful = default(bool?), string Title = default(string), string Keywords = default(string), string Subject = default(string), string Author = default(string), string Creator = default(string), DateTime? DateModified = default(DateTime?), DateTime? DateCreated = default(DateTime?), int? PageCount = default(int?))
         {
             this.Successful = Successful;
             this.Title = Title;
@@ -51,6 +52,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             this.Creator = Creator;
             this.DateModified = DateModified;
             this.DateCreated = DateCreated;
+            this.PageCount = PageCount;
         }
         
         /// <summary>
@@ -110,6 +112,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public DateTime? DateCreated { get; set; }
 
         /// <summary>
+        /// The number of pages in the document
+        /// </summary>
+        /// <value>The number of pages in the document</value>
+        [DataMember(Name="PageCount", EmitDefaultValue=false)]
+        public int? PageCount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +134,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             sb.Append("  Creator: ").Append(Creator).Append("\n");
             sb.Append("  DateModified: ").Append(DateModified).Append("\n");
             sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
+            sb.Append("  PageCount: ").Append(PageCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -198,6 +208,11 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.DateCreated == input.DateCreated ||
                     (this.DateCreated != null &&
                     this.DateCreated.Equals(input.DateCreated))
+                ) && 
+                (
+                    this.PageCount == input.PageCount ||
+                    (this.PageCount != null &&
+                    this.PageCount.Equals(input.PageCount))
                 );
         }
 
@@ -226,6 +241,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.DateModified.GetHashCode();
                 if (this.DateCreated != null)
                     hashCode = hashCode * 59 + this.DateCreated.GetHashCode();
+                if (this.PageCount != null)
+                    hashCode = hashCode * 59 + this.PageCount.GetHashCode();
                 return hashCode;
             }
         }
