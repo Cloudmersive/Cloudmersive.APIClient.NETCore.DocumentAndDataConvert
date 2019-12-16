@@ -40,7 +40,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <param name="ImageToAdd">Optional: Image to add; if you supply in this object, do not supply InputImageFileBytes or InputImageFileUrl..</param>
         /// <param name="InsertPlacement">Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object).</param>
         /// <param name="InsertPath">Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject.</param>
-        public DocxInsertImageRequest(byte[] InputDocumentFileBytes = default(byte[]), string InputDocumentFileUrl = default(string), byte[] InputImageFileBytes = default(byte[]), string InputImageFileUrl = default(string), DocxImage ImageToAdd = default(DocxImage), string InsertPlacement = default(string), string InsertPath = default(string))
+        /// <param name="WidthInEMUs">Optional: The width of the image in EMUs.</param>
+        /// <param name="HeightInEMUs">Optional: The height of the image in EMUs.</param>
+        public DocxInsertImageRequest(byte[] InputDocumentFileBytes = default(byte[]), string InputDocumentFileUrl = default(string), byte[] InputImageFileBytes = default(byte[]), string InputImageFileUrl = default(string), DocxImage ImageToAdd = default(DocxImage), string InsertPlacement = default(string), string InsertPath = default(string), long? WidthInEMUs = default(long?), long? HeightInEMUs = default(long?))
         {
             this.InputDocumentFileBytes = InputDocumentFileBytes;
             this.InputDocumentFileUrl = InputDocumentFileUrl;
@@ -49,6 +51,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             this.ImageToAdd = ImageToAdd;
             this.InsertPlacement = InsertPlacement;
             this.InsertPath = InsertPath;
+            this.WidthInEMUs = WidthInEMUs;
+            this.HeightInEMUs = HeightInEMUs;
         }
         
         /// <summary>
@@ -101,6 +105,20 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public string InsertPath { get; set; }
 
         /// <summary>
+        /// Optional: The width of the image in EMUs
+        /// </summary>
+        /// <value>Optional: The width of the image in EMUs</value>
+        [DataMember(Name="WidthInEMUs", EmitDefaultValue=false)]
+        public long? WidthInEMUs { get; set; }
+
+        /// <summary>
+        /// Optional: The height of the image in EMUs
+        /// </summary>
+        /// <value>Optional: The height of the image in EMUs</value>
+        [DataMember(Name="HeightInEMUs", EmitDefaultValue=false)]
+        public long? HeightInEMUs { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +133,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             sb.Append("  ImageToAdd: ").Append(ImageToAdd).Append("\n");
             sb.Append("  InsertPlacement: ").Append(InsertPlacement).Append("\n");
             sb.Append("  InsertPath: ").Append(InsertPath).Append("\n");
+            sb.Append("  WidthInEMUs: ").Append(WidthInEMUs).Append("\n");
+            sb.Append("  HeightInEMUs: ").Append(HeightInEMUs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,6 +203,16 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.InsertPath == input.InsertPath ||
                     (this.InsertPath != null &&
                     this.InsertPath.Equals(input.InsertPath))
+                ) && 
+                (
+                    this.WidthInEMUs == input.WidthInEMUs ||
+                    (this.WidthInEMUs != null &&
+                    this.WidthInEMUs.Equals(input.WidthInEMUs))
+                ) && 
+                (
+                    this.HeightInEMUs == input.HeightInEMUs ||
+                    (this.HeightInEMUs != null &&
+                    this.HeightInEMUs.Equals(input.HeightInEMUs))
                 );
         }
 
@@ -209,6 +239,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.InsertPlacement.GetHashCode();
                 if (this.InsertPath != null)
                     hashCode = hashCode * 59 + this.InsertPath.GetHashCode();
+                if (this.WidthInEMUs != null)
+                    hashCode = hashCode * 59 + this.WidthInEMUs.GetHashCode();
+                if (this.HeightInEMUs != null)
+                    hashCode = hashCode * 59 + this.HeightInEMUs.GetHashCode();
                 return hashCode;
             }
         }

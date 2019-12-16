@@ -34,7 +34,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Initializes a new instance of the <see cref="GetXlsxImagesResponse" /> class.
         /// </summary>
         /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Images">Spreadsheet Columns in the DOCX document.</param>
+        /// <param name="Images">Spreadsheet Images in the XLSX document.</param>
         public GetXlsxImagesResponse(bool? Successful = default(bool?), List<XlsxImage> Images = default(List<XlsxImage>))
         {
             this.Successful = Successful;
@@ -49,9 +49,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Spreadsheet Columns in the DOCX document
+        /// Spreadsheet Images in the XLSX document
         /// </summary>
-        /// <value>Spreadsheet Columns in the DOCX document</value>
+        /// <value>Spreadsheet Images in the XLSX document</value>
         [DataMember(Name="Images", EmitDefaultValue=false)]
         public List<XlsxImage> Images { get; set; }
 

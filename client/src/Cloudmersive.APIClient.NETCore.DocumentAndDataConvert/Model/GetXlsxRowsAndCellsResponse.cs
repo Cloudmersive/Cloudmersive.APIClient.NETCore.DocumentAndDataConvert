@@ -34,7 +34,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Initializes a new instance of the <see cref="GetXlsxRowsAndCellsResponse" /> class.
         /// </summary>
         /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Rows">Spreadsheet Rows in the DOCX document.</param>
+        /// <param name="Rows">Spreadsheet Rows in the Excel XLSX document.</param>
         public GetXlsxRowsAndCellsResponse(bool? Successful = default(bool?), List<XlsxSpreadsheetRow> Rows = default(List<XlsxSpreadsheetRow>))
         {
             this.Successful = Successful;
@@ -49,9 +49,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Spreadsheet Rows in the DOCX document
+        /// Spreadsheet Rows in the Excel XLSX document
         /// </summary>
-        /// <value>Spreadsheet Rows in the DOCX document</value>
+        /// <value>Spreadsheet Rows in the Excel XLSX document</value>
         [DataMember(Name="Rows", EmitDefaultValue=false)]
         public List<XlsxSpreadsheetRow> Rows { get; set; }
 

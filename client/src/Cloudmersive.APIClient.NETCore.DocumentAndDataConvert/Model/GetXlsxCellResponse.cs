@@ -25,20 +25,20 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// Result of running a Get-Columns command
+    /// Result of running a Get-Cell command
     /// </summary>
     [DataContract]
-    public partial class GetXlsxColumnsResponse :  IEquatable<GetXlsxColumnsResponse>, IValidatableObject
+    public partial class GetXlsxCellResponse :  IEquatable<GetXlsxCellResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetXlsxColumnsResponse" /> class.
+        /// Initializes a new instance of the <see cref="GetXlsxCellResponse" /> class.
         /// </summary>
         /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Columns">Spreadsheet Columns in the XLSX document.</param>
-        public GetXlsxColumnsResponse(bool? Successful = default(bool?), List<XlsxSpreadsheetColumn> Columns = default(List<XlsxSpreadsheetColumn>))
+        /// <param name="Cell">Requested Cell in the Excel XLSX document.</param>
+        public GetXlsxCellResponse(bool? Successful = default(bool?), XlsxSpreadsheetCell Cell = default(XlsxSpreadsheetCell))
         {
             this.Successful = Successful;
-            this.Columns = Columns;
+            this.Cell = Cell;
         }
         
         /// <summary>
@@ -49,11 +49,11 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Spreadsheet Columns in the XLSX document
+        /// Requested Cell in the Excel XLSX document
         /// </summary>
-        /// <value>Spreadsheet Columns in the XLSX document</value>
-        [DataMember(Name="Columns", EmitDefaultValue=false)]
-        public List<XlsxSpreadsheetColumn> Columns { get; set; }
+        /// <value>Requested Cell in the Excel XLSX document</value>
+        [DataMember(Name="Cell", EmitDefaultValue=false)]
+        public XlsxSpreadsheetCell Cell { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GetXlsxColumnsResponse {\n");
+            sb.Append("class GetXlsxCellResponse {\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
-            sb.Append("  Columns: ").Append(Columns).Append("\n");
+            sb.Append("  Cell: ").Append(Cell).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +85,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetXlsxColumnsResponse);
+            return this.Equals(input as GetXlsxCellResponse);
         }
 
         /// <summary>
-        /// Returns true if GetXlsxColumnsResponse instances are equal
+        /// Returns true if GetXlsxCellResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetXlsxColumnsResponse to be compared</param>
+        /// <param name="input">Instance of GetXlsxCellResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetXlsxColumnsResponse input)
+        public bool Equals(GetXlsxCellResponse input)
         {
             if (input == null)
                 return false;
@@ -105,9 +105,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.Successful.Equals(input.Successful))
                 ) && 
                 (
-                    this.Columns == input.Columns ||
-                    this.Columns != null &&
-                    this.Columns.SequenceEqual(input.Columns)
+                    this.Cell == input.Cell ||
+                    (this.Cell != null &&
+                    this.Cell.Equals(input.Cell))
                 );
         }
 
@@ -122,8 +122,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                 int hashCode = 41;
                 if (this.Successful != null)
                     hashCode = hashCode * 59 + this.Successful.GetHashCode();
-                if (this.Columns != null)
-                    hashCode = hashCode * 59 + this.Columns.GetHashCode();
+                if (this.Cell != null)
+                    hashCode = hashCode * 59 + this.Cell.GetHashCode();
                 return hashCode;
             }
         }
