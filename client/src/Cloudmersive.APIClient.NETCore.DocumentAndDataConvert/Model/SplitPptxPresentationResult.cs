@@ -25,35 +25,34 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// Request to set PDF metadata
+    /// The result of splitting a presentation into individual PowerPoint PPTX slides
     /// </summary>
     [DataContract]
-    public partial class SetPdfMetadataRequest :  IEquatable<SetPdfMetadataRequest>, IValidatableObject
+    public partial class SplitPptxPresentationResult :  IEquatable<SplitPptxPresentationResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SetPdfMetadataRequest" /> class.
+        /// Initializes a new instance of the <see cref="SplitPptxPresentationResult" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Input file contents bytes for the file to modify.</param>
-        /// <param name="MetadataToSet">PDF metadata to set on the file.</param>
-        public SetPdfMetadataRequest(byte[] InputFileBytes = default(byte[]), PdfMetadata MetadataToSet = default(PdfMetadata))
+        /// <param name="ResultPresentations">ResultPresentations.</param>
+        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
+        public SplitPptxPresentationResult(List<PresentationResult> ResultPresentations = default(List<PresentationResult>), bool? Successful = default(bool?))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.MetadataToSet = MetadataToSet;
+            this.ResultPresentations = ResultPresentations;
+            this.Successful = Successful;
         }
         
         /// <summary>
-        /// Input file contents bytes for the file to modify
+        /// Gets or Sets ResultPresentations
         /// </summary>
-        /// <value>Input file contents bytes for the file to modify</value>
-        [DataMember(Name="InputFileBytes", EmitDefaultValue=false)]
-        public byte[] InputFileBytes { get; set; }
+        [DataMember(Name="ResultPresentations", EmitDefaultValue=false)]
+        public List<PresentationResult> ResultPresentations { get; set; }
 
         /// <summary>
-        /// PDF metadata to set on the file
+        /// True if the operation was successful, false otherwise
         /// </summary>
-        /// <value>PDF metadata to set on the file</value>
-        [DataMember(Name="MetadataToSet", EmitDefaultValue=false)]
-        public PdfMetadata MetadataToSet { get; set; }
+        /// <value>True if the operation was successful, false otherwise</value>
+        [DataMember(Name="Successful", EmitDefaultValue=false)]
+        public bool? Successful { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +61,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SetPdfMetadataRequest {\n");
-            sb.Append("  InputFileBytes: ").Append(InputFileBytes).Append("\n");
-            sb.Append("  MetadataToSet: ").Append(MetadataToSet).Append("\n");
+            sb.Append("class SplitPptxPresentationResult {\n");
+            sb.Append("  ResultPresentations: ").Append(ResultPresentations).Append("\n");
+            sb.Append("  Successful: ").Append(Successful).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +84,29 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SetPdfMetadataRequest);
+            return this.Equals(input as SplitPptxPresentationResult);
         }
 
         /// <summary>
-        /// Returns true if SetPdfMetadataRequest instances are equal
+        /// Returns true if SplitPptxPresentationResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of SetPdfMetadataRequest to be compared</param>
+        /// <param name="input">Instance of SplitPptxPresentationResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SetPdfMetadataRequest input)
+        public bool Equals(SplitPptxPresentationResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InputFileBytes == input.InputFileBytes ||
-                    (this.InputFileBytes != null &&
-                    this.InputFileBytes.Equals(input.InputFileBytes))
+                    this.ResultPresentations == input.ResultPresentations ||
+                    this.ResultPresentations != null &&
+                    this.ResultPresentations.SequenceEqual(input.ResultPresentations)
                 ) && 
                 (
-                    this.MetadataToSet == input.MetadataToSet ||
-                    (this.MetadataToSet != null &&
-                    this.MetadataToSet.Equals(input.MetadataToSet))
+                    this.Successful == input.Successful ||
+                    (this.Successful != null &&
+                    this.Successful.Equals(input.Successful))
                 );
         }
 
@@ -120,10 +119,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InputFileBytes != null)
-                    hashCode = hashCode * 59 + this.InputFileBytes.GetHashCode();
-                if (this.MetadataToSet != null)
-                    hashCode = hashCode * 59 + this.MetadataToSet.GetHashCode();
+                if (this.ResultPresentations != null)
+                    hashCode = hashCode * 59 + this.ResultPresentations.GetHashCode();
+                if (this.Successful != null)
+                    hashCode = hashCode * 59 + this.Successful.GetHashCode();
                 return hashCode;
             }
         }
