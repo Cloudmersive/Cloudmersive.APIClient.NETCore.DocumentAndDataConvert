@@ -34,7 +34,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Initializes a new instance of the <see cref="DocxTableRow" /> class.
         /// </summary>
         /// <param name="RowIndex">Index of the row, 0-based.</param>
-        /// <param name="Path">The Path of the location of this object; leave blank for new tables.</param>
+        /// <param name="Path">The Path of the location of this table row object; leave blank for new tables.</param>
         /// <param name="RowCells">Cells in the row; this is where the contents of the row is stored.</param>
         public DocxTableRow(int? RowIndex = default(int?), string Path = default(string), List<DocxTableCell> RowCells = default(List<DocxTableCell>))
         {
@@ -51,9 +51,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public int? RowIndex { get; set; }
 
         /// <summary>
-        /// The Path of the location of this object; leave blank for new tables
+        /// The Path of the location of this table row object; leave blank for new tables
         /// </summary>
-        /// <value>The Path of the location of this object; leave blank for new tables</value>
+        /// <value>The Path of the location of this table row object; leave blank for new tables</value>
         [DataMember(Name="Path", EmitDefaultValue=false)]
         public string Path { get; set; }
 
