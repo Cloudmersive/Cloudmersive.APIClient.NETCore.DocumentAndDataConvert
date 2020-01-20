@@ -25,22 +25,22 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// Result of getting pages from a Word Document DOCX
+    /// Result of getting comments from a Word Document DOCX
     /// </summary>
     [DataContract]
-    public partial class GetDocxPagesResponse :  IEquatable<GetDocxPagesResponse>, IValidatableObject
+    public partial class GetDocxCommentsResponse :  IEquatable<GetDocxCommentsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetDocxPagesResponse" /> class.
+        /// Initializes a new instance of the <see cref="GetDocxCommentsResponse" /> class.
         /// </summary>
         /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Pages">Pages in the document.</param>
-        /// <param name="PageCount">Count of pages.</param>
-        public GetDocxPagesResponse(bool? Successful = default(bool?), List<DocxPage> Pages = default(List<DocxPage>), int? PageCount = default(int?))
+        /// <param name="Comments">Comments in the document.</param>
+        /// <param name="CommentCount">The number of comments in the document.</param>
+        public GetDocxCommentsResponse(bool? Successful = default(bool?), List<DocxComment> Comments = default(List<DocxComment>), int? CommentCount = default(int?))
         {
             this.Successful = Successful;
-            this.Pages = Pages;
-            this.PageCount = PageCount;
+            this.Comments = Comments;
+            this.CommentCount = CommentCount;
         }
         
         /// <summary>
@@ -51,18 +51,18 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Pages in the document
+        /// Comments in the document
         /// </summary>
-        /// <value>Pages in the document</value>
-        [DataMember(Name="Pages", EmitDefaultValue=false)]
-        public List<DocxPage> Pages { get; set; }
+        /// <value>Comments in the document</value>
+        [DataMember(Name="Comments", EmitDefaultValue=false)]
+        public List<DocxComment> Comments { get; set; }
 
         /// <summary>
-        /// Count of pages
+        /// The number of comments in the document
         /// </summary>
-        /// <value>Count of pages</value>
-        [DataMember(Name="PageCount", EmitDefaultValue=false)]
-        public int? PageCount { get; set; }
+        /// <value>The number of comments in the document</value>
+        [DataMember(Name="CommentCount", EmitDefaultValue=false)]
+        public int? CommentCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,10 +71,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GetDocxPagesResponse {\n");
+            sb.Append("class GetDocxCommentsResponse {\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
-            sb.Append("  Pages: ").Append(Pages).Append("\n");
-            sb.Append("  PageCount: ").Append(PageCount).Append("\n");
+            sb.Append("  Comments: ").Append(Comments).Append("\n");
+            sb.Append("  CommentCount: ").Append(CommentCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,15 +95,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetDocxPagesResponse);
+            return this.Equals(input as GetDocxCommentsResponse);
         }
 
         /// <summary>
-        /// Returns true if GetDocxPagesResponse instances are equal
+        /// Returns true if GetDocxCommentsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetDocxPagesResponse to be compared</param>
+        /// <param name="input">Instance of GetDocxCommentsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetDocxPagesResponse input)
+        public bool Equals(GetDocxCommentsResponse input)
         {
             if (input == null)
                 return false;
@@ -115,14 +115,14 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.Successful.Equals(input.Successful))
                 ) && 
                 (
-                    this.Pages == input.Pages ||
-                    this.Pages != null &&
-                    this.Pages.SequenceEqual(input.Pages)
+                    this.Comments == input.Comments ||
+                    this.Comments != null &&
+                    this.Comments.SequenceEqual(input.Comments)
                 ) && 
                 (
-                    this.PageCount == input.PageCount ||
-                    (this.PageCount != null &&
-                    this.PageCount.Equals(input.PageCount))
+                    this.CommentCount == input.CommentCount ||
+                    (this.CommentCount != null &&
+                    this.CommentCount.Equals(input.CommentCount))
                 );
         }
 
@@ -137,10 +137,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                 int hashCode = 41;
                 if (this.Successful != null)
                     hashCode = hashCode * 59 + this.Successful.GetHashCode();
-                if (this.Pages != null)
-                    hashCode = hashCode * 59 + this.Pages.GetHashCode();
-                if (this.PageCount != null)
-                    hashCode = hashCode * 59 + this.PageCount.GetHashCode();
+                if (this.Comments != null)
+                    hashCode = hashCode * 59 + this.Comments.GetHashCode();
+                if (this.CommentCount != null)
+                    hashCode = hashCode * 59 + this.CommentCount.GetHashCode();
                 return hashCode;
             }
         }
