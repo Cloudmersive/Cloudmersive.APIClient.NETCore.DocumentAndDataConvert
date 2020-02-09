@@ -25,17 +25,17 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// Result of running a insert worksheet command
+    /// Result of running a Enable Shared Workbook command
     /// </summary>
     [DataContract]
-    public partial class InsertXlsxWorksheetResponse :  IEquatable<InsertXlsxWorksheetResponse>, IValidatableObject
+    public partial class EnableSharedWorkbookResponse :  IEquatable<EnableSharedWorkbookResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InsertXlsxWorksheetResponse" /> class.
+        /// Initializes a new instance of the <see cref="EnableSharedWorkbookResponse" /> class.
         /// </summary>
         /// <param name="Successful">True if successful, false otherwise.</param>
         /// <param name="EditedDocumentURL">URL to the edited XLSX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents..</param>
-        public InsertXlsxWorksheetResponse(bool? Successful = default(bool?), string EditedDocumentURL = default(string))
+        public EnableSharedWorkbookResponse(bool? Successful = default(bool?), string EditedDocumentURL = default(string))
         {
             this.Successful = Successful;
             this.EditedDocumentURL = EditedDocumentURL;
@@ -62,7 +62,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InsertXlsxWorksheetResponse {\n");
+            sb.Append("class EnableSharedWorkbookResponse {\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
             sb.Append("  EditedDocumentURL: ").Append(EditedDocumentURL).Append("\n");
             sb.Append("}\n");
@@ -85,15 +85,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InsertXlsxWorksheetResponse);
+            return this.Equals(input as EnableSharedWorkbookResponse);
         }
 
         /// <summary>
-        /// Returns true if InsertXlsxWorksheetResponse instances are equal
+        /// Returns true if EnableSharedWorkbookResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of InsertXlsxWorksheetResponse to be compared</param>
+        /// <param name="input">Instance of EnableSharedWorkbookResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InsertXlsxWorksheetResponse input)
+        public bool Equals(EnableSharedWorkbookResponse input)
         {
             if (input == null)
                 return false;

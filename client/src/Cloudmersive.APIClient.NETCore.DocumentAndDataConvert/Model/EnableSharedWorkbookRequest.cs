@@ -25,22 +25,20 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// Input to a Insert Worksheets request
+    /// Input to a Enabled Shared Workbook request
     /// </summary>
     [DataContract]
-    public partial class InsertXlsxWorksheetRequest :  IEquatable<InsertXlsxWorksheetRequest>, IValidatableObject
+    public partial class EnableSharedWorkbookRequest :  IEquatable<EnableSharedWorkbookRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InsertXlsxWorksheetRequest" /> class.
+        /// Initializes a new instance of the <see cref="EnableSharedWorkbookRequest" /> class.
         /// </summary>
         /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
         /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="WorksheetToInsert">Workersheet to insert.</param>
-        public InsertXlsxWorksheetRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), XlsxWorksheet WorksheetToInsert = default(XlsxWorksheet))
+        public EnableSharedWorkbookRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string))
         {
             this.InputFileBytes = InputFileBytes;
             this.InputFileUrl = InputFileUrl;
-            this.WorksheetToInsert = WorksheetToInsert;
         }
         
         /// <summary>
@@ -58,23 +56,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public string InputFileUrl { get; set; }
 
         /// <summary>
-        /// Workersheet to insert
-        /// </summary>
-        /// <value>Workersheet to insert</value>
-        [DataMember(Name="WorksheetToInsert", EmitDefaultValue=false)]
-        public XlsxWorksheet WorksheetToInsert { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InsertXlsxWorksheetRequest {\n");
+            sb.Append("class EnableSharedWorkbookRequest {\n");
             sb.Append("  InputFileBytes: ").Append(InputFileBytes).Append("\n");
             sb.Append("  InputFileUrl: ").Append(InputFileUrl).Append("\n");
-            sb.Append("  WorksheetToInsert: ").Append(WorksheetToInsert).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,15 +85,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InsertXlsxWorksheetRequest);
+            return this.Equals(input as EnableSharedWorkbookRequest);
         }
 
         /// <summary>
-        /// Returns true if InsertXlsxWorksheetRequest instances are equal
+        /// Returns true if EnableSharedWorkbookRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of InsertXlsxWorksheetRequest to be compared</param>
+        /// <param name="input">Instance of EnableSharedWorkbookRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InsertXlsxWorksheetRequest input)
+        public bool Equals(EnableSharedWorkbookRequest input)
         {
             if (input == null)
                 return false;
@@ -118,11 +108,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.InputFileUrl == input.InputFileUrl ||
                     (this.InputFileUrl != null &&
                     this.InputFileUrl.Equals(input.InputFileUrl))
-                ) && 
-                (
-                    this.WorksheetToInsert == input.WorksheetToInsert ||
-                    (this.WorksheetToInsert != null &&
-                    this.WorksheetToInsert.Equals(input.WorksheetToInsert))
                 );
         }
 
@@ -139,8 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.InputFileBytes.GetHashCode();
                 if (this.InputFileUrl != null)
                     hashCode = hashCode * 59 + this.InputFileUrl.GetHashCode();
-                if (this.WorksheetToInsert != null)
-                    hashCode = hashCode * 59 + this.WorksheetToInsert.GetHashCode();
                 return hashCode;
             }
         }
