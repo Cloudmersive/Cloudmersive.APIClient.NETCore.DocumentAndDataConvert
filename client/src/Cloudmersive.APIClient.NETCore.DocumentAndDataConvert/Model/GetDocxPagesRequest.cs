@@ -35,10 +35,12 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// </summary>
         /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
         /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        public GetDocxPagesRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string))
+        /// <param name="MaximumPages">Optional: Maximum number of pages to return; set to 0 or do not supply to return all pages.</param>
+        public GetDocxPagesRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), int? MaximumPages = default(int?))
         {
             this.InputFileBytes = InputFileBytes;
             this.InputFileUrl = InputFileUrl;
+            this.MaximumPages = MaximumPages;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public string InputFileUrl { get; set; }
 
         /// <summary>
+        /// Optional: Maximum number of pages to return; set to 0 or do not supply to return all pages
+        /// </summary>
+        /// <value>Optional: Maximum number of pages to return; set to 0 or do not supply to return all pages</value>
+        [DataMember(Name="MaximumPages", EmitDefaultValue=false)]
+        public int? MaximumPages { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             sb.Append("class GetDocxPagesRequest {\n");
             sb.Append("  InputFileBytes: ").Append(InputFileBytes).Append("\n");
             sb.Append("  InputFileUrl: ").Append(InputFileUrl).Append("\n");
+            sb.Append("  MaximumPages: ").Append(MaximumPages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.InputFileUrl == input.InputFileUrl ||
                     (this.InputFileUrl != null &&
                     this.InputFileUrl.Equals(input.InputFileUrl))
+                ) && 
+                (
+                    this.MaximumPages == input.MaximumPages ||
+                    (this.MaximumPages != null &&
+                    this.MaximumPages.Equals(input.MaximumPages))
                 );
         }
 
@@ -124,6 +139,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.InputFileBytes.GetHashCode();
                 if (this.InputFileUrl != null)
                     hashCode = hashCode * 59 + this.InputFileUrl.GetHashCode();
+                if (this.MaximumPages != null)
+                    hashCode = hashCode * 59 + this.MaximumPages.GetHashCode();
                 return hashCode;
             }
         }
