@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,31 +26,31 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to set-footer command
     /// </summary>
     [DataContract]
-    public partial class DocxInsertImageRequest :  IEquatable<DocxInsertImageRequest>, IValidatableObject
+    public partial class DocxInsertImageRequest :  IEquatable<DocxInsertImageRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxInsertImageRequest" /> class.
         /// </summary>
-        /// <param name="InputDocumentFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputDocumentFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="InputImageFileBytes">Optional: Bytes of the input image file to operate on; if you supply this value do not supply InputImageFileUrl or ImageToAdd..</param>
-        /// <param name="InputImageFileUrl">Optional: URL of an image file to operate on as input; if you supply this value do not supply InputImageFileBytes or ImageToAdd.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="ImageToAdd">Optional: Image to add; if you supply in this object, do not supply InputImageFileBytes or InputImageFileUrl..</param>
-        /// <param name="InsertPlacement">Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object).</param>
-        /// <param name="InsertPath">Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject.</param>
-        /// <param name="WidthInEMUs">Optional: The width of the image in EMUs.</param>
-        /// <param name="HeightInEMUs">Optional: The height of the image in EMUs.</param>
-        public DocxInsertImageRequest(byte[] InputDocumentFileBytes = default(byte[]), string InputDocumentFileUrl = default(string), byte[] InputImageFileBytes = default(byte[]), string InputImageFileUrl = default(string), DocxImage ImageToAdd = default(DocxImage), string InsertPlacement = default(string), string InsertPath = default(string), long? WidthInEMUs = default(long?), long? HeightInEMUs = default(long?))
+        /// <param name="inputDocumentFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputDocumentFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="inputImageFileBytes">Optional: Bytes of the input image file to operate on; if you supply this value do not supply InputImageFileUrl or ImageToAdd..</param>
+        /// <param name="inputImageFileUrl">Optional: URL of an image file to operate on as input; if you supply this value do not supply InputImageFileBytes or ImageToAdd.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="imageToAdd">Optional: Image to add; if you supply in this object, do not supply InputImageFileBytes or InputImageFileUrl..</param>
+        /// <param name="insertPlacement">Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object).</param>
+        /// <param name="insertPath">Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject.</param>
+        /// <param name="widthInEMUs">Optional: The width of the image in EMUs.</param>
+        /// <param name="heightInEMUs">Optional: The height of the image in EMUs.</param>
+        public DocxInsertImageRequest(byte[] inputDocumentFileBytes = default(byte[]), string inputDocumentFileUrl = default(string), byte[] inputImageFileBytes = default(byte[]), string inputImageFileUrl = default(string), DocxImage imageToAdd = default(DocxImage), string insertPlacement = default(string), string insertPath = default(string), long? widthInEMUs = default(long?), long? heightInEMUs = default(long?))
         {
-            this.InputDocumentFileBytes = InputDocumentFileBytes;
-            this.InputDocumentFileUrl = InputDocumentFileUrl;
-            this.InputImageFileBytes = InputImageFileBytes;
-            this.InputImageFileUrl = InputImageFileUrl;
-            this.ImageToAdd = ImageToAdd;
-            this.InsertPlacement = InsertPlacement;
-            this.InsertPath = InsertPath;
-            this.WidthInEMUs = WidthInEMUs;
-            this.HeightInEMUs = HeightInEMUs;
+            this.InputDocumentFileBytes = inputDocumentFileBytes;
+            this.InputDocumentFileUrl = inputDocumentFileUrl;
+            this.InputImageFileBytes = inputImageFileBytes;
+            this.InputImageFileUrl = inputImageFileUrl;
+            this.ImageToAdd = imageToAdd;
+            this.InsertPlacement = insertPlacement;
+            this.InsertPath = insertPath;
+            this.WidthInEMUs = widthInEMUs;
+            this.HeightInEMUs = heightInEMUs;
         }
         
         /// <summary>
@@ -143,7 +141,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -245,16 +243,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.HeightInEMUs.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

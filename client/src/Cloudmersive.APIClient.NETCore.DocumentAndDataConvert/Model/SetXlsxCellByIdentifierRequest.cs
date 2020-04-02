@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,23 +26,23 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a Set Cell by identifier in XLSX Worksheets request
     /// </summary>
     [DataContract]
-    public partial class SetXlsxCellByIdentifierRequest :  IEquatable<SetXlsxCellByIdentifierRequest>, IValidatableObject
+    public partial class SetXlsxCellByIdentifierRequest :  IEquatable<SetXlsxCellByIdentifierRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetXlsxCellByIdentifierRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="WorksheetToUpdate">Optional; Worksheet (tab) within the spreadsheet to update; leave blank to default to the first worksheet.</param>
-        /// <param name="CellIdentifier">The Excel cell identifier (e.g. A1, B2, C33, etc.) of the cell to update.</param>
-        /// <param name="CellValue">New Cell value to update/overwrite into the Excel XLSX spreadsheet.</param>
-        public SetXlsxCellByIdentifierRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), XlsxWorksheet WorksheetToUpdate = default(XlsxWorksheet), string CellIdentifier = default(string), XlsxSpreadsheetCell CellValue = default(XlsxSpreadsheetCell))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="worksheetToUpdate">Optional; Worksheet (tab) within the spreadsheet to update; leave blank to default to the first worksheet.</param>
+        /// <param name="cellIdentifier">The Excel cell identifier (e.g. A1, B2, C33, etc.) of the cell to update.</param>
+        /// <param name="cellValue">New Cell value to update/overwrite into the Excel XLSX spreadsheet.</param>
+        public SetXlsxCellByIdentifierRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), XlsxWorksheet worksheetToUpdate = default(XlsxWorksheet), string cellIdentifier = default(string), XlsxSpreadsheetCell cellValue = default(XlsxSpreadsheetCell))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.WorksheetToUpdate = WorksheetToUpdate;
-            this.CellIdentifier = CellIdentifier;
-            this.CellValue = CellValue;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.WorksheetToUpdate = worksheetToUpdate;
+            this.CellIdentifier = cellIdentifier;
+            this.CellValue = cellValue;
         }
         
         /// <summary>
@@ -103,7 +101,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -177,16 +175,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.CellValue.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

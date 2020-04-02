@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of converting a PDF to a PNG array
     /// </summary>
     [DataContract]
-    public partial class PdfToPngResult :  IEquatable<PdfToPngResult>, IValidatableObject
+    public partial class PdfToPngResult :  IEquatable<PdfToPngResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PdfToPngResult" /> class.
         /// </summary>
-        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
-        /// <param name="PngResultPages">Array of converted pages.</param>
-        public PdfToPngResult(bool? Successful = default(bool?), List<ConvertedPngPage> PngResultPages = default(List<ConvertedPngPage>))
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="pngResultPages">Array of converted pages.</param>
+        public PdfToPngResult(bool? successful = default(bool?), List<ConvertedPngPage> pngResultPages = default(List<ConvertedPngPage>))
         {
-            this.Successful = Successful;
-            this.PngResultPages = PngResultPages;
+            this.Successful = successful;
+            this.PngResultPages = pngResultPages;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.PngResultPages.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

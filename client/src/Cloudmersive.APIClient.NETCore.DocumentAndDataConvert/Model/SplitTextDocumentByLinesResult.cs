@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// The result of splitting a Text document into separate lines
     /// </summary>
     [DataContract]
-    public partial class SplitTextDocumentByLinesResult :  IEquatable<SplitTextDocumentByLinesResult>, IValidatableObject
+    public partial class SplitTextDocumentByLinesResult :  IEquatable<SplitTextDocumentByLinesResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SplitTextDocumentByLinesResult" /> class.
         /// </summary>
-        /// <param name="ResultLines">ResultLines.</param>
-        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
-        /// <param name="LineCount">The count of lines in the text file.</param>
-        public SplitTextDocumentByLinesResult(List<TextDocumentLine> ResultLines = default(List<TextDocumentLine>), bool? Successful = default(bool?), int? LineCount = default(int?))
+        /// <param name="resultLines">resultLines.</param>
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="lineCount">The count of lines in the text file.</param>
+        public SplitTextDocumentByLinesResult(List<TextDocumentLine> resultLines = default(List<TextDocumentLine>), bool? successful = default(bool?), int? lineCount = default(int?))
         {
-            this.ResultLines = ResultLines;
-            this.Successful = Successful;
-            this.LineCount = LineCount;
+            this.ResultLines = resultLines;
+            this.Successful = successful;
+            this.LineCount = lineCount;
         }
         
         /// <summary>
@@ -82,7 +80,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -142,16 +140,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.LineCount.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Individual field value to set in a PDF form
     /// </summary>
     [DataContract]
-    public partial class SetFormFieldValue :  IEquatable<SetFormFieldValue>, IValidatableObject
+    public partial class SetFormFieldValue :  IEquatable<SetFormFieldValue>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetFormFieldValue" /> class.
         /// </summary>
-        /// <param name="FieldName">Name of the field to set; you can call /convert/edit/pdf/form/get-fields to enumerate field names in a form.</param>
-        /// <param name="TextValue">For fields of type Text, the text value to put into the field.</param>
-        /// <param name="CheckboxValue">For fields of type Checkbox, the value to put into the field.</param>
-        /// <param name="ComboBoxSelectedIndex">For fields of type ComboBox; specifies the selected index of the combo box selection.</param>
-        public SetFormFieldValue(string FieldName = default(string), string TextValue = default(string), bool? CheckboxValue = default(bool?), int? ComboBoxSelectedIndex = default(int?))
+        /// <param name="fieldName">Name of the field to set; you can call /convert/edit/pdf/form/get-fields to enumerate field names in a form.</param>
+        /// <param name="textValue">For fields of type Text, the text value to put into the field.</param>
+        /// <param name="checkboxValue">For fields of type Checkbox, the value to put into the field.</param>
+        /// <param name="comboBoxSelectedIndex">For fields of type ComboBox; specifies the selected index of the combo box selection.</param>
+        public SetFormFieldValue(string fieldName = default(string), string textValue = default(string), bool? checkboxValue = default(bool?), int? comboBoxSelectedIndex = default(int?))
         {
-            this.FieldName = FieldName;
-            this.TextValue = TextValue;
-            this.CheckboxValue = CheckboxValue;
-            this.ComboBoxSelectedIndex = ComboBoxSelectedIndex;
+            this.FieldName = fieldName;
+            this.TextValue = textValue;
+            this.CheckboxValue = checkboxValue;
+            this.ComboBoxSelectedIndex = comboBoxSelectedIndex;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ComboBoxSelectedIndex.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

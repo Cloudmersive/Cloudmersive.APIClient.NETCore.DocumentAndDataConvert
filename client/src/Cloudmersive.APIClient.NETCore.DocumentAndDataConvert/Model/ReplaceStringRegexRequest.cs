@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Request to replace a regex string in a string
     /// </summary>
     [DataContract]
-    public partial class ReplaceStringRegexRequest :  IEquatable<ReplaceStringRegexRequest>, IValidatableObject
+    public partial class ReplaceStringRegexRequest :  IEquatable<ReplaceStringRegexRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReplaceStringRegexRequest" /> class.
         /// </summary>
-        /// <param name="TextContent">Input text content.</param>
-        /// <param name="RegularExpressionString">Target input regular expression (regex) string to match and be replaced; supports all regular expression values.</param>
-        /// <param name="ReplaceWithString">Replacement for target string; supports referencing indexed regex matched values from RegularExpressionString, such as $1, $2, and so on.</param>
-        public ReplaceStringRegexRequest(string TextContent = default(string), string RegularExpressionString = default(string), string ReplaceWithString = default(string))
+        /// <param name="textContent">Input text content.</param>
+        /// <param name="regularExpressionString">Target input regular expression (regex) string to match and be replaced; supports all regular expression values.</param>
+        /// <param name="replaceWithString">Replacement for target string; supports referencing indexed regex matched values from RegularExpressionString, such as $1, $2, and so on.</param>
+        public ReplaceStringRegexRequest(string textContent = default(string), string regularExpressionString = default(string), string replaceWithString = default(string))
         {
-            this.TextContent = TextContent;
-            this.RegularExpressionString = RegularExpressionString;
-            this.ReplaceWithString = ReplaceWithString;
+            this.TextContent = textContent;
+            this.RegularExpressionString = regularExpressionString;
+            this.ReplaceWithString = replaceWithString;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ReplaceWithString.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

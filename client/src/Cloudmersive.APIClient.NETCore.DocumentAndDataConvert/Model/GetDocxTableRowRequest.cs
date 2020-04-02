@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a get DOCX table row request
     /// </summary>
     [DataContract]
-    public partial class GetDocxTableRowRequest :  IEquatable<GetDocxTableRowRequest>, IValidatableObject
+    public partial class GetDocxTableRowRequest :  IEquatable<GetDocxTableRowRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetDocxTableRowRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="TablePath">Path to the table to retrievew the row from.</param>
-        /// <param name="TableRowRowIndex">0-based index of the row to retrieve (e.g. 0, 1, 2, ...) in the table.</param>
-        public GetDocxTableRowRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), string TablePath = default(string), int? TableRowRowIndex = default(int?))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="tablePath">Path to the table to retrievew the row from.</param>
+        /// <param name="tableRowRowIndex">0-based index of the row to retrieve (e.g. 0, 1, 2, ...) in the table.</param>
+        public GetDocxTableRowRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), string tablePath = default(string), int? tableRowRowIndex = default(int?))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.TablePath = TablePath;
-            this.TableRowRowIndex = TableRowRowIndex;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.TablePath = tablePath;
+            this.TableRowRowIndex = tableRowRowIndex;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.TableRowRowIndex.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

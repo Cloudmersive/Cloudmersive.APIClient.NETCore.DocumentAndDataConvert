@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="converttemplateapplydocxtemplate"></a>
 # **ConvertTemplateApplyDocxTemplate**
-> byte[] ConvertTemplateApplyDocxTemplate (System.IO.Stream inputFile, string templateDefinition = null)
+> byte[] ConvertTemplateApplyDocxTemplate (System.IO.Stream inputFile, Object templateDefinition = null)
 
 Apply Word DOCX template
 
@@ -37,7 +37,7 @@ namespace Example
 
             var apiInstance = new ConvertTemplateApi();
             var inputFile = new System.IO.Stream(); // System.IO.Stream | Input file to perform the operation on.
-            var templateDefinition = templateDefinition_example;  // string | Template definition for the document, including what values to replace (optional) 
+            var templateDefinition = new Object(); // Object | Template definition for the document, including what values to replace (optional) 
 
             try
             {
@@ -59,7 +59,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **System.IO.Stream**| Input file to perform the operation on. | 
- **templateDefinition** | **string**| Template definition for the document, including what values to replace | [optional] 
+ **templateDefinition** | [**Object**](Object.md)| Template definition for the document, including what values to replace | [optional] 
 
 ### Return type
 

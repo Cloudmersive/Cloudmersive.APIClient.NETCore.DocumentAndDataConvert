@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Individual match result of finding a target string in a longer text string
     /// </summary>
     [DataContract]
-    public partial class FindStringMatch :  IEquatable<FindStringMatch>, IValidatableObject
+    public partial class FindStringMatch :  IEquatable<FindStringMatch>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FindStringMatch" /> class.
         /// </summary>
-        /// <param name="CharacterOffsetStart">0-based index of the start of the match.</param>
-        /// <param name="CharacterOffsetEnd">0-based index of the end of the match.</param>
-        /// <param name="ContainingLine">Text content of the line containing the match.</param>
-        public FindStringMatch(int? CharacterOffsetStart = default(int?), int? CharacterOffsetEnd = default(int?), string ContainingLine = default(string))
+        /// <param name="characterOffsetStart">0-based index of the start of the match.</param>
+        /// <param name="characterOffsetEnd">0-based index of the end of the match.</param>
+        /// <param name="containingLine">Text content of the line containing the match.</param>
+        public FindStringMatch(int? characterOffsetStart = default(int?), int? characterOffsetEnd = default(int?), string containingLine = default(string))
         {
-            this.CharacterOffsetStart = CharacterOffsetStart;
-            this.CharacterOffsetEnd = CharacterOffsetEnd;
-            this.ContainingLine = ContainingLine;
+            this.CharacterOffsetStart = characterOffsetStart;
+            this.CharacterOffsetEnd = characterOffsetEnd;
+            this.ContainingLine = containingLine;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ContainingLine.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

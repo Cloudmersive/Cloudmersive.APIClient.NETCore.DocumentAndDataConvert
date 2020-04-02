@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of running a Get-Tables command
     /// </summary>
     [DataContract]
-    public partial class GetDocxTablesResponse :  IEquatable<GetDocxTablesResponse>, IValidatableObject
+    public partial class GetDocxTablesResponse :  IEquatable<GetDocxTablesResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetDocxTablesResponse" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Tables">Tables in the DOCX file.</param>
-        public GetDocxTablesResponse(bool? Successful = default(bool?), List<DocxTable> Tables = default(List<DocxTable>))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="tables">Tables in the DOCX file.</param>
+        public GetDocxTablesResponse(bool? successful = default(bool?), List<DocxTable> tables = default(List<DocxTable>))
         {
-            this.Successful = Successful;
-            this.Tables = Tables;
+            this.Successful = successful;
+            this.Tables = tables;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Tables.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

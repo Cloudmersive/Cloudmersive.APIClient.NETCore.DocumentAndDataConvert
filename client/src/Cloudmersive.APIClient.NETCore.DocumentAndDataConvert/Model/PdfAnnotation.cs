@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,37 +26,37 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// PDF Annotation details
     /// </summary>
     [DataContract]
-    public partial class PdfAnnotation :  IEquatable<PdfAnnotation>, IValidatableObject
+    public partial class PdfAnnotation :  IEquatable<PdfAnnotation>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PdfAnnotation" /> class.
         /// </summary>
-        /// <param name="Title">Title of the annotation; this is often the author of the annotation in Acrobat-created PDF files.</param>
-        /// <param name="AnnotationType">Type of the annotation; possible values are Text.</param>
-        /// <param name="PageNumber">The 1-based index of the page containing the annotation.</param>
-        /// <param name="AnnotationIndex">The 0-based index of the annotation in the document.</param>
-        /// <param name="Subject">Subject of the annotation.</param>
-        /// <param name="TextContents">Text contents of the annotation.</param>
-        /// <param name="CreationDate">Date that the annotation was created.</param>
-        /// <param name="ModifiedDate">Date that the annotation was last modified.</param>
-        /// <param name="LeftX">Left X coordinate for the location of the annotation.</param>
-        /// <param name="TopY">Top Y coordination of the location of the annotation.</param>
-        /// <param name="Width">Width of the annotation.</param>
-        /// <param name="Height">Height of the annotation.</param>
-        public PdfAnnotation(string Title = default(string), string AnnotationType = default(string), int? PageNumber = default(int?), int? AnnotationIndex = default(int?), string Subject = default(string), string TextContents = default(string), DateTime? CreationDate = default(DateTime?), DateTime? ModifiedDate = default(DateTime?), double? LeftX = default(double?), double? TopY = default(double?), double? Width = default(double?), double? Height = default(double?))
+        /// <param name="title">Title of the annotation; this is often the author of the annotation in Acrobat-created PDF files.</param>
+        /// <param name="annotationType">Type of the annotation; possible values are Text.</param>
+        /// <param name="pageNumber">The 1-based index of the page containing the annotation.</param>
+        /// <param name="annotationIndex">The 0-based index of the annotation in the document.</param>
+        /// <param name="subject">Subject of the annotation.</param>
+        /// <param name="textContents">Text contents of the annotation.</param>
+        /// <param name="creationDate">Date that the annotation was created.</param>
+        /// <param name="modifiedDate">Date that the annotation was last modified.</param>
+        /// <param name="leftX">Left X coordinate for the location of the annotation.</param>
+        /// <param name="topY">Top Y coordination of the location of the annotation.</param>
+        /// <param name="width">Width of the annotation.</param>
+        /// <param name="height">Height of the annotation.</param>
+        public PdfAnnotation(string title = default(string), string annotationType = default(string), int? pageNumber = default(int?), int? annotationIndex = default(int?), string subject = default(string), string textContents = default(string), DateTime? creationDate = default(DateTime?), DateTime? modifiedDate = default(DateTime?), double? leftX = default(double?), double? topY = default(double?), double? width = default(double?), double? height = default(double?))
         {
-            this.Title = Title;
-            this.AnnotationType = AnnotationType;
-            this.PageNumber = PageNumber;
-            this.AnnotationIndex = AnnotationIndex;
-            this.Subject = Subject;
-            this.TextContents = TextContents;
-            this.CreationDate = CreationDate;
-            this.ModifiedDate = ModifiedDate;
-            this.LeftX = LeftX;
-            this.TopY = TopY;
-            this.Width = Width;
-            this.Height = Height;
+            this.Title = title;
+            this.AnnotationType = annotationType;
+            this.PageNumber = pageNumber;
+            this.AnnotationIndex = annotationIndex;
+            this.Subject = subject;
+            this.TextContents = textContents;
+            this.CreationDate = creationDate;
+            this.ModifiedDate = modifiedDate;
+            this.LeftX = leftX;
+            this.TopY = topY;
+            this.Width = width;
+            this.Height = height;
         }
         
         /// <summary>
@@ -173,7 +171,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -296,16 +294,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Height.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

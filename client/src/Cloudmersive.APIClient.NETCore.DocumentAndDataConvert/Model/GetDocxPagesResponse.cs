@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of getting pages from a Word Document DOCX
     /// </summary>
     [DataContract]
-    public partial class GetDocxPagesResponse :  IEquatable<GetDocxPagesResponse>, IValidatableObject
+    public partial class GetDocxPagesResponse :  IEquatable<GetDocxPagesResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetDocxPagesResponse" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Pages">Pages in the document.</param>
-        /// <param name="PageCount">Count of pages.</param>
-        public GetDocxPagesResponse(bool? Successful = default(bool?), List<DocxPage> Pages = default(List<DocxPage>), int? PageCount = default(int?))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="pages">Pages in the document.</param>
+        /// <param name="pageCount">Count of pages.</param>
+        public GetDocxPagesResponse(bool? successful = default(bool?), List<DocxPage> pages = default(List<DocxPage>), int? pageCount = default(int?))
         {
-            this.Successful = Successful;
-            this.Pages = Pages;
-            this.PageCount = PageCount;
+            this.Successful = successful;
+            this.Pages = pages;
+            this.PageCount = pageCount;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.PageCount.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client;
 using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model;
 
@@ -34,7 +34,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <param name="templateDefinition">Template definition for the document, including what values to replace (optional)</param>
         /// <returns>byte[]</returns>
-        byte[] ConvertTemplateApplyDocxTemplate (System.IO.Stream inputFile, string templateDefinition = null);
+        byte[] ConvertTemplateApplyDocxTemplate (System.IO.Stream inputFile, Object templateDefinition = null);
 
         /// <summary>
         /// Apply Word DOCX template
@@ -46,7 +46,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <param name="templateDefinition">Template definition for the document, including what values to replace (optional)</param>
         /// <returns>ApiResponse of byte[]</returns>
-        ApiResponse<byte[]> ConvertTemplateApplyDocxTemplateWithHttpInfo (System.IO.Stream inputFile, string templateDefinition = null);
+        ApiResponse<byte[]> ConvertTemplateApplyDocxTemplateWithHttpInfo (System.IO.Stream inputFile, Object templateDefinition = null);
         /// <summary>
         /// Apply HTML template
         /// </summary>
@@ -80,7 +80,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <param name="templateDefinition">Template definition for the document, including what values to replace (optional)</param>
         /// <returns>Task of byte[]</returns>
-        System.Threading.Tasks.Task<byte[]> ConvertTemplateApplyDocxTemplateAsync (System.IO.Stream inputFile, string templateDefinition = null);
+        System.Threading.Tasks.Task<byte[]> ConvertTemplateApplyDocxTemplateAsync (System.IO.Stream inputFile, Object templateDefinition = null);
 
         /// <summary>
         /// Apply Word DOCX template
@@ -92,7 +92,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <param name="templateDefinition">Template definition for the document, including what values to replace (optional)</param>
         /// <returns>Task of ApiResponse (byte[])</returns>
-        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertTemplateApplyDocxTemplateAsyncWithHttpInfo (System.IO.Stream inputFile, string templateDefinition = null);
+        System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertTemplateApplyDocxTemplateAsyncWithHttpInfo (System.IO.Stream inputFile, Object templateDefinition = null);
         /// <summary>
         /// Apply HTML template
         /// </summary>
@@ -130,7 +130,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <returns></returns>
         public ConvertTemplateApi(String basePath)
         {
-            this.Configuration = new Configuration { BasePath = basePath };
+            this.Configuration = new Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration { BasePath = basePath };
 
             ExceptionFactory = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration.DefaultExceptionFactory;
         }
@@ -141,10 +141,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ConvertTemplateApi(Configuration configuration = null)
+        public ConvertTemplateApi(Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                this.Configuration = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
@@ -174,7 +174,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -221,7 +221,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <param name="templateDefinition">Template definition for the document, including what values to replace (optional)</param>
         /// <returns>byte[]</returns>
-        public byte[] ConvertTemplateApplyDocxTemplate (System.IO.Stream inputFile, string templateDefinition = null)
+        public byte[] ConvertTemplateApplyDocxTemplate (System.IO.Stream inputFile, Object templateDefinition = null)
         {
              ApiResponse<byte[]> localVarResponse = ConvertTemplateApplyDocxTemplateWithHttpInfo(inputFile, templateDefinition);
              return localVarResponse.Data;
@@ -234,16 +234,16 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <param name="templateDefinition">Template definition for the document, including what values to replace (optional)</param>
         /// <returns>ApiResponse of byte[]</returns>
-        public ApiResponse< byte[] > ConvertTemplateApplyDocxTemplateWithHttpInfo (System.IO.Stream inputFile, string templateDefinition = null)
+        public ApiResponse< byte[] > ConvertTemplateApplyDocxTemplateWithHttpInfo (System.IO.Stream inputFile, Object templateDefinition = null)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile' when calling ConvertTemplateApi->ConvertTemplateApplyDocxTemplate");
 
-            var localVarPath = "/convert/template/docx/apply";
+            var localVarPath = "./convert/template/docx/apply";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -252,27 +252,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (templateDefinition != null) localVarHeaderParams.Add("templateDefinition", Configuration.ApiClient.ParameterToString(templateDefinition)); // header parameter
-            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+            if (templateDefinition != null) localVarHeaderParams.Add("templateDefinition", this.Configuration.ApiClient.ParameterToString(templateDefinition)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -285,8 +285,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -296,7 +296,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <param name="templateDefinition">Template definition for the document, including what values to replace (optional)</param>
         /// <returns>Task of byte[]</returns>
-        public async System.Threading.Tasks.Task<byte[]> ConvertTemplateApplyDocxTemplateAsync (System.IO.Stream inputFile, string templateDefinition = null)
+        public async System.Threading.Tasks.Task<byte[]> ConvertTemplateApplyDocxTemplateAsync (System.IO.Stream inputFile, Object templateDefinition = null)
         {
              ApiResponse<byte[]> localVarResponse = await ConvertTemplateApplyDocxTemplateAsyncWithHttpInfo(inputFile, templateDefinition);
              return localVarResponse.Data;
@@ -310,16 +310,16 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <param name="inputFile">Input file to perform the operation on.</param>
         /// <param name="templateDefinition">Template definition for the document, including what values to replace (optional)</param>
         /// <returns>Task of ApiResponse (byte[])</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertTemplateApplyDocxTemplateAsyncWithHttpInfo (System.IO.Stream inputFile, string templateDefinition = null)
+        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ConvertTemplateApplyDocxTemplateAsyncWithHttpInfo (System.IO.Stream inputFile, Object templateDefinition = null)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile' when calling ConvertTemplateApi->ConvertTemplateApplyDocxTemplate");
 
-            var localVarPath = "/convert/template/docx/apply";
+            var localVarPath = "./convert/template/docx/apply";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -328,27 +328,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (templateDefinition != null) localVarHeaderParams.Add("templateDefinition", Configuration.ApiClient.ParameterToString(templateDefinition)); // header parameter
-            if (inputFile != null) localVarFileParams.Add("inputFile", Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
+            if (templateDefinition != null) localVarHeaderParams.Add("templateDefinition", this.Configuration.ApiClient.ParameterToString(templateDefinition)); // header parameter
+            if (inputFile != null) localVarFileParams.Add("inputFile", this.Configuration.ApiClient.ParameterToFile("inputFile", inputFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -361,8 +361,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -389,10 +389,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (value == null)
                 throw new ApiException(400, "Missing required parameter 'value' when calling ConvertTemplateApi->ConvertTemplateApplyHtmlTemplate");
 
-            var localVarPath = "/convert/template/html/apply";
+            var localVarPath = "./convert/template/html/apply";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -405,7 +405,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 "text/xml", 
                 "application/x-www-form-urlencoded"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -414,13 +414,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (value != null && value.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(value); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(value); // http body (model) parameter
             }
             else
             {
@@ -428,13 +428,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -447,8 +447,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<HtmlTemplateApplicationResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (HtmlTemplateApplicationResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(HtmlTemplateApplicationResponse)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (HtmlTemplateApplicationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HtmlTemplateApplicationResponse)));
         }
 
         /// <summary>
@@ -476,10 +476,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (value == null)
                 throw new ApiException(400, "Missing required parameter 'value' when calling ConvertTemplateApi->ConvertTemplateApplyHtmlTemplate");
 
-            var localVarPath = "/convert/template/html/apply";
+            var localVarPath = "./convert/template/html/apply";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -492,7 +492,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 "text/xml", 
                 "application/x-www-form-urlencoded"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -501,13 +501,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (value != null && value.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(value); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(value); // http body (model) parameter
             }
             else
             {
@@ -515,13 +515,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -534,8 +534,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<HtmlTemplateApplicationResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (HtmlTemplateApplicationResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(HtmlTemplateApplicationResponse)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (HtmlTemplateApplicationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HtmlTemplateApplicationResponse)));
         }
 
     }

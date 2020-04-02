@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of base 64 decoding
     /// </summary>
     [DataContract]
-    public partial class DetectLineEndingsResponse :  IEquatable<DetectLineEndingsResponse>, IValidatableObject
+    public partial class DetectLineEndingsResponse :  IEquatable<DetectLineEndingsResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DetectLineEndingsResponse" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="PrimaryNewlineType">Type of newline in the file; possible vlaues are \&quot;Mac\&quot; (legacy Mac OS uses carriage return only); \&quot;Unix\&quot; (Unix and Linux OSes, and modern Mac OS); \&quot;Windows\&quot; (Windows operating systems).</param>
-        /// <param name="PrimaryNewlineTerminator">Characters used to terminate a newline; can be carriage return, linefeed, or carriage return + linefeed.</param>
-        /// <param name="InputLength">Length of the input string in characters.</param>
-        public DetectLineEndingsResponse(bool? Successful = default(bool?), string PrimaryNewlineType = default(string), string PrimaryNewlineTerminator = default(string), int? InputLength = default(int?))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="primaryNewlineType">Type of newline in the file; possible vlaues are \&quot;Mac\&quot; (legacy Mac OS uses carriage return only); \&quot;Unix\&quot; (Unix and Linux OSes, and modern Mac OS); \&quot;Windows\&quot; (Windows operating systems).</param>
+        /// <param name="primaryNewlineTerminator">Characters used to terminate a newline; can be carriage return, linefeed, or carriage return + linefeed.</param>
+        /// <param name="inputLength">Length of the input string in characters.</param>
+        public DetectLineEndingsResponse(bool? successful = default(bool?), string primaryNewlineType = default(string), string primaryNewlineTerminator = default(string), int? inputLength = default(int?))
         {
-            this.Successful = Successful;
-            this.PrimaryNewlineType = PrimaryNewlineType;
-            this.PrimaryNewlineTerminator = PrimaryNewlineTerminator;
-            this.InputLength = InputLength;
+            this.Successful = successful;
+            this.PrimaryNewlineType = primaryNewlineType;
+            this.PrimaryNewlineTerminator = primaryNewlineTerminator;
+            this.InputLength = inputLength;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.InputLength.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

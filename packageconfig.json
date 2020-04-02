@@ -1,7 +1,8 @@
 ﻿{
 
   "packageName" : "Cloudmersive.APIClient.NETCore.DocumentAndDataConvert",
-  "packageVersion": "1.9.2",
+  "packageVersion": "2.0.2",
   "netCoreProjectFile": "true",
-  "packageGuid": "be4bc5a5-a1f7-4174-9376-21c0bc7b2001"
+  "packageGuid": "be4bc5a5-a1f7-4174-9376-21c0bc7b2001",
+  "targetFramework": "v5.0"
 }  

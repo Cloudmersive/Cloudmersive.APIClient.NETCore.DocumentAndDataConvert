@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// A single PDF file corresponding to one page in the original document
     /// </summary>
     [DataContract]
-    public partial class PdfDocument :  IEquatable<PdfDocument>, IValidatableObject
+    public partial class PdfDocument :  IEquatable<PdfDocument>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PdfDocument" /> class.
         /// </summary>
-        /// <param name="PageNumber">Page number of the converted page, starting with 1 for the first page.</param>
-        /// <param name="URL">URL to the PDF file of this worksheet; file is stored in an in-memory cache and will be deleted.</param>
-        /// <param name="DocumentContents">If returnDocumentContents is set to true, will contain the contents of the document; otherwise will be set to null and the document contents will be available via the URL parameter.</param>
-        public PdfDocument(int? PageNumber = default(int?), string URL = default(string), byte[] DocumentContents = default(byte[]))
+        /// <param name="pageNumber">Page number of the converted page, starting with 1 for the first page.</param>
+        /// <param name="uRL">URL to the PDF file of this worksheet; file is stored in an in-memory cache and will be deleted.</param>
+        /// <param name="documentContents">If returnDocumentContents is set to true, will contain the contents of the document; otherwise will be set to null and the document contents will be available via the URL parameter.</param>
+        public PdfDocument(int? pageNumber = default(int?), string uRL = default(string), byte[] documentContents = default(byte[]))
         {
-            this.PageNumber = PageNumber;
-            this.URL = URL;
-            this.DocumentContents = DocumentContents;
+            this.PageNumber = pageNumber;
+            this.URL = uRL;
+            this.DocumentContents = documentContents;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.DocumentContents.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

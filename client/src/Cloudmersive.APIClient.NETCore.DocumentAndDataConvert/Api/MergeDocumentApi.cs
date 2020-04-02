@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
@@ -785,7 +785,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// <returns></returns>
         public MergeDocumentApi(String basePath)
         {
-            this.Configuration = new Configuration { BasePath = basePath };
+            this.Configuration = new Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration { BasePath = basePath };
 
             ExceptionFactory = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration.DefaultExceptionFactory;
         }
@@ -796,10 +796,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public MergeDocumentApi(Configuration configuration = null)
+        public MergeDocumentApi(Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                this.Configuration = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
@@ -829,7 +829,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -898,10 +898,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentDocx");
 
-            var localVarPath = "/convert/merge/docx";
+            var localVarPath = "./convert/merge/docx";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -910,27 +910,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -943,8 +943,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -977,10 +977,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentDocx");
 
-            var localVarPath = "/convert/merge/docx";
+            var localVarPath = "./convert/merge/docx";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -989,27 +989,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1022,8 +1022,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1071,10 +1071,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentDocxMulti");
 
-            var localVarPath = "/convert/merge/docx/multi";
+            var localVarPath = "./convert/merge/docx/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1083,35 +1083,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1124,8 +1124,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1174,10 +1174,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentDocxMulti");
 
-            var localVarPath = "/convert/merge/docx/multi";
+            var localVarPath = "./convert/merge/docx/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1186,35 +1186,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1227,8 +1227,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1260,10 +1260,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPdf");
 
-            var localVarPath = "/convert/merge/pdf";
+            var localVarPath = "./convert/merge/pdf";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1272,27 +1272,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1305,8 +1305,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1339,10 +1339,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPdf");
 
-            var localVarPath = "/convert/merge/pdf";
+            var localVarPath = "./convert/merge/pdf";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1351,27 +1351,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1384,8 +1384,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1433,10 +1433,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPdfMulti");
 
-            var localVarPath = "/convert/merge/pdf/multi";
+            var localVarPath = "./convert/merge/pdf/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1445,35 +1445,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1486,8 +1486,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1536,10 +1536,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPdfMulti");
 
-            var localVarPath = "/convert/merge/pdf/multi";
+            var localVarPath = "./convert/merge/pdf/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1548,35 +1548,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1589,8 +1589,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1622,10 +1622,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPng");
 
-            var localVarPath = "/convert/merge/png/vertical";
+            var localVarPath = "./convert/merge/png/vertical";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1634,27 +1634,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1667,8 +1667,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1701,10 +1701,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPng");
 
-            var localVarPath = "/convert/merge/png/vertical";
+            var localVarPath = "./convert/merge/png/vertical";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1713,27 +1713,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1746,8 +1746,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1795,10 +1795,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPngMulti");
 
-            var localVarPath = "/convert/merge/png/vertical/multi";
+            var localVarPath = "./convert/merge/png/vertical/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1807,35 +1807,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1848,8 +1848,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1898,10 +1898,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPngMulti");
 
-            var localVarPath = "/convert/merge/png/vertical/multi";
+            var localVarPath = "./convert/merge/png/vertical/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1910,35 +1910,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1951,8 +1951,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -1984,10 +1984,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPptx");
 
-            var localVarPath = "/convert/merge/pptx";
+            var localVarPath = "./convert/merge/pptx";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1996,27 +1996,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2029,8 +2029,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2063,10 +2063,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPptx");
 
-            var localVarPath = "/convert/merge/pptx";
+            var localVarPath = "./convert/merge/pptx";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2075,27 +2075,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2108,8 +2108,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2157,10 +2157,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPptxMulti");
 
-            var localVarPath = "/convert/merge/pptx/multi";
+            var localVarPath = "./convert/merge/pptx/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2169,35 +2169,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2210,8 +2210,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2260,10 +2260,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentPptxMulti");
 
-            var localVarPath = "/convert/merge/pptx/multi";
+            var localVarPath = "./convert/merge/pptx/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2272,35 +2272,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2313,8 +2313,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2346,10 +2346,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentTxt");
 
-            var localVarPath = "/convert/merge/txt";
+            var localVarPath = "./convert/merge/txt";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2358,27 +2358,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2391,8 +2391,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
         /// <summary>
@@ -2425,10 +2425,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentTxt");
 
-            var localVarPath = "/convert/merge/txt";
+            var localVarPath = "./convert/merge/txt";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2437,27 +2437,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2470,8 +2470,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (Object) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
         }
 
         /// <summary>
@@ -2519,10 +2519,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentTxtMulti");
 
-            var localVarPath = "/convert/merge/txt/multi";
+            var localVarPath = "./convert/merge/txt/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2531,35 +2531,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2572,8 +2572,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2622,10 +2622,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentTxtMulti");
 
-            var localVarPath = "/convert/merge/txt/multi";
+            var localVarPath = "./convert/merge/txt/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2634,35 +2634,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2675,8 +2675,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2708,10 +2708,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentXlsx");
 
-            var localVarPath = "/convert/merge/xlsx";
+            var localVarPath = "./convert/merge/xlsx";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2720,27 +2720,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2753,8 +2753,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2787,10 +2787,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentXlsx");
 
-            var localVarPath = "/convert/merge/xlsx";
+            var localVarPath = "./convert/merge/xlsx";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2799,27 +2799,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2832,8 +2832,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2881,10 +2881,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentXlsxMulti");
 
-            var localVarPath = "/convert/merge/xlsx/multi";
+            var localVarPath = "./convert/merge/xlsx/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2893,35 +2893,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -2934,8 +2934,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
         /// <summary>
@@ -2984,10 +2984,10 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             if (inputFile2 == null)
                 throw new ApiException(400, "Missing required parameter 'inputFile2' when calling MergeDocumentApi->MergeDocumentXlsxMulti");
 
-            var localVarPath = "/convert/merge/xlsx/multi";
+            var localVarPath = "./convert/merge/xlsx/multi";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -2996,35 +2996,35 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
                 "application/octet-stream"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (inputFile1 != null) localVarFileParams.Add("inputFile1", Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
-            if (inputFile2 != null) localVarFileParams.Add("inputFile2", Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
-            if (inputFile3 != null) localVarFileParams.Add("inputFile3", Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
-            if (inputFile4 != null) localVarFileParams.Add("inputFile4", Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
-            if (inputFile5 != null) localVarFileParams.Add("inputFile5", Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
-            if (inputFile6 != null) localVarFileParams.Add("inputFile6", Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
-            if (inputFile7 != null) localVarFileParams.Add("inputFile7", Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
-            if (inputFile8 != null) localVarFileParams.Add("inputFile8", Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
-            if (inputFile9 != null) localVarFileParams.Add("inputFile9", Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
-            if (inputFile10 != null) localVarFileParams.Add("inputFile10", Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
+            if (inputFile1 != null) localVarFileParams.Add("inputFile1", this.Configuration.ApiClient.ParameterToFile("inputFile1", inputFile1));
+            if (inputFile2 != null) localVarFileParams.Add("inputFile2", this.Configuration.ApiClient.ParameterToFile("inputFile2", inputFile2));
+            if (inputFile3 != null) localVarFileParams.Add("inputFile3", this.Configuration.ApiClient.ParameterToFile("inputFile3", inputFile3));
+            if (inputFile4 != null) localVarFileParams.Add("inputFile4", this.Configuration.ApiClient.ParameterToFile("inputFile4", inputFile4));
+            if (inputFile5 != null) localVarFileParams.Add("inputFile5", this.Configuration.ApiClient.ParameterToFile("inputFile5", inputFile5));
+            if (inputFile6 != null) localVarFileParams.Add("inputFile6", this.Configuration.ApiClient.ParameterToFile("inputFile6", inputFile6));
+            if (inputFile7 != null) localVarFileParams.Add("inputFile7", this.Configuration.ApiClient.ParameterToFile("inputFile7", inputFile7));
+            if (inputFile8 != null) localVarFileParams.Add("inputFile8", this.Configuration.ApiClient.ParameterToFile("inputFile8", inputFile8));
+            if (inputFile9 != null) localVarFileParams.Add("inputFile9", this.Configuration.ApiClient.ParameterToFile("inputFile9", inputFile9));
+            if (inputFile10 != null) localVarFileParams.Add("inputFile10", this.Configuration.ApiClient.ParameterToFile("inputFile10", inputFile10));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -3037,8 +3037,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Api
             }
 
             return new ApiResponse<byte[]>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (byte[]) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
         }
 
     }

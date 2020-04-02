@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of running a set-header command
     /// </summary>
     [DataContract]
-    public partial class DocxSetHeaderResponse :  IEquatable<DocxSetHeaderResponse>, IValidatableObject
+    public partial class DocxSetHeaderResponse :  IEquatable<DocxSetHeaderResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxSetHeaderResponse" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="EditedDocumentURL">URL to the edited DOCX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents..</param>
-        public DocxSetHeaderResponse(bool? Successful = default(bool?), string EditedDocumentURL = default(string))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="editedDocumentURL">URL to the edited DOCX file; file is stored in an in-memory cache and will be deleted.  Call Finish-Editing to get the result document contents..</param>
+        public DocxSetHeaderResponse(bool? successful = default(bool?), string editedDocumentURL = default(string))
         {
-            this.Successful = Successful;
-            this.EditedDocumentURL = EditedDocumentURL;
+            this.Successful = successful;
+            this.EditedDocumentURL = editedDocumentURL;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.EditedDocumentURL.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

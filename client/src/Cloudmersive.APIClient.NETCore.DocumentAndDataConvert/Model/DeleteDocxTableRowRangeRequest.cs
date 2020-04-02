@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,23 +26,23 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a delete DOCX table row range request
     /// </summary>
     [DataContract]
-    public partial class DeleteDocxTableRowRangeRequest :  IEquatable<DeleteDocxTableRowRangeRequest>, IValidatableObject
+    public partial class DeleteDocxTableRowRangeRequest :  IEquatable<DeleteDocxTableRowRangeRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteDocxTableRowRangeRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="TablePath">Path to the table to delete the row from.</param>
-        /// <param name="TableRowRowIndexStart">0-based index of the row to begin deleting rows (e.g. 0, 1, 2, ...) in the table.</param>
-        /// <param name="TableRowRowIndexEnd">0-based index of the row to stop deleting rows (e.g. 0, 1, 2, ...) in the table.</param>
-        public DeleteDocxTableRowRangeRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), string TablePath = default(string), int? TableRowRowIndexStart = default(int?), int? TableRowRowIndexEnd = default(int?))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="tablePath">Path to the table to delete the row from.</param>
+        /// <param name="tableRowRowIndexStart">0-based index of the row to begin deleting rows (e.g. 0, 1, 2, ...) in the table.</param>
+        /// <param name="tableRowRowIndexEnd">0-based index of the row to stop deleting rows (e.g. 0, 1, 2, ...) in the table.</param>
+        public DeleteDocxTableRowRangeRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), string tablePath = default(string), int? tableRowRowIndexStart = default(int?), int? tableRowRowIndexEnd = default(int?))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.TablePath = TablePath;
-            this.TableRowRowIndexStart = TableRowRowIndexStart;
-            this.TableRowRowIndexEnd = TableRowRowIndexEnd;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.TablePath = tablePath;
+            this.TableRowRowIndexStart = tableRowRowIndexStart;
+            this.TableRowRowIndexEnd = tableRowRowIndexEnd;
         }
         
         /// <summary>
@@ -103,7 +101,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -177,16 +175,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.TableRowRowIndexEnd.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

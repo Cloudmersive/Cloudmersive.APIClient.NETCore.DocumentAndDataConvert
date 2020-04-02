@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of retrieving annotations from a PDF document
     /// </summary>
     [DataContract]
-    public partial class GetPdfAnnotationsResult :  IEquatable<GetPdfAnnotationsResult>, IValidatableObject
+    public partial class GetPdfAnnotationsResult :  IEquatable<GetPdfAnnotationsResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetPdfAnnotationsResult" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Annotations">Annotations in the PDF file, ordered by placement from start to finish in the document.</param>
-        public GetPdfAnnotationsResult(bool? Successful = default(bool?), List<PdfAnnotation> Annotations = default(List<PdfAnnotation>))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="annotations">Annotations in the PDF file, ordered by placement from start to finish in the document.</param>
+        public GetPdfAnnotationsResult(bool? successful = default(bool?), List<PdfAnnotation> annotations = default(List<PdfAnnotation>))
         {
-            this.Successful = Successful;
-            this.Annotations = Annotations;
+            this.Successful = successful;
+            this.Annotations = annotations;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Annotations.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet
     /// </summary>
     [DataContract]
-    public partial class WorksheetResult :  IEquatable<WorksheetResult>, IValidatableObject
+    public partial class WorksheetResult :  IEquatable<WorksheetResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WorksheetResult" /> class.
         /// </summary>
-        /// <param name="WorksheetNumber">Worksheet number of the converted page, starting with 1 for the left-most worksheet.</param>
-        /// <param name="WorksheetName">The name of the worksheet.</param>
-        /// <param name="URL">URL to the XLSX file of this worksheet; file is stored in an in-memory cache and will be deleted.</param>
-        /// <param name="WorksheetContents">Contents of the worksheet in bytes.</param>
-        public WorksheetResult(int? WorksheetNumber = default(int?), string WorksheetName = default(string), string URL = default(string), byte[] WorksheetContents = default(byte[]))
+        /// <param name="worksheetNumber">Worksheet number of the converted page, starting with 1 for the left-most worksheet.</param>
+        /// <param name="worksheetName">The name of the worksheet.</param>
+        /// <param name="uRL">URL to the XLSX file of this worksheet; file is stored in an in-memory cache and will be deleted.</param>
+        /// <param name="worksheetContents">Contents of the worksheet in bytes.</param>
+        public WorksheetResult(int? worksheetNumber = default(int?), string worksheetName = default(string), string uRL = default(string), byte[] worksheetContents = default(byte[]))
         {
-            this.WorksheetNumber = WorksheetNumber;
-            this.WorksheetName = WorksheetName;
-            this.URL = URL;
-            this.WorksheetContents = WorksheetContents;
+            this.WorksheetNumber = worksheetNumber;
+            this.WorksheetName = worksheetName;
+            this.URL = uRL;
+            this.WorksheetContents = worksheetContents;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.WorksheetContents.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

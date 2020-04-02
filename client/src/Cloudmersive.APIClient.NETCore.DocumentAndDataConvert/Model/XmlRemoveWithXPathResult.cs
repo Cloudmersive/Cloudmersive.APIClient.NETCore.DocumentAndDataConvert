@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of performing a filter operation on XML input using XPath
     /// </summary>
     [DataContract]
-    public partial class XmlRemoveWithXPathResult :  IEquatable<XmlRemoveWithXPathResult>, IValidatableObject
+    public partial class XmlRemoveWithXPathResult :  IEquatable<XmlRemoveWithXPathResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="XmlRemoveWithXPathResult" /> class.
         /// </summary>
-        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
-        /// <param name="ResultingXmlDocument">Resulting, modified XML document with matching nodes removed as a string.</param>
-        /// <param name="XmlNodesRemoved">Matching selected XML nodes as strings.</param>
-        /// <param name="NodesRemovedCount">Count of the matching results.</param>
-        public XmlRemoveWithXPathResult(bool? Successful = default(bool?), string ResultingXmlDocument = default(string), List<string> XmlNodesRemoved = default(List<string>), int? NodesRemovedCount = default(int?))
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="resultingXmlDocument">Resulting, modified XML document with matching nodes removed as a string.</param>
+        /// <param name="xmlNodesRemoved">Matching selected XML nodes as strings.</param>
+        /// <param name="nodesRemovedCount">Count of the matching results.</param>
+        public XmlRemoveWithXPathResult(bool? successful = default(bool?), string resultingXmlDocument = default(string), List<string> xmlNodesRemoved = default(List<string>), int? nodesRemovedCount = default(int?))
         {
-            this.Successful = Successful;
-            this.ResultingXmlDocument = ResultingXmlDocument;
-            this.XmlNodesRemoved = XmlNodesRemoved;
-            this.NodesRemovedCount = NodesRemovedCount;
+            this.Successful = successful;
+            this.ResultingXmlDocument = resultingXmlDocument;
+            this.XmlNodesRemoved = xmlNodesRemoved;
+            this.NodesRemovedCount = nodesRemovedCount;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.NodesRemovedCount.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

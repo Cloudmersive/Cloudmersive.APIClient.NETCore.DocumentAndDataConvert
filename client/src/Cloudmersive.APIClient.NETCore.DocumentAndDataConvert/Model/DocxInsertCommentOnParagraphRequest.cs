@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a Insert Comment on Paragraph request
     /// </summary>
     [DataContract]
-    public partial class DocxInsertCommentOnParagraphRequest :  IEquatable<DocxInsertCommentOnParagraphRequest>, IValidatableObject
+    public partial class DocxInsertCommentOnParagraphRequest :  IEquatable<DocxInsertCommentOnParagraphRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxInsertCommentOnParagraphRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="ParagraphPath">Path to the paragraph to attach the comment to.  You can get the Path by retrieving all of the Paragraphs in document by calling Get Body and taking the Path property of the desired paragraph to add the comment to..</param>
-        /// <param name="CommentToInsert">Comment to insert.</param>
-        public DocxInsertCommentOnParagraphRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), string ParagraphPath = default(string), DocxComment CommentToInsert = default(DocxComment))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="paragraphPath">Path to the paragraph to attach the comment to.  You can get the Path by retrieving all of the Paragraphs in document by calling Get Body and taking the Path property of the desired paragraph to add the comment to..</param>
+        /// <param name="commentToInsert">Comment to insert.</param>
+        public DocxInsertCommentOnParagraphRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), string paragraphPath = default(string), DocxComment commentToInsert = default(DocxComment))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.ParagraphPath = ParagraphPath;
-            this.CommentToInsert = CommentToInsert;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.ParagraphPath = paragraphPath;
+            this.CommentToInsert = commentToInsert;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.CommentToInsert.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

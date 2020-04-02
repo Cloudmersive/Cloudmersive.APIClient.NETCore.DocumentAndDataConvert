@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of base 64 decoding
     /// </summary>
     [DataContract]
-    public partial class Base64DecodeResponse :  IEquatable<Base64DecodeResponse>, IValidatableObject
+    public partial class Base64DecodeResponse :  IEquatable<Base64DecodeResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Base64DecodeResponse" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="ContentResult">Result of performing a base 64 decode operation, binary file content.</param>
-        public Base64DecodeResponse(bool? Successful = default(bool?), byte[] ContentResult = default(byte[]))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="contentResult">Result of performing a base 64 decode operation, binary file content.</param>
+        public Base64DecodeResponse(bool? successful = default(bool?), byte[] contentResult = default(byte[]))
         {
-            this.Successful = Successful;
-            this.ContentResult = ContentResult;
+            this.Successful = successful;
+            this.ContentResult = contentResult;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ContentResult.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

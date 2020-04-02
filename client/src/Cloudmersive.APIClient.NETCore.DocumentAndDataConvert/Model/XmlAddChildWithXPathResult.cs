@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of performing a add child node operation on XML input using XPath
     /// </summary>
     [DataContract]
-    public partial class XmlAddChildWithXPathResult :  IEquatable<XmlAddChildWithXPathResult>, IValidatableObject
+    public partial class XmlAddChildWithXPathResult :  IEquatable<XmlAddChildWithXPathResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="XmlAddChildWithXPathResult" /> class.
         /// </summary>
-        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
-        /// <param name="ResultingXmlDocument">Resulting, modified XML document.</param>
-        /// <param name="NodesEditedCount">Count of the matching results.</param>
-        public XmlAddChildWithXPathResult(bool? Successful = default(bool?), string ResultingXmlDocument = default(string), int? NodesEditedCount = default(int?))
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="resultingXmlDocument">Resulting, modified XML document.</param>
+        /// <param name="nodesEditedCount">Count of the matching results.</param>
+        public XmlAddChildWithXPathResult(bool? successful = default(bool?), string resultingXmlDocument = default(string), int? nodesEditedCount = default(int?))
         {
-            this.Successful = Successful;
-            this.ResultingXmlDocument = ResultingXmlDocument;
-            this.NodesEditedCount = NodesEditedCount;
+            this.Successful = successful;
+            this.ResultingXmlDocument = resultingXmlDocument;
+            this.NodesEditedCount = nodesEditedCount;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.NodesEditedCount.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

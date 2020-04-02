@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Details of the screenshot request
     /// </summary>
     [DataContract]
-    public partial class ScreenshotRequest :  IEquatable<ScreenshotRequest>, IValidatableObject
+    public partial class ScreenshotRequest :  IEquatable<ScreenshotRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ScreenshotRequest" /> class.
         /// </summary>
-        /// <param name="Url">URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports..</param>
-        /// <param name="ExtraLoadingWait">Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds).</param>
-        /// <param name="ScreenshotWidth">Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024.</param>
-        /// <param name="ScreenshotHeight">Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot.</param>
-        public ScreenshotRequest(string Url = default(string), int? ExtraLoadingWait = default(int?), int? ScreenshotWidth = default(int?), int? ScreenshotHeight = default(int?))
+        /// <param name="url">URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports..</param>
+        /// <param name="extraLoadingWait">Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds).</param>
+        /// <param name="screenshotWidth">Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024.</param>
+        /// <param name="screenshotHeight">Optional: Height of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot.</param>
+        public ScreenshotRequest(string url = default(string), int? extraLoadingWait = default(int?), int? screenshotWidth = default(int?), int? screenshotHeight = default(int?))
         {
-            this.Url = Url;
-            this.ExtraLoadingWait = ExtraLoadingWait;
-            this.ScreenshotWidth = ScreenshotWidth;
-            this.ScreenshotHeight = ScreenshotHeight;
+            this.Url = url;
+            this.ExtraLoadingWait = extraLoadingWait;
+            this.ScreenshotWidth = screenshotWidth;
+            this.ScreenshotHeight = screenshotHeight;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ScreenshotHeight.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

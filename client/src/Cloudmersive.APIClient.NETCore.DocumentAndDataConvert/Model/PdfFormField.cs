@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Field definition and value in the form
     /// </summary>
     [DataContract]
-    public partial class PdfFormField :  IEquatable<PdfFormField>, IValidatableObject
+    public partial class PdfFormField :  IEquatable<PdfFormField>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PdfFormField" /> class.
         /// </summary>
-        /// <param name="FieldName">Name of the form field.</param>
-        /// <param name="FieldType">The data type of the field; possible values are Text (FieldValue will be a string), Checkbox (FieldValue can be \&quot;true\&quot; or \&quot;false\&quot;), ComboBox (FieldComboBoxSelectedIndex will also be populated), Other.</param>
-        /// <param name="FieldValue">Value of the form field.</param>
-        /// <param name="FieldComboBoxSelectedIndex">Applies to ComboBox field types only; specifies the selected index of the combo box selection if available.</param>
-        public PdfFormField(string FieldName = default(string), string FieldType = default(string), string FieldValue = default(string), int? FieldComboBoxSelectedIndex = default(int?))
+        /// <param name="fieldName">Name of the form field.</param>
+        /// <param name="fieldType">The data type of the field; possible values are Text (FieldValue will be a string), Checkbox (FieldValue can be \&quot;true\&quot; or \&quot;false\&quot;), ComboBox (FieldComboBoxSelectedIndex will also be populated), Other.</param>
+        /// <param name="fieldValue">Value of the form field.</param>
+        /// <param name="fieldComboBoxSelectedIndex">Applies to ComboBox field types only; specifies the selected index of the combo box selection if available.</param>
+        public PdfFormField(string fieldName = default(string), string fieldType = default(string), string fieldValue = default(string), int? fieldComboBoxSelectedIndex = default(int?))
         {
-            this.FieldName = FieldName;
-            this.FieldType = FieldType;
-            this.FieldValue = FieldValue;
-            this.FieldComboBoxSelectedIndex = FieldComboBoxSelectedIndex;
+            this.FieldName = fieldName;
+            this.FieldType = fieldType;
+            this.FieldValue = fieldValue;
+            this.FieldComboBoxSelectedIndex = fieldComboBoxSelectedIndex;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.FieldComboBoxSelectedIndex.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

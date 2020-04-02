@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,23 +26,23 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a Insert Paragraph request
     /// </summary>
     [DataContract]
-    public partial class InsertDocxInsertParagraphRequest :  IEquatable<InsertDocxInsertParagraphRequest>, IValidatableObject
+    public partial class InsertDocxInsertParagraphRequest :  IEquatable<InsertDocxInsertParagraphRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InsertDocxInsertParagraphRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="ParagraphToInsert">Table you would like to insert.</param>
-        /// <param name="InsertPlacement">Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object).</param>
-        /// <param name="InsertPath">Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject.</param>
-        public InsertDocxInsertParagraphRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), DocxParagraph ParagraphToInsert = default(DocxParagraph), string InsertPlacement = default(string), string InsertPath = default(string))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="paragraphToInsert">Table you would like to insert.</param>
+        /// <param name="insertPlacement">Optional; default is DocumentEnd.  Placement Type of the insert; possible values are: DocumentStart (very beginning of the document), DocumentEnd (very end of the document), BeforeExistingObject (right before an existing object - fill in the InsertPath field using the Path value from an existing object), AfterExistingObject (right after an existing object - fill in the InsertPath field using the Path value from an existing object).</param>
+        /// <param name="insertPath">Optional; location within the document to insert the object; fill in the InsertPath field using the Path value from an existing object.  Used with InsertPlacement of BeforeExistingObject or AfterExistingObject.</param>
+        public InsertDocxInsertParagraphRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), DocxParagraph paragraphToInsert = default(DocxParagraph), string insertPlacement = default(string), string insertPath = default(string))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.ParagraphToInsert = ParagraphToInsert;
-            this.InsertPlacement = InsertPlacement;
-            this.InsertPath = InsertPath;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.ParagraphToInsert = paragraphToInsert;
+            this.InsertPlacement = insertPlacement;
+            this.InsertPath = insertPath;
         }
         
         /// <summary>
@@ -103,7 +101,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -177,16 +175,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.InsertPath.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

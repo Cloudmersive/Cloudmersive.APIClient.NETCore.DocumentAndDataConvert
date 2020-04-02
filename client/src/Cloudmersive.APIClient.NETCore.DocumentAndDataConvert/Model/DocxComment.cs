@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,31 +26,31 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Comment in a Word Document
     /// </summary>
     [DataContract]
-    public partial class DocxComment :  IEquatable<DocxComment>, IValidatableObject
+    public partial class DocxComment :  IEquatable<DocxComment>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxComment" /> class.
         /// </summary>
-        /// <param name="Path">Path to the comment in the document.</param>
-        /// <param name="Author">Author name of the comment.</param>
-        /// <param name="AuthorInitials">Initials of the author of the comment.</param>
-        /// <param name="CommentText">Text content of the comment.</param>
-        /// <param name="CommentDate">Date timestamp of the comment.</param>
-        /// <param name="IsTopLevel">True if the comment is at the top level, false if this comment is a child reply of another comment.</param>
-        /// <param name="IsReply">True if this comment is a reply to another comment, false otherwise.</param>
-        /// <param name="ParentCommentPath">Path to the parent of this comment, if this comment is a reply, otherwise this value will be null.</param>
-        /// <param name="Done">True if this comment is marked as Done in Word, otherwise it is false.</param>
-        public DocxComment(string Path = default(string), string Author = default(string), string AuthorInitials = default(string), string CommentText = default(string), DateTime? CommentDate = default(DateTime?), bool? IsTopLevel = default(bool?), bool? IsReply = default(bool?), string ParentCommentPath = default(string), bool? Done = default(bool?))
+        /// <param name="path">Path to the comment in the document.</param>
+        /// <param name="author">Author name of the comment.</param>
+        /// <param name="authorInitials">Initials of the author of the comment.</param>
+        /// <param name="commentText">Text content of the comment.</param>
+        /// <param name="commentDate">Date timestamp of the comment.</param>
+        /// <param name="isTopLevel">True if the comment is at the top level, false if this comment is a child reply of another comment.</param>
+        /// <param name="isReply">True if this comment is a reply to another comment, false otherwise.</param>
+        /// <param name="parentCommentPath">Path to the parent of this comment, if this comment is a reply, otherwise this value will be null.</param>
+        /// <param name="done">True if this comment is marked as Done in Word, otherwise it is false.</param>
+        public DocxComment(string path = default(string), string author = default(string), string authorInitials = default(string), string commentText = default(string), DateTime? commentDate = default(DateTime?), bool? isTopLevel = default(bool?), bool? isReply = default(bool?), string parentCommentPath = default(string), bool? done = default(bool?))
         {
-            this.Path = Path;
-            this.Author = Author;
-            this.AuthorInitials = AuthorInitials;
-            this.CommentText = CommentText;
-            this.CommentDate = CommentDate;
-            this.IsTopLevel = IsTopLevel;
-            this.IsReply = IsReply;
-            this.ParentCommentPath = ParentCommentPath;
-            this.Done = Done;
+            this.Path = path;
+            this.Author = author;
+            this.AuthorInitials = authorInitials;
+            this.CommentText = commentText;
+            this.CommentDate = commentDate;
+            this.IsTopLevel = isTopLevel;
+            this.IsReply = isReply;
+            this.ParentCommentPath = parentCommentPath;
+            this.Done = done;
         }
         
         /// <summary>
@@ -143,7 +141,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -245,16 +243,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Done.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

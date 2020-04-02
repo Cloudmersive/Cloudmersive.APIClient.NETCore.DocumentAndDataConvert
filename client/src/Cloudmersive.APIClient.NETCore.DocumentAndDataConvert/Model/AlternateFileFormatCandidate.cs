@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Alternate file format possibility
     /// </summary>
     [DataContract]
-    public partial class AlternateFileFormatCandidate :  IEquatable<AlternateFileFormatCandidate>, IValidatableObject
+    public partial class AlternateFileFormatCandidate :  IEquatable<AlternateFileFormatCandidate>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AlternateFileFormatCandidate" /> class.
         /// </summary>
-        /// <param name="Probability">Probability that this extension is the right one; possible values are between 0.0 (lowest confidence) and 1.0 (highest confidence).</param>
-        /// <param name="DetectedFileExtension">Detected file extension of the file format, with a leading period.</param>
-        /// <param name="DetectedMimeType">MIME type of this file extension.</param>
-        public AlternateFileFormatCandidate(double? Probability = default(double?), string DetectedFileExtension = default(string), string DetectedMimeType = default(string))
+        /// <param name="probability">Probability that this extension is the right one; possible values are between 0.0 (lowest confidence) and 1.0 (highest confidence).</param>
+        /// <param name="detectedFileExtension">Detected file extension of the file format, with a leading period.</param>
+        /// <param name="detectedMimeType">MIME type of this file extension.</param>
+        public AlternateFileFormatCandidate(double? probability = default(double?), string detectedFileExtension = default(string), string detectedMimeType = default(string))
         {
-            this.Probability = Probability;
-            this.DetectedFileExtension = DetectedFileExtension;
-            this.DetectedMimeType = DetectedMimeType;
+            this.Probability = probability;
+            this.DetectedFileExtension = detectedFileExtension;
+            this.DetectedMimeType = detectedMimeType;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.DetectedMimeType.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

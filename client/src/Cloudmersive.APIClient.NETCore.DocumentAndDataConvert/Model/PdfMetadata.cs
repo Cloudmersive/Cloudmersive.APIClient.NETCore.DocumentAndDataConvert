@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,31 +26,31 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of an autodetect/get-info operation
     /// </summary>
     [DataContract]
-    public partial class PdfMetadata :  IEquatable<PdfMetadata>, IValidatableObject
+    public partial class PdfMetadata :  IEquatable<PdfMetadata>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PdfMetadata" /> class.
         /// </summary>
-        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
-        /// <param name="Title">Title of the document.</param>
-        /// <param name="Keywords">Keywords of the document.</param>
-        /// <param name="Subject">Subject of the document.</param>
-        /// <param name="Author">User name of the creator/author of the document, if available, null if not available.</param>
-        /// <param name="Creator">Creator of the document.</param>
-        /// <param name="DateModified">The timestamp that the document was last modified, if available, null if not available.</param>
-        /// <param name="DateCreated">The timestamp that the document was created, if available, null if not available.</param>
-        /// <param name="PageCount">The number of pages in the document.</param>
-        public PdfMetadata(bool? Successful = default(bool?), string Title = default(string), string Keywords = default(string), string Subject = default(string), string Author = default(string), string Creator = default(string), DateTime? DateModified = default(DateTime?), DateTime? DateCreated = default(DateTime?), int? PageCount = default(int?))
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="title">Title of the document.</param>
+        /// <param name="keywords">Keywords of the document.</param>
+        /// <param name="subject">Subject of the document.</param>
+        /// <param name="author">User name of the creator/author of the document, if available, null if not available.</param>
+        /// <param name="creator">Creator of the document.</param>
+        /// <param name="dateModified">The timestamp that the document was last modified, if available, null if not available.</param>
+        /// <param name="dateCreated">The timestamp that the document was created, if available, null if not available.</param>
+        /// <param name="pageCount">The number of pages in the document.</param>
+        public PdfMetadata(bool? successful = default(bool?), string title = default(string), string keywords = default(string), string subject = default(string), string author = default(string), string creator = default(string), DateTime? dateModified = default(DateTime?), DateTime? dateCreated = default(DateTime?), int? pageCount = default(int?))
         {
-            this.Successful = Successful;
-            this.Title = Title;
-            this.Keywords = Keywords;
-            this.Subject = Subject;
-            this.Author = Author;
-            this.Creator = Creator;
-            this.DateModified = DateModified;
-            this.DateCreated = DateCreated;
-            this.PageCount = PageCount;
+            this.Successful = successful;
+            this.Title = title;
+            this.Keywords = keywords;
+            this.Subject = subject;
+            this.Author = author;
+            this.Creator = creator;
+            this.DateModified = dateModified;
+            this.DateCreated = dateCreated;
+            this.PageCount = pageCount;
         }
         
         /// <summary>
@@ -143,7 +141,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -245,16 +243,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.PageCount.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

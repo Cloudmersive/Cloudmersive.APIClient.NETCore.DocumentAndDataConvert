@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,23 +26,23 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a string replacement request
     /// </summary>
     [DataContract]
-    public partial class ReplaceStringRequest :  IEquatable<ReplaceStringRequest>, IValidatableObject
+    public partial class ReplaceStringRequest :  IEquatable<ReplaceStringRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReplaceStringRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="MatchString">String to search for and match against, to be replaced.</param>
-        /// <param name="ReplaceString">String to replace the matched values with.</param>
-        /// <param name="MatchCase">True if the case should be matched, false for case insensitive match.</param>
-        public ReplaceStringRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), string MatchString = default(string), string ReplaceString = default(string), bool? MatchCase = default(bool?))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="matchString">String to search for and match against, to be replaced.</param>
+        /// <param name="replaceString">String to replace the matched values with.</param>
+        /// <param name="matchCase">True if the case should be matched, false for case insensitive match.</param>
+        public ReplaceStringRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), string matchString = default(string), string replaceString = default(string), bool? matchCase = default(bool?))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.MatchString = MatchString;
-            this.ReplaceString = ReplaceString;
-            this.MatchCase = MatchCase;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.MatchString = matchString;
+            this.ReplaceString = replaceString;
+            this.MatchCase = matchCase;
         }
         
         /// <summary>
@@ -103,7 +101,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -177,16 +175,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.MatchCase.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

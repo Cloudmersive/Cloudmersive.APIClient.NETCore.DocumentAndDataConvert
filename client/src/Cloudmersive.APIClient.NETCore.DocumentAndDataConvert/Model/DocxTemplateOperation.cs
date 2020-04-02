@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,7 +26,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// DocxTemplateOperation
     /// </summary>
     [DataContract]
-    public partial class DocxTemplateOperation :  IEquatable<DocxTemplateOperation>, IValidatableObject
+    public partial class DocxTemplateOperation :  IEquatable<DocxTemplateOperation>
     {
         /// <summary>
         /// Operation action to take; possible values are \&quot;Replace\&quot;
@@ -53,14 +51,14 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxTemplateOperation" /> class.
         /// </summary>
-        /// <param name="Action">Operation action to take; possible values are \&quot;Replace\&quot;.</param>
-        /// <param name="MatchAgainst">For Replace operations, the string to match against (to be replaced with ReplaceWith string).</param>
-        /// <param name="ReplaceWith">For Replace operations, the string to Replace the original string with.</param>
-        public DocxTemplateOperation(ActionEnum? Action = default(ActionEnum?), string MatchAgainst = default(string), string ReplaceWith = default(string))
+        /// <param name="action">Operation action to take; possible values are \&quot;Replace\&quot;.</param>
+        /// <param name="matchAgainst">For Replace operations, the string to match against (to be replaced with ReplaceWith string).</param>
+        /// <param name="replaceWith">For Replace operations, the string to Replace the original string with.</param>
+        public DocxTemplateOperation(ActionEnum? action = default(ActionEnum?), string matchAgainst = default(string), string replaceWith = default(string))
         {
-            this.Action = Action;
-            this.MatchAgainst = MatchAgainst;
-            this.ReplaceWith = ReplaceWith;
+            this.Action = action;
+            this.MatchAgainst = matchAgainst;
+            this.ReplaceWith = replaceWith;
         }
         
 
@@ -97,7 +95,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -157,16 +155,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ReplaceWith.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

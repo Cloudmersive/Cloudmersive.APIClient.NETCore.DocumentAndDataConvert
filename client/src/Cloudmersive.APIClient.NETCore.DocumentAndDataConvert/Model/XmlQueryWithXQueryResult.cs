@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of performing an XQuery operation on an XML document.
     /// </summary>
     [DataContract]
-    public partial class XmlQueryWithXQueryResult :  IEquatable<XmlQueryWithXQueryResult>, IValidatableObject
+    public partial class XmlQueryWithXQueryResult :  IEquatable<XmlQueryWithXQueryResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="XmlQueryWithXQueryResult" /> class.
         /// </summary>
-        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
-        /// <param name="ResultingXml">Resulting XML result output.</param>
-        /// <param name="ErrorMessage">If an error occurs, additional details on the error.</param>
-        public XmlQueryWithXQueryResult(bool? Successful = default(bool?), string ResultingXml = default(string), string ErrorMessage = default(string))
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="resultingXml">Resulting XML result output.</param>
+        /// <param name="errorMessage">If an error occurs, additional details on the error.</param>
+        public XmlQueryWithXQueryResult(bool? successful = default(bool?), string resultingXml = default(string), string errorMessage = default(string))
         {
-            this.Successful = Successful;
-            this.ResultingXml = ResultingXml;
-            this.ErrorMessage = ErrorMessage;
+            this.Successful = successful;
+            this.ResultingXml = resultingXml;
+            this.ErrorMessage = errorMessage;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ErrorMessage.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

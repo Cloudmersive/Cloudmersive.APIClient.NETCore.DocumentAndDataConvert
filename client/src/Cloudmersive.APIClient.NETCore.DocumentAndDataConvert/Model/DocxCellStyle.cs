@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Style in an Excel spreadsheet
     /// </summary>
     [DataContract]
-    public partial class DocxCellStyle :  IEquatable<DocxCellStyle>, IValidatableObject
+    public partial class DocxCellStyle :  IEquatable<DocxCellStyle>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxCellStyle" /> class.
         /// </summary>
-        /// <param name="Path">The Path of the location of this object; leave blank for new rows.</param>
-        /// <param name="Name">Name of the style.</param>
-        /// <param name="FormatID">Format ID of the cell style.</param>
-        /// <param name="BuiltInID">Built&#x3D;in ID of the cell style.</param>
-        public DocxCellStyle(string Path = default(string), string Name = default(string), int? FormatID = default(int?), int? BuiltInID = default(int?))
+        /// <param name="path">The Path of the location of this object; leave blank for new rows.</param>
+        /// <param name="name">Name of the style.</param>
+        /// <param name="formatID">Format ID of the cell style.</param>
+        /// <param name="builtInID">Built&#x3D;in ID of the cell style.</param>
+        public DocxCellStyle(string path = default(string), string name = default(string), int? formatID = default(int?), int? builtInID = default(int?))
         {
-            this.Path = Path;
-            this.Name = Name;
-            this.FormatID = FormatID;
-            this.BuiltInID = BuiltInID;
+            this.Path = path;
+            this.Name = name;
+            this.FormatID = formatID;
+            this.BuiltInID = builtInID;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.BuiltInID.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

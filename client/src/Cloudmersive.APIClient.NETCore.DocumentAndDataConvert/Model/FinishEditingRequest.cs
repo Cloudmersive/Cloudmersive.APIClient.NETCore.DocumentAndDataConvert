@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,15 +26,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a Finish Editing request
     /// </summary>
     [DataContract]
-    public partial class FinishEditingRequest :  IEquatable<FinishEditingRequest>, IValidatableObject
+    public partial class FinishEditingRequest :  IEquatable<FinishEditingRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FinishEditingRequest" /> class.
         /// </summary>
-        /// <param name="InputFileUrl">URL of a document being edited to get the contents of..</param>
-        public FinishEditingRequest(string InputFileUrl = default(string))
+        /// <param name="inputFileUrl">URL of a document being edited to get the contents of..</param>
+        public FinishEditingRequest(string inputFileUrl = default(string))
         {
-            this.InputFileUrl = InputFileUrl;
+            this.InputFileUrl = inputFileUrl;
         }
         
         /// <summary>
@@ -63,7 +61,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -109,16 +107,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.InputFileUrl.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

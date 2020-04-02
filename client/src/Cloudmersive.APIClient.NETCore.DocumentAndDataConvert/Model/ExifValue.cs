@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// EXIF tag and value
     /// </summary>
     [DataContract]
-    public partial class ExifValue :  IEquatable<ExifValue>, IValidatableObject
+    public partial class ExifValue :  IEquatable<ExifValue>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExifValue" /> class.
         /// </summary>
-        /// <param name="Tag">Tag name for the EXIF value.</param>
-        /// <param name="DataType">Date type of the EXIF value.</param>
-        /// <param name="DataValue">Value, formatted as a string of the EXIF value.</param>
-        public ExifValue(string Tag = default(string), string DataType = default(string), string DataValue = default(string))
+        /// <param name="tag">Tag name for the EXIF value.</param>
+        /// <param name="dataType">Date type of the EXIF value.</param>
+        /// <param name="dataValue">Value, formatted as a string of the EXIF value.</param>
+        public ExifValue(string tag = default(string), string dataType = default(string), string dataValue = default(string))
         {
-            this.Tag = Tag;
-            this.DataType = DataType;
-            this.DataValue = DataValue;
+            this.Tag = tag;
+            this.DataType = dataType;
+            this.DataValue = dataValue;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.DataValue.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

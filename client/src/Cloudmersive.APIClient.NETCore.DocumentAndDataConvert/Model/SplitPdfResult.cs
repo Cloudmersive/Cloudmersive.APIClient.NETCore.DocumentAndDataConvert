@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of performing a PDF file split operation
     /// </summary>
     [DataContract]
-    public partial class SplitPdfResult :  IEquatable<SplitPdfResult>, IValidatableObject
+    public partial class SplitPdfResult :  IEquatable<SplitPdfResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SplitPdfResult" /> class.
         /// </summary>
-        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
-        /// <param name="Documents">PDF documents as output.</param>
-        public SplitPdfResult(bool? Successful = default(bool?), List<PdfDocument> Documents = default(List<PdfDocument>))
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="documents">PDF documents as output.</param>
+        public SplitPdfResult(bool? successful = default(bool?), List<PdfDocument> documents = default(List<PdfDocument>))
         {
-            this.Successful = Successful;
-            this.Documents = Documents;
+            this.Successful = successful;
+            this.Documents = documents;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Documents.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

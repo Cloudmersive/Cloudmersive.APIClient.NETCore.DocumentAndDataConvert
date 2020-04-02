@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,23 +26,23 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a Get Cell request
     /// </summary>
     [DataContract]
-    public partial class GetXlsxCellRequest :  IEquatable<GetXlsxCellRequest>, IValidatableObject
+    public partial class GetXlsxCellRequest :  IEquatable<GetXlsxCellRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetXlsxCellRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="WorksheetToQuery">Optional; Worksheet (tab) within the spreadsheet to get the rows and cells of; leave blank to default to the first worksheet.</param>
-        /// <param name="RowIndex">0-based index of the row, 0, 1, 2, ... to retrieve.</param>
-        /// <param name="CellIndex">0-based index of the cell, 0, 1, 2, ... in the row to retrieve.</param>
-        public GetXlsxCellRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), XlsxWorksheet WorksheetToQuery = default(XlsxWorksheet), int? RowIndex = default(int?), int? CellIndex = default(int?))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="worksheetToQuery">Optional; Worksheet (tab) within the spreadsheet to get the rows and cells of; leave blank to default to the first worksheet.</param>
+        /// <param name="rowIndex">0-based index of the row, 0, 1, 2, ... to retrieve.</param>
+        /// <param name="cellIndex">0-based index of the cell, 0, 1, 2, ... in the row to retrieve.</param>
+        public GetXlsxCellRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), XlsxWorksheet worksheetToQuery = default(XlsxWorksheet), int? rowIndex = default(int?), int? cellIndex = default(int?))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.WorksheetToQuery = WorksheetToQuery;
-            this.RowIndex = RowIndex;
-            this.CellIndex = CellIndex;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.WorksheetToQuery = worksheetToQuery;
+            this.RowIndex = rowIndex;
+            this.CellIndex = cellIndex;
         }
         
         /// <summary>
@@ -103,7 +101,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -177,16 +175,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.CellIndex.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,25 +26,25 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a Update Table Cell request
     /// </summary>
     [DataContract]
-    public partial class UpdateDocxTableCellRequest :  IEquatable<UpdateDocxTableCellRequest>, IValidatableObject
+    public partial class UpdateDocxTableCellRequest :  IEquatable<UpdateDocxTableCellRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateDocxTableCellRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="CellToUpdate">Table cell contents you would like to update the cell with.</param>
-        /// <param name="TableRowIndex">0-based index of the Table Row to update.</param>
-        /// <param name="TableCellIndex">0-based index of the Table Cell (within the row) to update.</param>
-        /// <param name="ExistingTablePath">Required; the path to the existing table to modify.</param>
-        public UpdateDocxTableCellRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), DocxTableCell CellToUpdate = default(DocxTableCell), int? TableRowIndex = default(int?), int? TableCellIndex = default(int?), string ExistingTablePath = default(string))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="cellToUpdate">Table cell contents you would like to update the cell with.</param>
+        /// <param name="tableRowIndex">0-based index of the Table Row to update.</param>
+        /// <param name="tableCellIndex">0-based index of the Table Cell (within the row) to update.</param>
+        /// <param name="existingTablePath">Required; the path to the existing table to modify.</param>
+        public UpdateDocxTableCellRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), DocxTableCell cellToUpdate = default(DocxTableCell), int? tableRowIndex = default(int?), int? tableCellIndex = default(int?), string existingTablePath = default(string))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.CellToUpdate = CellToUpdate;
-            this.TableRowIndex = TableRowIndex;
-            this.TableCellIndex = TableCellIndex;
-            this.ExistingTablePath = ExistingTablePath;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.CellToUpdate = cellToUpdate;
+            this.TableRowIndex = tableRowIndex;
+            this.TableCellIndex = tableCellIndex;
+            this.ExistingTablePath = existingTablePath;
         }
         
         /// <summary>
@@ -113,7 +111,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -194,16 +192,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ExistingTablePath.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

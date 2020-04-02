@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Converted page as an image
     /// </summary>
     [DataContract]
-    public partial class PageConversionResult :  IEquatable<PageConversionResult>, IValidatableObject
+    public partial class PageConversionResult :  IEquatable<PageConversionResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PageConversionResult" /> class.
         /// </summary>
-        /// <param name="Filename">File name of the image in the converted file format.</param>
-        /// <param name="FileBytes">File bytes (contents) of the image in converted file format.</param>
-        public PageConversionResult(string Filename = default(string), byte[] FileBytes = default(byte[]))
+        /// <param name="filename">File name of the image in the converted file format.</param>
+        /// <param name="fileBytes">File bytes (contents) of the image in converted file format.</param>
+        public PageConversionResult(string filename = default(string), byte[] fileBytes = default(byte[]))
         {
-            this.Filename = Filename;
-            this.FileBytes = FileBytes;
+            this.Filename = filename;
+            this.FileBytes = fileBytes;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.FileBytes.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

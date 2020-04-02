@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of converting a multi-page image into individual pages with a different format
     /// </summary>
     [DataContract]
-    public partial class MultipageImageFormatConversionResult :  IEquatable<MultipageImageFormatConversionResult>, IValidatableObject
+    public partial class MultipageImageFormatConversionResult :  IEquatable<MultipageImageFormatConversionResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MultipageImageFormatConversionResult" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="PageCount">The number of pages in the converted output.</param>
-        /// <param name="Pages">Converted page results.</param>
-        public MultipageImageFormatConversionResult(bool? Successful = default(bool?), int? PageCount = default(int?), List<PageConversionResult> Pages = default(List<PageConversionResult>))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="pageCount">The number of pages in the converted output.</param>
+        /// <param name="pages">Converted page results.</param>
+        public MultipageImageFormatConversionResult(bool? successful = default(bool?), int? pageCount = default(int?), List<PageConversionResult> pages = default(List<PageConversionResult>))
         {
-            this.Successful = Successful;
-            this.PageCount = PageCount;
-            this.Pages = Pages;
+            this.Successful = successful;
+            this.PageCount = pageCount;
+            this.Pages = pages;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Pages.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

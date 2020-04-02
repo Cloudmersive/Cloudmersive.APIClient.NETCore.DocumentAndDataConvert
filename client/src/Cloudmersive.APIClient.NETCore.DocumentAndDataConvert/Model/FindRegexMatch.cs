@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,23 +26,23 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Individual regular expression match result of finding a target regex in a longer text string
     /// </summary>
     [DataContract]
-    public partial class FindRegexMatch :  IEquatable<FindRegexMatch>, IValidatableObject
+    public partial class FindRegexMatch :  IEquatable<FindRegexMatch>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FindRegexMatch" /> class.
         /// </summary>
-        /// <param name="CharacterOffsetStart">0-based index of the start of the match.</param>
-        /// <param name="CharacterOffsetEnd">0-based index of the end of the match.</param>
-        /// <param name="ContainingLine">Text content of the line containing the match.</param>
-        /// <param name="MatchValue">The match value.</param>
-        /// <param name="MatchGroups">Regular expression regex match groups; these correspond to the match values.</param>
-        public FindRegexMatch(int? CharacterOffsetStart = default(int?), int? CharacterOffsetEnd = default(int?), string ContainingLine = default(string), string MatchValue = default(string), List<string> MatchGroups = default(List<string>))
+        /// <param name="characterOffsetStart">0-based index of the start of the match.</param>
+        /// <param name="characterOffsetEnd">0-based index of the end of the match.</param>
+        /// <param name="containingLine">Text content of the line containing the match.</param>
+        /// <param name="matchValue">The match value.</param>
+        /// <param name="matchGroups">Regular expression regex match groups; these correspond to the match values.</param>
+        public FindRegexMatch(int? characterOffsetStart = default(int?), int? characterOffsetEnd = default(int?), string containingLine = default(string), string matchValue = default(string), List<string> matchGroups = default(List<string>))
         {
-            this.CharacterOffsetStart = CharacterOffsetStart;
-            this.CharacterOffsetEnd = CharacterOffsetEnd;
-            this.ContainingLine = ContainingLine;
-            this.MatchValue = MatchValue;
-            this.MatchGroups = MatchGroups;
+            this.CharacterOffsetStart = characterOffsetStart;
+            this.CharacterOffsetEnd = characterOffsetEnd;
+            this.ContainingLine = containingLine;
+            this.MatchValue = matchValue;
+            this.MatchGroups = matchGroups;
         }
         
         /// <summary>
@@ -103,7 +101,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -177,16 +175,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.MatchGroups.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

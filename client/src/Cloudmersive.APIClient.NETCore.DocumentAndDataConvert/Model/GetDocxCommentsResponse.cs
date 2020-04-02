@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of getting comments from a Word Document DOCX
     /// </summary>
     [DataContract]
-    public partial class GetDocxCommentsResponse :  IEquatable<GetDocxCommentsResponse>, IValidatableObject
+    public partial class GetDocxCommentsResponse :  IEquatable<GetDocxCommentsResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetDocxCommentsResponse" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Comments">Comments in the document.</param>
-        /// <param name="CommentCount">The number of comments in the document.</param>
-        public GetDocxCommentsResponse(bool? Successful = default(bool?), List<DocxComment> Comments = default(List<DocxComment>), int? CommentCount = default(int?))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="comments">Comments in the document.</param>
+        /// <param name="commentCount">The number of comments in the document.</param>
+        public GetDocxCommentsResponse(bool? successful = default(bool?), List<DocxComment> comments = default(List<DocxComment>), int? commentCount = default(int?))
         {
-            this.Successful = Successful;
-            this.Comments = Comments;
-            this.CommentCount = CommentCount;
+            this.Successful = successful;
+            this.Comments = comments;
+            this.CommentCount = commentCount;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.CommentCount.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

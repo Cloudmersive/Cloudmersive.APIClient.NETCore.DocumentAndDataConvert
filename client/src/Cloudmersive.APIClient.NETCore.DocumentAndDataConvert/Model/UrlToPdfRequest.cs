@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Request to convert a URL to a PDF file
     /// </summary>
     [DataContract]
-    public partial class UrlToPdfRequest :  IEquatable<UrlToPdfRequest>, IValidatableObject
+    public partial class UrlToPdfRequest :  IEquatable<UrlToPdfRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlToPdfRequest" /> class.
         /// </summary>
-        /// <param name="Url">URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports..</param>
-        /// <param name="ExtraLoadingWait">Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds).</param>
-        /// <param name="IncludeBackgroundGraphics">Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true..</param>
-        /// <param name="ScaleFactor">Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%.</param>
-        public UrlToPdfRequest(string Url = default(string), int? ExtraLoadingWait = default(int?), bool? IncludeBackgroundGraphics = default(bool?), int? ScaleFactor = default(int?))
+        /// <param name="url">URL address of the website to screenshot.  HTTP and HTTPS are both supported, as are custom ports..</param>
+        /// <param name="extraLoadingWait">Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds).</param>
+        /// <param name="includeBackgroundGraphics">Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true..</param>
+        /// <param name="scaleFactor">Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%.</param>
+        public UrlToPdfRequest(string url = default(string), int? extraLoadingWait = default(int?), bool? includeBackgroundGraphics = default(bool?), int? scaleFactor = default(int?))
         {
-            this.Url = Url;
-            this.ExtraLoadingWait = ExtraLoadingWait;
-            this.IncludeBackgroundGraphics = IncludeBackgroundGraphics;
-            this.ScaleFactor = ScaleFactor;
+            this.Url = url;
+            this.ExtraLoadingWait = extraLoadingWait;
+            this.IncludeBackgroundGraphics = includeBackgroundGraphics;
+            this.ScaleFactor = scaleFactor;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ScaleFactor.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

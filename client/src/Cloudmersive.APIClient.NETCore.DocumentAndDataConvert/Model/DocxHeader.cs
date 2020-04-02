@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Header of a Word Document (DOCX)
     /// </summary>
     [DataContract]
-    public partial class DocxHeader :  IEquatable<DocxHeader>, IValidatableObject
+    public partial class DocxHeader :  IEquatable<DocxHeader>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxHeader" /> class.
         /// </summary>
-        /// <param name="Path">The Path of the location of this object; leave blank for new tables.</param>
-        /// <param name="Paragraphs">Paragraphs in this header.</param>
-        /// <param name="SectionsWithHeader">Sections that the header is applied to.</param>
-        public DocxHeader(string Path = default(string), List<DocxParagraph> Paragraphs = default(List<DocxParagraph>), List<DocxSection> SectionsWithHeader = default(List<DocxSection>))
+        /// <param name="path">The Path of the location of this object; leave blank for new tables.</param>
+        /// <param name="paragraphs">Paragraphs in this header.</param>
+        /// <param name="sectionsWithHeader">Sections that the header is applied to.</param>
+        public DocxHeader(string path = default(string), List<DocxParagraph> paragraphs = default(List<DocxParagraph>), List<DocxSection> sectionsWithHeader = default(List<DocxSection>))
         {
-            this.Path = Path;
-            this.Paragraphs = Paragraphs;
-            this.SectionsWithHeader = SectionsWithHeader;
+            this.Path = path;
+            this.Paragraphs = paragraphs;
+            this.SectionsWithHeader = sectionsWithHeader;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.SectionsWithHeader.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

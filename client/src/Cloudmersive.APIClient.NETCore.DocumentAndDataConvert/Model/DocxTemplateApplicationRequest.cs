@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,15 +26,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Word DOCX template application request
     /// </summary>
     [DataContract]
-    public partial class DocxTemplateApplicationRequest :  IEquatable<DocxTemplateApplicationRequest>, IValidatableObject
+    public partial class DocxTemplateApplicationRequest :  IEquatable<DocxTemplateApplicationRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxTemplateApplicationRequest" /> class.
         /// </summary>
-        /// <param name="Operations">Operations to apply to this template.</param>
-        public DocxTemplateApplicationRequest(List<DocxTemplateOperation> Operations = default(List<DocxTemplateOperation>))
+        /// <param name="operations">Operations to apply to this template.</param>
+        public DocxTemplateApplicationRequest(List<DocxTemplateOperation> operations = default(List<DocxTemplateOperation>))
         {
-            this.Operations = Operations;
+            this.Operations = operations;
         }
         
         /// <summary>
@@ -63,7 +61,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -109,16 +107,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Operations.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

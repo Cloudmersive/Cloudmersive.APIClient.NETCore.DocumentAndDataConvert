@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// A row in a Word Document (DOCX) file
     /// </summary>
     [DataContract]
-    public partial class DocxTableRow :  IEquatable<DocxTableRow>, IValidatableObject
+    public partial class DocxTableRow :  IEquatable<DocxTableRow>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxTableRow" /> class.
         /// </summary>
-        /// <param name="RowIndex">Index of the row, 0-based.</param>
-        /// <param name="Path">The Path of the location of this table row object; leave blank for new tables.</param>
-        /// <param name="RowCells">Cells in the row; this is where the contents of the row is stored.</param>
-        public DocxTableRow(int? RowIndex = default(int?), string Path = default(string), List<DocxTableCell> RowCells = default(List<DocxTableCell>))
+        /// <param name="rowIndex">Index of the row, 0-based.</param>
+        /// <param name="path">The Path of the location of this table row object; leave blank for new tables.</param>
+        /// <param name="rowCells">Cells in the row; this is where the contents of the row is stored.</param>
+        public DocxTableRow(int? rowIndex = default(int?), string path = default(string), List<DocxTableCell> rowCells = default(List<DocxTableCell>))
         {
-            this.RowIndex = RowIndex;
-            this.Path = Path;
-            this.RowCells = RowCells;
+            this.RowIndex = rowIndex;
+            this.Path = path;
+            this.RowCells = rowCells;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.RowCells.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

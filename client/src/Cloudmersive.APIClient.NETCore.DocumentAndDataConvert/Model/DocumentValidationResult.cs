@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,21 +26,21 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Document validation result
     /// </summary>
     [DataContract]
-    public partial class DocumentValidationResult :  IEquatable<DocumentValidationResult>, IValidatableObject
+    public partial class DocumentValidationResult :  IEquatable<DocumentValidationResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentValidationResult" /> class.
         /// </summary>
-        /// <param name="DocumentIsValid">True if the document is valid and has no errors, false otherwise.</param>
-        /// <param name="ErrorCount">Number of validation errors found in the document.</param>
-        /// <param name="WarningCount">Number of validation warnings found in the document.</param>
-        /// <param name="ErrorsAndWarnings">Details of errors and warnings found.</param>
-        public DocumentValidationResult(bool? DocumentIsValid = default(bool?), int? ErrorCount = default(int?), int? WarningCount = default(int?), List<DocumentValidationError> ErrorsAndWarnings = default(List<DocumentValidationError>))
+        /// <param name="documentIsValid">True if the document is valid and has no errors, false otherwise.</param>
+        /// <param name="errorCount">Number of validation errors found in the document.</param>
+        /// <param name="warningCount">Number of validation warnings found in the document.</param>
+        /// <param name="errorsAndWarnings">Details of errors and warnings found.</param>
+        public DocumentValidationResult(bool? documentIsValid = default(bool?), int? errorCount = default(int?), int? warningCount = default(int?), List<DocumentValidationError> errorsAndWarnings = default(List<DocumentValidationError>))
         {
-            this.DocumentIsValid = DocumentIsValid;
-            this.ErrorCount = ErrorCount;
-            this.WarningCount = WarningCount;
-            this.ErrorsAndWarnings = ErrorsAndWarnings;
+            this.DocumentIsValid = documentIsValid;
+            this.ErrorCount = errorCount;
+            this.WarningCount = warningCount;
+            this.ErrorsAndWarnings = errorsAndWarnings;
         }
         
         /// <summary>
@@ -93,7 +91,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -160,16 +158,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ErrorsAndWarnings.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

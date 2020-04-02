@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,23 +26,23 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Input to a Insert Table Row request
     /// </summary>
     [DataContract]
-    public partial class InsertDocxTableRowRequest :  IEquatable<InsertDocxTableRowRequest>, IValidatableObject
+    public partial class InsertDocxTableRowRequest :  IEquatable<InsertDocxTableRowRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InsertDocxTableRowRequest" /> class.
         /// </summary>
-        /// <param name="InputFileBytes">Optional: Bytes of the input file to operate on.</param>
-        /// <param name="InputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
-        /// <param name="RowToInsert">Table you would like to insert.</param>
-        /// <param name="InsertPlacement">Optional; default is TableEnd.  Placement Type of the insert; possible values are: TableStart (very beginning of the table), TableEnd (very end of the document), or a 0-based row index number as an integer, 0 being the first row in the table, 1 being the second row in the table, 2 being the third row in the table, etc. to insert this row after.</param>
-        /// <param name="ExistingTablePath">Required; the path to the existing table to modify.</param>
-        public InsertDocxTableRowRequest(byte[] InputFileBytes = default(byte[]), string InputFileUrl = default(string), DocxTableRow RowToInsert = default(DocxTableRow), string InsertPlacement = default(string), string ExistingTablePath = default(string))
+        /// <param name="inputFileBytes">Optional: Bytes of the input file to operate on.</param>
+        /// <param name="inputFileUrl">Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public)..</param>
+        /// <param name="rowToInsert">Table you would like to insert.</param>
+        /// <param name="insertPlacement">Optional; default is TableEnd.  Placement Type of the insert; possible values are: TableStart (very beginning of the table), TableEnd (very end of the document), or a 0-based row index number as an integer, 0 being the first row in the table, 1 being the second row in the table, 2 being the third row in the table, etc. to insert this row after.</param>
+        /// <param name="existingTablePath">Required; the path to the existing table to modify.</param>
+        public InsertDocxTableRowRequest(byte[] inputFileBytes = default(byte[]), string inputFileUrl = default(string), DocxTableRow rowToInsert = default(DocxTableRow), string insertPlacement = default(string), string existingTablePath = default(string))
         {
-            this.InputFileBytes = InputFileBytes;
-            this.InputFileUrl = InputFileUrl;
-            this.RowToInsert = RowToInsert;
-            this.InsertPlacement = InsertPlacement;
-            this.ExistingTablePath = ExistingTablePath;
+            this.InputFileBytes = inputFileBytes;
+            this.InputFileUrl = inputFileUrl;
+            this.RowToInsert = rowToInsert;
+            this.InsertPlacement = insertPlacement;
+            this.ExistingTablePath = existingTablePath;
         }
         
         /// <summary>
@@ -103,7 +101,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -177,16 +175,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.ExistingTablePath.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

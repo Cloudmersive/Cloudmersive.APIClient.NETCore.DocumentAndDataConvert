@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,29 +26,29 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// A content run in a Word Document (DOCX) file
     /// </summary>
     [DataContract]
-    public partial class DocxRun :  IEquatable<DocxRun>, IValidatableObject
+    public partial class DocxRun :  IEquatable<DocxRun>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxRun" /> class.
         /// </summary>
-        /// <param name="RunIndex">Index of the run, 0-based.</param>
-        /// <param name="Path">The Path of the location of this object; leave blank for new tables.</param>
-        /// <param name="TextItems">Text items inside the run; this is where the actual text content is stored.</param>
-        /// <param name="Bold">True to make the text bold, false otherwise.</param>
-        /// <param name="Italic">True to make the text italic, false otherwise.</param>
-        /// <param name="Underline">Underline mode for the text; possible values are: Words, Double, Thick, Dotted, DottedHeavy, Dash, DashedHeavy, DashLong, DashLongHeavy, DotDash, DashDotHeavy, DotDotDash, DashDotDotHeavy, Wave, WavyHeavy, WavyDouble, None.</param>
-        /// <param name="FontFamily">Font Family name for the text, e.g. \&quot;Arial\&quot; or \&quot;Times New Roman\&quot;.</param>
-        /// <param name="FontSize">Font size in font points (e.g. \&quot;24\&quot;).</param>
-        public DocxRun(int? RunIndex = default(int?), string Path = default(string), List<DocxText> TextItems = default(List<DocxText>), bool? Bold = default(bool?), bool? Italic = default(bool?), string Underline = default(string), string FontFamily = default(string), string FontSize = default(string))
+        /// <param name="runIndex">Index of the run, 0-based.</param>
+        /// <param name="path">The Path of the location of this object; leave blank for new tables.</param>
+        /// <param name="textItems">Text items inside the run; this is where the actual text content is stored.</param>
+        /// <param name="bold">True to make the text bold, false otherwise.</param>
+        /// <param name="italic">True to make the text italic, false otherwise.</param>
+        /// <param name="underline">Underline mode for the text; possible values are: Words, Double, Thick, Dotted, DottedHeavy, Dash, DashedHeavy, DashLong, DashLongHeavy, DotDash, DashDotHeavy, DotDotDash, DashDotDotHeavy, Wave, WavyHeavy, WavyDouble, None.</param>
+        /// <param name="fontFamily">Font Family name for the text, e.g. \&quot;Arial\&quot; or \&quot;Times New Roman\&quot;.</param>
+        /// <param name="fontSize">Font size in font points (e.g. \&quot;24\&quot;).</param>
+        public DocxRun(int? runIndex = default(int?), string path = default(string), List<DocxText> textItems = default(List<DocxText>), bool? bold = default(bool?), bool? italic = default(bool?), string underline = default(string), string fontFamily = default(string), string fontSize = default(string))
         {
-            this.RunIndex = RunIndex;
-            this.Path = Path;
-            this.TextItems = TextItems;
-            this.Bold = Bold;
-            this.Italic = Italic;
-            this.Underline = Underline;
-            this.FontFamily = FontFamily;
-            this.FontSize = FontSize;
+            this.RunIndex = runIndex;
+            this.Path = path;
+            this.TextItems = textItems;
+            this.Bold = bold;
+            this.Italic = italic;
+            this.Underline = underline;
+            this.FontFamily = fontFamily;
+            this.FontSize = fontSize;
         }
         
         /// <summary>
@@ -133,7 +131,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -228,16 +226,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.FontSize.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

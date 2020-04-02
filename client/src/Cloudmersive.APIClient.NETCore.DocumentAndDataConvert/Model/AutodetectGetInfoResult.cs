@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,27 +26,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of an autodetect/get-info operation
     /// </summary>
     [DataContract]
-    public partial class AutodetectGetInfoResult :  IEquatable<AutodetectGetInfoResult>, IValidatableObject
+    public partial class AutodetectGetInfoResult :  IEquatable<AutodetectGetInfoResult>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AutodetectGetInfoResult" /> class.
         /// </summary>
-        /// <param name="Successful">True if the operation was successful, false otherwise.</param>
-        /// <param name="DetectedFileExtension">Detected file extension of the file format, with a leading period.</param>
-        /// <param name="DetectedMimeType">MIME type of this file extension.</param>
-        /// <param name="PageCount">Number of pages in a page-based document; for presentations, this is the number of slides and for a spreadsheet this is the number of worksheets.  Contains 0 when the page count cannot be determined, or if the concept of page count does not apply (e.g. for an image).</param>
-        /// <param name="Author">User name of the creator/author of the document, if available, null if not available.</param>
-        /// <param name="DateModified">The timestamp that the document was last modified, if available, null if not available.</param>
-        /// <param name="AlternateFileTypeCandidates">Alternate file type options and their probability.</param>
-        public AutodetectGetInfoResult(bool? Successful = default(bool?), string DetectedFileExtension = default(string), string DetectedMimeType = default(string), long? PageCount = default(long?), string Author = default(string), DateTime? DateModified = default(DateTime?), List<AlternateFileFormatCandidate> AlternateFileTypeCandidates = default(List<AlternateFileFormatCandidate>))
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="detectedFileExtension">Detected file extension of the file format, with a leading period.</param>
+        /// <param name="detectedMimeType">MIME type of this file extension.</param>
+        /// <param name="pageCount">Number of pages in a page-based document; for presentations, this is the number of slides and for a spreadsheet this is the number of worksheets.  Contains 0 when the page count cannot be determined, or if the concept of page count does not apply (e.g. for an image).</param>
+        /// <param name="author">User name of the creator/author of the document, if available, null if not available.</param>
+        /// <param name="dateModified">The timestamp that the document was last modified, if available, null if not available.</param>
+        /// <param name="alternateFileTypeCandidates">Alternate file type options and their probability.</param>
+        public AutodetectGetInfoResult(bool? successful = default(bool?), string detectedFileExtension = default(string), string detectedMimeType = default(string), long? pageCount = default(long?), string author = default(string), DateTime? dateModified = default(DateTime?), List<AlternateFileFormatCandidate> alternateFileTypeCandidates = default(List<AlternateFileFormatCandidate>))
         {
-            this.Successful = Successful;
-            this.DetectedFileExtension = DetectedFileExtension;
-            this.DetectedMimeType = DetectedMimeType;
-            this.PageCount = PageCount;
-            this.Author = Author;
-            this.DateModified = DateModified;
-            this.AlternateFileTypeCandidates = AlternateFileTypeCandidates;
+            this.Successful = successful;
+            this.DetectedFileExtension = detectedFileExtension;
+            this.DetectedMimeType = detectedMimeType;
+            this.PageCount = pageCount;
+            this.Author = author;
+            this.DateModified = dateModified;
+            this.AlternateFileTypeCandidates = alternateFileTypeCandidates;
         }
         
         /// <summary>
@@ -123,7 +121,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -211,16 +209,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.AlternateFileTypeCandidates.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

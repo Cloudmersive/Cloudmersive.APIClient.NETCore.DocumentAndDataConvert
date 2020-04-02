@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,17 +26,17 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Result of running a Get-Cell command
     /// </summary>
     [DataContract]
-    public partial class GetXlsxCellByIdentifierResponse :  IEquatable<GetXlsxCellByIdentifierResponse>, IValidatableObject
+    public partial class GetXlsxCellByIdentifierResponse :  IEquatable<GetXlsxCellByIdentifierResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetXlsxCellByIdentifierResponse" /> class.
         /// </summary>
-        /// <param name="Successful">True if successful, false otherwise.</param>
-        /// <param name="Cell">Requested Cell in the Excel XLSX document.</param>
-        public GetXlsxCellByIdentifierResponse(bool? Successful = default(bool?), XlsxSpreadsheetCell Cell = default(XlsxSpreadsheetCell))
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="cell">Requested Cell in the Excel XLSX document.</param>
+        public GetXlsxCellByIdentifierResponse(bool? successful = default(bool?), XlsxSpreadsheetCell cell = default(XlsxSpreadsheetCell))
         {
-            this.Successful = Successful;
-            this.Cell = Cell;
+            this.Successful = successful;
+            this.Cell = cell;
         }
         
         /// <summary>
@@ -73,7 +71,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -126,16 +124,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Cell.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

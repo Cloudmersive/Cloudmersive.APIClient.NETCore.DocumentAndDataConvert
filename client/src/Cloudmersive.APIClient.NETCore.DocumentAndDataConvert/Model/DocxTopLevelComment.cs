@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,27 +26,27 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Top-level Comment in a Word Document
     /// </summary>
     [DataContract]
-    public partial class DocxTopLevelComment :  IEquatable<DocxTopLevelComment>, IValidatableObject
+    public partial class DocxTopLevelComment :  IEquatable<DocxTopLevelComment>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocxTopLevelComment" /> class.
         /// </summary>
-        /// <param name="Path">Path to the comment in the document.</param>
-        /// <param name="Author">Author name of the comment.</param>
-        /// <param name="AuthorInitials">Initials of the author of the comment.</param>
-        /// <param name="CommentText">Text content of the comment.</param>
-        /// <param name="CommentDate">Date timestamp of the comment.</param>
-        /// <param name="ReplyChildComments">Child comments, that are replies to this one.</param>
-        /// <param name="Done">True if this comment is marked as Done in Word, otherwise it is false.</param>
-        public DocxTopLevelComment(string Path = default(string), string Author = default(string), string AuthorInitials = default(string), string CommentText = default(string), DateTime? CommentDate = default(DateTime?), List<DocxComment> ReplyChildComments = default(List<DocxComment>), bool? Done = default(bool?))
+        /// <param name="path">Path to the comment in the document.</param>
+        /// <param name="author">Author name of the comment.</param>
+        /// <param name="authorInitials">Initials of the author of the comment.</param>
+        /// <param name="commentText">Text content of the comment.</param>
+        /// <param name="commentDate">Date timestamp of the comment.</param>
+        /// <param name="replyChildComments">Child comments, that are replies to this one.</param>
+        /// <param name="done">True if this comment is marked as Done in Word, otherwise it is false.</param>
+        public DocxTopLevelComment(string path = default(string), string author = default(string), string authorInitials = default(string), string commentText = default(string), DateTime? commentDate = default(DateTime?), List<DocxComment> replyChildComments = default(List<DocxComment>), bool? done = default(bool?))
         {
-            this.Path = Path;
-            this.Author = Author;
-            this.AuthorInitials = AuthorInitials;
-            this.CommentText = CommentText;
-            this.CommentDate = CommentDate;
-            this.ReplyChildComments = ReplyChildComments;
-            this.Done = Done;
+            this.Path = path;
+            this.Author = author;
+            this.AuthorInitials = authorInitials;
+            this.CommentText = commentText;
+            this.CommentDate = commentDate;
+            this.ReplyChildComments = replyChildComments;
+            this.Done = done;
         }
         
         /// <summary>
@@ -123,7 +121,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -211,16 +209,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.Done.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

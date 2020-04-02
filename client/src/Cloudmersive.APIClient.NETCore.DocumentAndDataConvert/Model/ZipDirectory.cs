@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Client.SwaggerDateConverter;
 
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
@@ -28,19 +26,19 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
     /// Representation of a directory in a zip file
     /// </summary>
     [DataContract]
-    public partial class ZipDirectory :  IEquatable<ZipDirectory>, IValidatableObject
+    public partial class ZipDirectory :  IEquatable<ZipDirectory>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ZipDirectory" /> class.
         /// </summary>
-        /// <param name="DirectoryName">Name of this directory.</param>
-        /// <param name="DirectoriesInDirectory">Child directories contained directly in this directory.</param>
-        /// <param name="FilesInDirectory">Child files contained directly in this directory.</param>
-        public ZipDirectory(string DirectoryName = default(string), List<ZipDirectory> DirectoriesInDirectory = default(List<ZipDirectory>), List<ZipFile> FilesInDirectory = default(List<ZipFile>))
+        /// <param name="directoryName">Name of this directory.</param>
+        /// <param name="directoriesInDirectory">Child directories contained directly in this directory.</param>
+        /// <param name="filesInDirectory">Child files contained directly in this directory.</param>
+        public ZipDirectory(string directoryName = default(string), List<ZipDirectory> directoriesInDirectory = default(List<ZipDirectory>), List<ZipFile> filesInDirectory = default(List<ZipFile>))
         {
-            this.DirectoryName = DirectoryName;
-            this.DirectoriesInDirectory = DirectoriesInDirectory;
-            this.FilesInDirectory = FilesInDirectory;
+            this.DirectoryName = directoryName;
+            this.DirectoriesInDirectory = directoriesInDirectory;
+            this.FilesInDirectory = filesInDirectory;
         }
         
         /// <summary>
@@ -83,7 +81,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -143,16 +141,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.FilesInDirectory.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

@@ -1,10 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-VisualStudioVersion = 12.0.0.0
-MinimumVisualStudioVersion = 10.0.0.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmersive.APIClient.NETCore.DocumentAndDataConvert", "src\Cloudmersive.APIClient.NETCore.DocumentAndDataConvert\Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.csproj", "be4bc5a5-a1f7-4174-9376-21c0bc7b2001"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test", "src\Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test\Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
