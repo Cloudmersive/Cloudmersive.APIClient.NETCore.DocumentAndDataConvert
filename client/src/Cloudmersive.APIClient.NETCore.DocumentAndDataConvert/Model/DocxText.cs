@@ -32,7 +32,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Initializes a new instance of the <see cref="DocxText" /> class.
         /// </summary>
         /// <param name="textIndex">Index of the text content in the run; 0-based.</param>
-        /// <param name="path">The Path of the location of this object; leave blank for new tables.</param>
+        /// <param name="path">The Path of the location of this Text object; leave blank for creation.</param>
         /// <param name="textContent">Text string containing the text content of this text content item.</param>
         public DocxText(int? textIndex = default(int?), string path = default(string), string textContent = default(string))
         {
@@ -49,9 +49,9 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public int? TextIndex { get; set; }
 
         /// <summary>
-        /// The Path of the location of this object; leave blank for new tables
+        /// The Path of the location of this Text object; leave blank for creation
         /// </summary>
-        /// <value>The Path of the location of this object; leave blank for new tables</value>
+        /// <value>The Path of the location of this Text object; leave blank for creation</value>
         [DataMember(Name="Path", EmitDefaultValue=false)]
         public string Path { get; set; }
 
