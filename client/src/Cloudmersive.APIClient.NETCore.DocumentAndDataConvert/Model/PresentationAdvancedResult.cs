@@ -23,37 +23,28 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NETCore.DocumentAndDataConve
 namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
 {
     /// <summary>
-    /// A single PowerPoint PPTX file corresponding to one slide in the original presentation
+    /// A single PowerPoint PPTX file corresponding to one worksheet (tab) in the original spreadsheet
     /// </summary>
     [DataContract]
-    public partial class PresentationResult :  IEquatable<PresentationResult>
+    public partial class PresentationAdvancedResult :  IEquatable<PresentationAdvancedResult>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PresentationResult" /> class.
+        /// Initializes a new instance of the <see cref="PresentationAdvancedResult" /> class.
         /// </summary>
-        /// <param name="slideNumber">Worksheet number of the converted page, starting with 1 for the left-most worksheet.</param>
-        /// <param name="uRL">URL to the PPTX file of this slide; file is stored in an in-memory cache and will be deleted.</param>
+        /// <param name="slideNumber">Presentation number of the converted page, starting with 1 for the left-most worksheet.</param>
         /// <param name="presentationContents">Contents of the presentation in bytes.</param>
-        public PresentationResult(int? slideNumber = default(int?), string uRL = default(string), byte[] presentationContents = default(byte[]))
+        public PresentationAdvancedResult(int? slideNumber = default(int?), byte[] presentationContents = default(byte[]))
         {
             this.SlideNumber = slideNumber;
-            this.URL = uRL;
             this.PresentationContents = presentationContents;
         }
         
         /// <summary>
-        /// Worksheet number of the converted page, starting with 1 for the left-most worksheet
+        /// Presentation number of the converted page, starting with 1 for the left-most worksheet
         /// </summary>
-        /// <value>Worksheet number of the converted page, starting with 1 for the left-most worksheet</value>
+        /// <value>Presentation number of the converted page, starting with 1 for the left-most worksheet</value>
         [DataMember(Name="SlideNumber", EmitDefaultValue=false)]
         public int? SlideNumber { get; set; }
-
-        /// <summary>
-        /// URL to the PPTX file of this slide; file is stored in an in-memory cache and will be deleted
-        /// </summary>
-        /// <value>URL to the PPTX file of this slide; file is stored in an in-memory cache and will be deleted</value>
-        [DataMember(Name="URL", EmitDefaultValue=false)]
-        public string URL { get; set; }
 
         /// <summary>
         /// Contents of the presentation in bytes
@@ -69,9 +60,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PresentationResult {\n");
+            sb.Append("class PresentationAdvancedResult {\n");
             sb.Append("  SlideNumber: ").Append(SlideNumber).Append("\n");
-            sb.Append("  URL: ").Append(URL).Append("\n");
             sb.Append("  PresentationContents: ").Append(PresentationContents).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -93,15 +83,15 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PresentationResult);
+            return this.Equals(input as PresentationAdvancedResult);
         }
 
         /// <summary>
-        /// Returns true if PresentationResult instances are equal
+        /// Returns true if PresentationAdvancedResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of PresentationResult to be compared</param>
+        /// <param name="input">Instance of PresentationAdvancedResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PresentationResult input)
+        public bool Equals(PresentationAdvancedResult input)
         {
             if (input == null)
                 return false;
@@ -111,11 +101,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.SlideNumber == input.SlideNumber ||
                     (this.SlideNumber != null &&
                     this.SlideNumber.Equals(input.SlideNumber))
-                ) && 
-                (
-                    this.URL == input.URL ||
-                    (this.URL != null &&
-                    this.URL.Equals(input.URL))
                 ) && 
                 (
                     this.PresentationContents == input.PresentationContents ||
@@ -135,8 +120,6 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                 int hashCode = 41;
                 if (this.SlideNumber != null)
                     hashCode = hashCode * 59 + this.SlideNumber.GetHashCode();
-                if (this.URL != null)
-                    hashCode = hashCode * 59 + this.URL.GetHashCode();
                 if (this.PresentationContents != null)
                     hashCode = hashCode * 59 + this.PresentationContents.GetHashCode();
                 return hashCode;

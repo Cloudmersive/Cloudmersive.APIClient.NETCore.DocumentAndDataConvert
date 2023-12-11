@@ -32,6 +32,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// Initializes a new instance of the <see cref="PdfMetadata" /> class.
         /// </summary>
         /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="errorDetails">Details of any errors if the operation was unsucessful.</param>
         /// <param name="title">Title of the document.</param>
         /// <param name="keywords">Keywords of the document.</param>
         /// <param name="subject">Subject of the document.</param>
@@ -40,9 +41,11 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <param name="dateModified">The timestamp that the document was last modified, if available, null if not available.</param>
         /// <param name="dateCreated">The timestamp that the document was created, if available, null if not available.</param>
         /// <param name="pageCount">The number of pages in the document.</param>
-        public PdfMetadata(bool? successful = default(bool?), string title = default(string), string keywords = default(string), string subject = default(string), string author = default(string), string creator = default(string), DateTime? dateModified = default(DateTime?), DateTime? dateCreated = default(DateTime?), int? pageCount = default(int?))
+        /// <param name="encrypted">True if the PDF document is encrypted, false otherwise.</param>
+        public PdfMetadata(bool? successful = default(bool?), string errorDetails = default(string), string title = default(string), string keywords = default(string), string subject = default(string), string author = default(string), string creator = default(string), DateTime? dateModified = default(DateTime?), DateTime? dateCreated = default(DateTime?), int? pageCount = default(int?), bool? encrypted = default(bool?))
         {
             this.Successful = successful;
+            this.ErrorDetails = errorDetails;
             this.Title = title;
             this.Keywords = keywords;
             this.Subject = subject;
@@ -51,6 +54,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             this.DateModified = dateModified;
             this.DateCreated = dateCreated;
             this.PageCount = pageCount;
+            this.Encrypted = encrypted;
         }
         
         /// <summary>
@@ -59,6 +63,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         /// <value>True if the operation was successful, false otherwise</value>
         [DataMember(Name="Successful", EmitDefaultValue=false)]
         public bool? Successful { get; set; }
+
+        /// <summary>
+        /// Details of any errors if the operation was unsucessful
+        /// </summary>
+        /// <value>Details of any errors if the operation was unsucessful</value>
+        [DataMember(Name="ErrorDetails", EmitDefaultValue=false)]
+        public string ErrorDetails { get; set; }
 
         /// <summary>
         /// Title of the document
@@ -117,6 +128,13 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
         public int? PageCount { get; set; }
 
         /// <summary>
+        /// True if the PDF document is encrypted, false otherwise
+        /// </summary>
+        /// <value>True if the PDF document is encrypted, false otherwise</value>
+        [DataMember(Name="Encrypted", EmitDefaultValue=false)]
+        public bool? Encrypted { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +143,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             var sb = new StringBuilder();
             sb.Append("class PdfMetadata {\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
+            sb.Append("  ErrorDetails: ").Append(ErrorDetails).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Keywords: ").Append(Keywords).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
@@ -133,6 +152,7 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
             sb.Append("  DateModified: ").Append(DateModified).Append("\n");
             sb.Append("  DateCreated: ").Append(DateCreated).Append("\n");
             sb.Append("  PageCount: ").Append(PageCount).Append("\n");
+            sb.Append("  Encrypted: ").Append(Encrypted).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,6 +193,11 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.Successful.Equals(input.Successful))
                 ) && 
                 (
+                    this.ErrorDetails == input.ErrorDetails ||
+                    (this.ErrorDetails != null &&
+                    this.ErrorDetails.Equals(input.ErrorDetails))
+                ) && 
+                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
@@ -211,6 +236,11 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     this.PageCount == input.PageCount ||
                     (this.PageCount != null &&
                     this.PageCount.Equals(input.PageCount))
+                ) && 
+                (
+                    this.Encrypted == input.Encrypted ||
+                    (this.Encrypted != null &&
+                    this.Encrypted.Equals(input.Encrypted))
                 );
         }
 
@@ -225,6 +255,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                 int hashCode = 41;
                 if (this.Successful != null)
                     hashCode = hashCode * 59 + this.Successful.GetHashCode();
+                if (this.ErrorDetails != null)
+                    hashCode = hashCode * 59 + this.ErrorDetails.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Keywords != null)
@@ -241,6 +273,8 @@ namespace Cloudmersive.APIClient.NETCore.DocumentAndDataConvert.Model
                     hashCode = hashCode * 59 + this.DateCreated.GetHashCode();
                 if (this.PageCount != null)
                     hashCode = hashCode * 59 + this.PageCount.GetHashCode();
+                if (this.Encrypted != null)
+                    hashCode = hashCode * 59 + this.Encrypted.GetHashCode();
                 return hashCode;
             }
         }
